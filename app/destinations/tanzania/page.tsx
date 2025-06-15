@@ -10,7 +10,7 @@ import { motion } from "framer-motion"
 const tanzaniaHighlights = [
   {
     name: "Serengeti National Park",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/Serengeti-National-Park-Africa-Kenya-Safaris2.jpg?updatedAt=1750017260460?height=300&width=400",
     description: "Endless plains hosting the Great Migration and abundant wildlife.",
     bestTime: "June - October",
     activities: ["Game Drives", "Hot Air Balloon", "Photography"],
@@ -18,7 +18,7 @@ const tanzaniaHighlights = [
   },
   {
     name: "Ngorongoro Crater",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/Ngorongoro-Crater.jpg?updatedAt=1750013843530?height=300&width=400",
     description: "World's largest intact volcanic caldera with incredible wildlife density.",
     bestTime: "Year-round",
     activities: ["Game Drives", "Cultural Tours", "Photography"],
@@ -26,7 +26,7 @@ const tanzaniaHighlights = [
   },
   {
     name: "Mount Kilimanjaro",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/kilimanjaro-moutain-climbing.jpg?updatedAt=1750013910253?height=300&width=400",
     description: "Africa's highest peak and world's tallest free-standing mountain.",
     bestTime: "January - March, June - October",
     activities: ["Mountain Climbing", "Trekking", "Photography"],
@@ -34,7 +34,7 @@ const tanzaniaHighlights = [
   },
   {
     name: "Zanzibar Archipelago",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/GettyImages-471172058_high.jpg?updatedAt=1750021568930?height=300&width=400",
     description: "Spice islands with pristine beaches and rich cultural heritage.",
     bestTime: "June - September",
     activities: ["Beach Relaxation", "Spice Tours", "Diving", "Cultural Tours"],
@@ -49,7 +49,7 @@ const tanzaniaTours = [
     duration: "7 days",
     price: 1800,
     rating: 4.8,
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/serengeti-day-trip.jpeg?updatedAt=1750016757896?height=250&width=350",
   },
   {
     id: 14,
@@ -57,7 +57,7 @@ const tanzaniaTours = [
     duration: "3 days",
     price: 950,
     rating: 4.9,
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/Ngorongoro-Crater.jpg?updatedAt=1750013843530?height=250&width=350",
   },
   {
     id: 15,
@@ -65,7 +65,7 @@ const tanzaniaTours = [
     duration: "8 days",
     price: 2200,
     rating: 4.7,
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/kilimanjaro-moutain-climbing.jpg?updatedAt=1750013910253?height=250&width=350",
   },
 ]
 
@@ -136,7 +136,7 @@ export default function TanzaniaPage() {
               viewport={{ once: true }}
             >
               <img
-                src="/placeholder.svg?height=500&width=600"
+                src="https://ik.imagekit.io/jinx/travel/b12582a3dc9844409c80d6aa5b1cf0d4.webp?updatedAt=1750019014225?height=500&width=600"
                 alt="Tanzania Wildlife"
                 className="rounded-lg shadow-xl"
               />

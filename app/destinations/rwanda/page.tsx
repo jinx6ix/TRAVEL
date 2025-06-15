@@ -10,7 +10,7 @@ import { motion } from "framer-motion"
 const rwandaHighlights = [
   {
     name: "Volcanoes National Park",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/Volcanoes-National-Park-Rwanda-Natural-World-Kenya-Safaris.jpg?updatedAt=1750019933313?height=300&width=400",
     description: "Home to mountain gorillas and golden monkeys in the Virunga Mountains.",
     bestTime: "June - September",
     activities: ["Gorilla Trekking", "Golden Monkey Tracking", "Volcano Hiking"],
@@ -18,7 +18,7 @@ const rwandaHighlights = [
   },
   {
     name: "Nyungwe Forest National Park",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/nyungwe-forests.jpg?updatedAt=1750019999650?height=300&width=400",
     description: "Ancient rainforest with canopy walkway and diverse primates.",
     bestTime: "June - September",
     activities: ["Canopy Walk", "Chimpanzee Tracking", "Bird Watching"],
@@ -26,7 +26,7 @@ const rwandaHighlights = [
   },
   {
     name: "Lake Kivu",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/images%20(4).jpeg?updatedAt=1750015334762https://ik.imagekit.io/jinx/travel/images%20(4).jpeg?updatedAt=1750015334762?height=300&width=400",
     description: "One of Africa's Great Lakes with stunning scenery and relaxation.",
     bestTime: "Year-round",
     activities: ["Boat Trips", "Swimming", "Cycling", "Coffee Tours"],
@@ -34,7 +34,7 @@ const rwandaHighlights = [
   },
   {
     name: "Akagera National Park",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/Akagera-national-park-1-750x450.jpg?updatedAt=1750015552704?height=300&width=400",
     description: "Rwanda's only savanna park with Big Five and diverse ecosystems.",
     bestTime: "June - September",
     activities: ["Game Drives", "Boat Safaris", "Bird Watching"],
@@ -49,7 +49,7 @@ const rwandaTours = [
     duration: "3 days",
     price: 2500,
     rating: 5.0,
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/gorilla-trekking-experience-13.jpg?updatedAt=1750015182565?height=250&width=350",
   },
   {
     id: 29,
@@ -57,7 +57,7 @@ const rwandaTours = [
     duration: "2 days",
     price: 450,
     rating: 4.6,
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/Walk-trail-nyungwe-Usoke-explorers.jpg?updatedAt=1750015272732?height=250&width=350",
   },
   {
     id: 33,
@@ -65,7 +65,7 @@ const rwandaTours = [
     duration: "2 days",
     price: 680,
     rating: 4.7,
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/golden-monkey-trekking.jpg?updatedAt=1750015688667?height=250&width=350",
   },
 ]
 
@@ -135,7 +135,7 @@ export default function RwandaPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <img src="/placeholder.svg?height=500&width=600" alt="Rwanda Gorillas" className="rounded-lg shadow-xl" />
+              <img src="https://ik.imagekit.io/jinx/travel/Webp.net-resizeimage.jpg?updatedAt=1750019108294?height=500&width=600" alt="Rwanda Gorillas" className="rounded-lg shadow-xl" />
             </motion.div>
           </div>
         </div>

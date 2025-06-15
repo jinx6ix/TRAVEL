@@ -74,7 +74,7 @@ const toursData = [
     category: "wildlife",
     rating: 4.9,
     reviewCount: 127,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "https://ik.imagekit.io/jinx/travel/Wildebeest-990x490-1-750x450.jpg?updatedAt=1750016757580?height=200&width=300",
   },
   {
     id: 7,
@@ -86,7 +86,7 @@ const toursData = [
     category: "wildlife",
     rating: 4.8,
     reviewCount: 89,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "https://ik.imagekit.io/jinx/travel/Serengeti-National-Park-Africa-Kenya-Safaris2.jpg?updatedAt=1750017260460?height=200&width=300",
   },
   {
     id: 12,
@@ -98,7 +98,7 @@ const toursData = [
     category: "wildlife",
     rating: 5.0,
     reviewCount: 156,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "https://ik.imagekit.io/jinx/travel/gorilla-trekking-experience-13.jpg?updatedAt=1750015182565?height=200&width=300",
   },
 ]
 

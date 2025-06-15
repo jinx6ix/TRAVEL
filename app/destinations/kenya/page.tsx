@@ -10,7 +10,7 @@ import { motion } from "framer-motion"
 const kenyaHighlights = [
   {
     name: "Masai Mara National Reserve",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/magestic-maasai-serengeti.jpg?updatedAt=1750013375250?height=300&width=400",
     description: "World-famous for the Great Migration and Big Five sightings.",
     bestTime: "July - October",
     activities: ["Game Drives", "Hot Air Balloon", "Cultural Visits"],
@@ -18,7 +18,7 @@ const kenyaHighlights = [
   },
   {
     name: "Amboseli National Park",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/amboseli-elephants-00007.jpg?updatedAt=1750008046158?height=300&width=400",
     description: "Spectacular views of Mount Kilimanjaro and large elephant herds.",
     bestTime: "June - October",
     activities: ["Game Drives", "Photography", "Nature Walks"],
@@ -26,7 +26,7 @@ const kenyaHighlights = [
   },
   {
     name: "Samburu National Reserve",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/Samburu_National_Reserve,_Kenya-26December2012.jpg?updatedAt=1750008245147?height=300&width=400",
     description: "Unique wildlife species in the northern frontier district.",
     bestTime: "June - September",
     activities: ["Game Drives", "Cultural Tours", "Bird Watching"],
@@ -34,7 +34,7 @@ const kenyaHighlights = [
   },
   {
     name: "Lake Nakuru National Park",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/lake-nakuru-flamingos-in-red-sunset-590x390.jpg?updatedAt=1750008429931?height=300&width=400",
     description: "Famous for flamingos and rhino sanctuary.",
     bestTime: "Year-round",
     activities: ["Game Drives", "Bird Watching", "Photography"],
@@ -45,11 +45,11 @@ const kenyaHighlights = [
 const kenyaTours = [
   {
     id: 1,
-    title: "Masai Mara JaeTravel Expedition",
+    title: "Maasai Mara Safari",
     duration: "5 days",
     price: 1200,
     rating: 4.9,
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/magestic-maasai-serengeti.jpg?updatedAt=1750013375250?height=250&width=350",
   },
   {
     id: 2,
@@ -57,7 +57,7 @@ const kenyaTours = [
     duration: "4 days",
     price: 980,
     rating: 4.7,
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/amboseli-elephants-00007.jpg?updatedAt=1750008046158?height=250&width=350",
   },
   {
     id: 3,
@@ -65,7 +65,7 @@ const kenyaTours = [
     duration: "3 days",
     price: 750,
     rating: 4.6,
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/Samburu_National_Reserve,_Kenya-26December2012.jpg?updatedAt=1750008245147?height=250&width=350",
   },
 ]
 
@@ -135,7 +135,7 @@ export default function KenyaPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <img src="/placeholder.svg?height=500&width=600" alt="Kenya Wildlife" className="rounded-lg shadow-xl" />
+              <img src="https://ik.imagekit.io/jinx/travel/ChatGPT%20Image%20Jun%2015,%202025,%2011_15_36%20PM.png?updatedAt=1750018565605?height=500&width=600" alt="Kenya Wildlife" className="rounded-lg shadow-xl" />
             </motion.div>
           </div>
         </div>

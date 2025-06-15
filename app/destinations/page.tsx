@@ -11,7 +11,7 @@ const destinations = [
   {
     name: "Kenya",
     slug: "kenya",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://ik.imagekit.io/jinx/travel/ChatGPT%20Image%20Jun%2015,%202025,%2011_15_36%20PM.png?updatedAt=1750018565605?height=400&width=600",
     description: "The heart of JaeTravel Expedition with the famous Masai Mara and diverse wildlife.",
     highlights: ["Masai Mara", "Amboseli", "Samburu", "Lake Nakuru"],
     tours: 12,
@@ -22,7 +22,7 @@ const destinations = [
   {
     name: "Tanzania",
     slug: "tanzania",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://ik.imagekit.io/jinx/travel/b12582a3dc9844409c80d6aa5b1cf0d4.webp?updatedAt=1750019014225?height=400&width=600",
     description: "Home to Serengeti, Ngorongoro Crater, and Mount Kilimanjaro.",
     highlights: ["Serengeti", "Ngorongoro", "Kilimanjaro", "Zanzibar"],
     tours: 15,
@@ -33,7 +33,7 @@ const destinations = [
   {
     name: "Rwanda",
     slug: "rwanda",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://ik.imagekit.io/jinx/travel/Webp.net-resizeimage.jpg?updatedAt=1750019108294?height=400&width=600",
     description: "The land of a thousand hills, famous for mountain gorilla encounters.",
     highlights: ["Volcanoes National Park", "Nyungwe Forest", "Lake Kivu", "Kigali"],
     tours: 8,
@@ -44,7 +44,7 @@ const destinations = [
   {
     name: "Uganda",
     slug: "uganda",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://ik.imagekit.io/jinx/travel/paraa_safari_lodge_water_safari_on_the_nile-hi-edited.jpeg?updatedAt=1750019191747?height=400&width=600",
     description: "The Pearl of Africa with incredible biodiversity and primate experiences.",
     highlights: ["Bwindi Forest", "Queen Elizabeth", "Murchison Falls", "Kibale"],
     tours: 7,

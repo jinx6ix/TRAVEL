@@ -10,7 +10,7 @@ import { motion } from "framer-motion"
 const ugandaHighlights = [
   {
     name: "Bwindi Impenetrable Forest",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/bwindi-forest-uganda-gorilla-safaris.jpg?updatedAt=1750021878410?height=300&width=400",
     description: "UNESCO World Heritage site home to half of the world's mountain gorillas.",
     bestTime: "June - August, December - February",
     activities: ["Gorilla Trekking", "Bird Watching", "Nature Walks"],
@@ -18,7 +18,7 @@ const ugandaHighlights = [
   },
   {
     name: "Queen Elizabeth National Park",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/Queen-Elizabeth-National-Park.jpg?updatedAt=1750021975764?height=300&width=400",
     description: "Diverse ecosystems with tree-climbing lions and boat safaris.",
     bestTime: "June - September",
     activities: ["Game Drives", "Boat Safaris", "Chimpanzee Tracking"],
@@ -26,7 +26,7 @@ const ugandaHighlights = [
   },
   {
     name: "Murchison Falls National Park",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/murchison-falls.webp?updatedAt=1750022040416?height=300&width=400",
     description: "Uganda's largest park featuring the powerful Murchison Falls.",
     bestTime: "December - February, June - September",
     activities: ["Game Drives", "Boat Trips", "Hiking to Falls"],
@@ -34,7 +34,7 @@ const ugandaHighlights = [
   },
   {
     name: "Rwenzori Mountains",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/Rwenzori-Mountains-03_1600p.jpg?updatedAt=1750016117660?height=300&width=400",
     description: "The legendary Mountains of the Moon with glacial peaks.",
     bestTime: "June - August, December - February",
     activities: ["Mountain Climbing", "Hiking", "Photography"],
@@ -49,7 +49,7 @@ const ugandaTours = [
     duration: "4 days",
     price: 2200,
     rating: 4.9,
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/bwindi-forest-uganda-gorilla-safaris.jpg?updatedAt=1750021878410?height=250&width=350",
   },
   {
     id: 37,
@@ -57,7 +57,7 @@ const ugandaTours = [
     duration: "5 days",
     price: 1150,
     rating: 4.6,
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/Queen-Elizabeth-National-Park.jpg?updatedAt=1750021975764?height=250&width=350",
   },
   {
     id: 38,
@@ -65,7 +65,7 @@ const ugandaTours = [
     duration: "4 days",
     price: 980,
     rating: 4.7,
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/murchison-falls.webp?updatedAt=1750022040416?height=250&width=350",
   },
 ]
 
@@ -135,7 +135,7 @@ export default function UgandaPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <img src="/placeholder.svg?height=500&width=600" alt="Uganda Wildlife" className="rounded-lg shadow-xl" />
+              <img src="https://ik.imagekit.io/jinx/travel/paraa_safari_lodge_water_safari_on_the_nile-hi-edited.jpeg?updatedAt=1750019191747?height=500&width=600" alt="Uganda Wildlife" className="rounded-lg shadow-xl" />
             </motion.div>
           </div>
         </div>

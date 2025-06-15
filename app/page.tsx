@@ -60,7 +60,7 @@ const featuredTours = [
     duration: "5 days",
     price: "$1,200",
     rating: 4.9,
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/_8503066.jpg?updatedAt=1750002707556?height=250&width=350",
     description: "Experience the great migration and witness the Big Five in their natural habitat.",
   },
   {
@@ -70,7 +70,7 @@ const featuredTours = [
     duration: "7 days",
     price: "$1,800",
     rating: 4.8,
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/_Z9P6137.jpg?updatedAt=1750002508464?height=250&width=350",
     description: "Explore the endless plains of Serengeti and witness incredible wildlife.",
   },
   {
@@ -80,7 +80,7 @@ const featuredTours = [
     duration: "3 days",
     price: "$2,500",
     rating: 5.0,
-    image: "/placeholder.svg?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/Gorilla-Tours-from-Mombasa-1024x675.webp?updatedAt=1750005789952?height=250&width=350",
     description: "Get up close with mountain gorillas in their natural habitat.",
   },
 ]
