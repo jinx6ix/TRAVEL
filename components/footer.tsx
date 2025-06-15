@@ -3,6 +3,9 @@
 import Link from "next/link"
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react"
 import { useLanguage } from "@/hooks/useLanguage"
+import logo from "@/public/logo.svg"
+import Image from "next/image"
+
 
 export function Footer() {
   const { t } = useLanguage()
@@ -13,7 +16,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="text-2xl">🦁</div>
+              <div className="text-2xl">
+                <Image src={logo} alt="Logo" width={40} height={40} />
+              </div>
               <span className="text-xl font-bold">JaeTravel Expedition</span>
             </div>
             <p className="text-gray-400 mb-4">{t("trustedPartner")}</p>

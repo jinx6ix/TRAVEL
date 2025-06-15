@@ -8,6 +8,8 @@ import { Menu, Search, Phone, ChevronDown } from "lucide-react"
 import { motion } from "framer-motion"
 import { LanguageSelector } from "@/components/language-selector"
 import { useLanguage } from "@/hooks/useLanguage"
+import logo from "@/public/logo.svg"
+import Image from "next/image"
 
 const destinations = [
   { name: "Kenya", href: "/destinations/kenya" },
@@ -61,7 +63,9 @@ export function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="text-2xl">🦁</div>
+            <div className="text-2xl">
+              <Image src={logo} alt="Logo" width={60} height={100} />
+            </div>
             <span className="text-xl font-bold text-orange-600">JaeTravel Expedition</span>
           </Link>
 
