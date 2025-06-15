@@ -55,7 +55,7 @@ const destinations = [
 const featuredTours = [
   {
     id: 1,
-    title: "Masai Mara Safari Adventure",
+    title: "Masai Mara JaeTravel Expedition",
     destination: "Kenya",
     duration: "5 days",
     price: "$1,200",

@@ -14,7 +14,7 @@ export function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="text-2xl">🦁</div>
-              <span className="text-xl font-bold">Safari Adventures</span>
+              <span className="text-xl font-bold">JaeTravel Expedition</span>
             </div>
             <p className="text-gray-400 mb-4">{t("trustedPartner")}</p>
             <div className="flex space-x-4">
@@ -76,11 +76,11 @@ export function Footer() {
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
                 <Phone size={16} />
-                <span className="text-gray-400">+254 757 662 968</span>
+                <span className="text-gray-400">+254 726 485 228</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail size={16} />
-                <span className="text-gray-400">irayaian4@gmail.com</span>
+                <span className="text-gray-400">Jaetravelexpeditions@gmail.com</span>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin size={16} />
@@ -91,7 +91,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400">© 2024 Safari Adventures. {t("allRightsReserved")}</p>
+          <p className="text-gray-400">© 2024 JaeTravel Expedition. {t("allRightsReserved")}</p>
         </div>
       </div>
     </footer>

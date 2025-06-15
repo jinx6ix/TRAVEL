@@ -45,7 +45,7 @@ const kenyaHighlights = [
 const kenyaTours = [
   {
     id: 1,
-    title: "Masai Mara Safari Adventure",
+    title: "Masai Mara JaeTravel Expedition",
     duration: "5 days",
     price: 1200,
     rating: 4.9,
@@ -81,7 +81,7 @@ export default function KenyaPage() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl font-bold mb-4"
           >
-            🇰🇪 Kenya Safari Adventures
+            🇰🇪 Kenya JaeTravel Expedition
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -89,7 +89,7 @@ export default function KenyaPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl mb-8"
           >
-            The heart of safari adventures with the famous Masai Mara and diverse wildlife
+            The heart of JaeTravel Expedition with the famous Masai Mara and diverse wildlife
           </motion.p>
         </div>
       </section>

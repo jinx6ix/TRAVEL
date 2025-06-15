@@ -67,7 +67,7 @@ const toursData = [
   {
     id: 1,
     slug: "masai-mara-safari-adventure",
-    title: "Masai Mara Safari Adventure",
+    title: "Masai Mara JaeTravel Expedition",
     destination: "Kenya",
     duration: "5 days",
     price: 1200,
@@ -244,7 +244,7 @@ Please confirm availability and send detailed booking confirmation. Thank you!`
     // Send email
     const emailSubject = `🦁 Safari Booking Request - ${tour.title}`
     const emailBody = bookingMessage.replace(/\n/g, "%0D%0A")
-    const emailUrl = `mailto:irayaian4@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
+    const emailUrl = `mailto:Jaetravelexpeditions@gmail.com.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
     window.open(emailUrl, "_blank")
 
     setIsSubmitting(false)
@@ -851,11 +851,11 @@ Please confirm availability and send detailed booking confirmation. Thank you!`
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
                         <Phone size={16} className="text-gray-400" />
-                        <span>+254 757 662 968</span>
+                        <span>+254 726 485 228</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Mail size={16} className="text-gray-400" />
-                        <span>irayaian4@gmail.com</span>
+                        <span>Jaetravelexpeditions@gmail.com</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Globe size={16} className="text-gray-400" />

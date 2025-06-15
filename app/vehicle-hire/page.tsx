@@ -76,7 +76,7 @@ const vehicles = [
     id: 5,
     name: "Wheelchair Accessible Vehicle",
     image: "/placeholder.svg?height=300&width=400",
-    description: "Fully accessible vehicle ensuring everyone can enjoy safari adventures.",
+    description: "Fully accessible vehicle ensuring everyone can enjoy JaeTravel Expedition.",
     capacity: "4 passengers + wheelchair",
     features: ["Wheelchair ramp", "Secure wheelchair area", "Easy access", "Safety harnesses", "Accessible controls"],
     pricePerDay: 150,

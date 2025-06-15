@@ -32,7 +32,7 @@ const blogPosts = [
   },
   {
     id: 3,
-    title: "Photography Tips for Your Safari Adventure",
+    title: "Photography Tips for Your JaeTravel Expedition",
     excerpt: "Professional tips to capture stunning wildlife photos during your East African safari experience.",
     image: "/placeholder.svg?height=300&width=400",
     author: "David Mwangi",
@@ -72,7 +72,7 @@ const blogPosts = [
   },
   {
     id: 7,
-    title: "Packing Essentials for Your Safari Adventure",
+    title: "Packing Essentials for Your JaeTravel Expedition",
     excerpt: "The ultimate packing checklist for your East African safari, from clothing to camera gear.",
     image: "/placeholder.svg?height=300&width=400",
     author: "David Mwangi",

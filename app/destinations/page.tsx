@@ -12,7 +12,7 @@ const destinations = [
     name: "Kenya",
     slug: "kenya",
     image: "/placeholder.svg?height=400&width=600",
-    description: "The heart of safari adventures with the famous Masai Mara and diverse wildlife.",
+    description: "The heart of JaeTravel Expedition with the famous Masai Mara and diverse wildlife.",
     highlights: ["Masai Mara", "Amboseli", "Samburu", "Lake Nakuru"],
     tours: 12,
     bestTime: "July - October",

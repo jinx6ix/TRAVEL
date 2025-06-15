@@ -58,7 +58,7 @@ const toursData: TourData[] = [
   {
     id: 1,
     slug: "masai-mara-safari-adventure",
-    title: "Masai Mara Safari Adventure",
+    title: "Masai Mara JaeTravel Expedition",
     destination: "Kenya",
     duration: "5 days",
     price: 1200,
@@ -70,7 +70,7 @@ const toursData: TourData[] = [
     groupSize: "2-8 people",
     wildlife: ["Big Five", "Great Migration", "Lions", "Elephants", "Cheetahs", "Hippos"],
     description:
-      "Experience the world-famous Masai Mara National Reserve, home to the Great Migration and the Big Five. This 5-day safari adventure offers unparalleled wildlife viewing opportunities in one of Africa's most iconic destinations.",
+      "Experience the world-famous Masai Mara National Reserve, home to the Great Migration and the Big Five. This 5-day JaeTravel Expedition offers unparalleled wildlife viewing opportunities in one of Africa's most iconic destinations.",
     highlights: [
       "Witness the Great Migration (seasonal)",
       "Big Five game viewing",

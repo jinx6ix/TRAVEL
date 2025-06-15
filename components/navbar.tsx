@@ -62,7 +62,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2">
             <div className="text-2xl">🦁</div>
-            <span className="text-xl font-bold text-orange-600">Safari Adventures</span>
+            <span className="text-xl font-bold text-orange-600">JaeTravel Expedition</span>
           </Link>
 
           {/* Desktop Navigation */}

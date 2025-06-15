@@ -15,7 +15,7 @@ const tours = [
   // Kenya Tours
   {
     id: 1,
-    title: "Masai Mara Safari Adventure",
+    title: "Masai Mara JaeTravel Expedition",
     destination: "Kenya",
     duration: "5 days",
     price: 1200,
@@ -86,7 +86,7 @@ const tours = [
     price: 1600,
     rating: 4.7,
     image: "/placeholder.svg?height=250&width=350",
-    description: "Combine safari adventure with beach relaxation.",
+    description: "Combine JaeTravel Expedition with beach relaxation.",
     category: "adventure",
     wildlife: ["Various"],
     slug: "mombasa-coastal-safari",

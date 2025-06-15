@@ -68,7 +68,7 @@ export function ChatBot() {
     }
 
     if (input.includes("book") || input.includes("reservation")) {
-      return "I'd be happy to help you with booking! Please let me know your preferred destination, travel dates, and number of travelers. You can also call us at +254 757 662 968 or WhatsApp us for immediate assistance."
+      return "I'd be happy to help you with booking! Please let me know your preferred destination, travel dates, and number of travelers. You can also call us at +254 726 485 228 or WhatsApp us for immediate assistance."
     }
 
     if (

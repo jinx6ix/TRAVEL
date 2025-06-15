@@ -120,11 +120,11 @@ export const translations = {
     qualityVehicles: "Quality Vehicles",
     bestExperience: "Best Experience",
     professionalLocalGuides: "Professional local guides with extensive wildlife knowledge",
-    wellMaintainedVehicles: "Well-maintained 4WD vehicles perfect for safari adventures",
+    wellMaintainedVehicles: "Well-maintained 4WD vehicles perfect for JaeTravel Expedition",
     unforgettableMemories: "Unforgettable memories with personalized service",
 
     // Contact Page
-    getInTouch: "Get in touch to plan your perfect East African safari adventure",
+    getInTouch: "Get in touch to plan your perfect East African JaeTravel Expedition",
     phoneWhatsApp: "Phone & WhatsApp",
     available24_7: "Available 24/7 for emergencies",
     whatsAppUs: "WhatsApp Us",
@@ -179,11 +179,11 @@ export const translations = {
     customerSupport: "Customer Support",
 
     // About Page
-    aboutSafariAdventures: "About Safari Adventures",
+    aboutSafariAdventures: "About JaeTravel Expedition",
     trustedPartner: "Your trusted partner for unforgettable East African safari experiences",
     ourStory: "Our Story",
     storyParagraph1:
-      "Founded in 2009, Safari Adventures began as a small family business with a simple mission: to share the incredible wildlife and natural beauty of East Africa with travelers from around the world.",
+      "Founded in 2009, JaeTravel Expedition began as a small family business with a simple mission: to share the incredible wildlife and natural beauty of East Africa with travelers from around the world.",
     storyParagraph2:
       "Over the years, we've grown into a trusted safari operator, but we've never lost sight of our core values: authentic experiences, sustainable tourism, and genuine care for our guests and local communities.",
     storyParagraph3:
@@ -251,8 +251,8 @@ export const translations = {
     safety: "Safety",
 
     // Destinations
-    kenyaSafariAdventures: "Kenya Safari Adventures",
-    kenyaDescription: "The heart of safari adventures with the famous Masai Mara and diverse wildlife",
+    kenyaSafariAdventures: "Kenya JaeTravel Expedition",
+    kenyaDescription: "The heart of JaeTravel Expedition with the famous Masai Mara and diverse wildlife",
     discoverKenya: "Discover Kenya",
     kenyaParagraph1:
       "Kenya is the birthplace of safari and remains one of Africa's premier wildlife destinations. From the world-famous Masai Mara to the snow-capped peaks of Mount Kenya, this diverse country offers unforgettable experiences.",
@@ -448,7 +448,7 @@ export const translations = {
 
     // Call to Action
     readyToBook: "Ready to Book Your",
-    experienceUltimate: "Experience the ultimate safari adventure with our reliable",
+    experienceUltimate: "Experience the ultimate JaeTravel Expedition with our reliable",
     perfectForFamily: "Perfect for family safaris and comfortable city tours",
     viewOtherVehicles: "View Other Vehicles",
 
@@ -749,11 +749,11 @@ export const translations = {
     customerSupport: "Klantenservice",
 
     // About Page
-    aboutSafariAdventures: "Over Safari Adventures",
+    aboutSafariAdventures: "Over JaeTravel Expedition",
     trustedPartner: "Uw betrouwbare partner voor onvergetelijke Oost-Afrikaanse safariervaringen",
     ourStory: "Ons Verhaal",
     storyParagraph1:
-      "Gegrond in 2009, begon Safari Adventures als een kleine familiebedrijf met een eenvoudige missie: de geweldige wildlevieren en natuurlijke schoonheid van Oost-Afrika met reizigers van over de hele wereld te delen.",
+      "Gegrond in 2009, begon JaeTravel Expedition als een kleine familiebedrijf met een eenvoudige missie: de geweldige wildlevieren en natuurlijke schoonheid van Oost-Afrika met reizigers van over de hele wereld te delen.",
     storyParagraph2:
       "Over de jaren heen zijn we gegroeid tot een betrouwbare safaribewerker, maar we hebben nooit onze kernwaarden verloren: authentieke ervaringen, verantwoordelijke toerisme en echte zorg voor onze gasten en lokale gemeenschappen.",
     storyParagraph3:
@@ -969,11 +969,11 @@ export const translations = {
     customerSupport: "Support Client",
 
     // About Page
-    aboutSafariAdventures: "À Propos de Safari Adventures",
+    aboutSafariAdventures: "À Propos de JaeTravel Expedition",
     trustedPartner: "Votre partenaire de confiance pour des safaris en Afrique de l'Est inoubliables",
     ourStory: "Notre Histoire",
     storyParagraph1:
-      "Fondé en 2009, Safari Adventures a commencé comme un petit entreprise familiale avec une mission simple : partager la faune et la beauté naturelle incroyable de l'Afrique de l'Est avec les voyageurs du monde entier.",
+      "Fondé en 2009, JaeTravel Expedition a commencé comme un petit entreprise familiale avec une mission simple : partager la faune et la beauté naturelle incroyable de l'Afrique de l'Est avec les voyageurs du monde entier.",
     storyParagraph2:
       "Au fil des années, nous avons grandi en une opérateur de safari de confiance, mais nous n'avons jamais perdu de vue nos valeurs fondamentales : des expériences authentiques, un tourisme durable et une véritable attention à nos clients et aux communautés locales.",
     storyParagraph3:
@@ -1192,11 +1192,11 @@ export const translations = {
     customerSupport: "Kundensupport",
 
     // About Page
-    aboutSafariAdventures: "Über Safari Adventures",
+    aboutSafariAdventures: "Über JaeTravel Expedition",
     trustedPartner: "Ihr vertrauenswürdiger Partner für unvergessliche ostafrikanische Safari-Erfahrungen",
     ourStory: "Unsere Geschichte",
     storyParagraph1:
-      "Gegründet im Jahr 2009, begann Safari Adventures als kleines Familienunternehmen mit einer einfachen Mission: die unglaubliche Wildtiere und natürliche Schönheit Ostafrikas mit Reisenden aus der ganzen Welt zu teilen.",
+      "Gegründet im Jahr 2009, begann JaeTravel Expedition als kleines Familienunternehmen mit einer einfachen Mission: die unglaubliche Wildtiere und natürliche Schönheit Ostafrikas mit Reisenden aus der ganzen Welt zu teilen.",
     storyParagraph2:
       "Über die Jahre sind wir zu einem vertrauenswürdigen Safari-Betreiber geworden, aber wir haben unsere Kernwerte niemals aus den Augen verloren: authentische Erfahrungen, nachhaltiges Tourismus und echte Sorge für unsere Gäste und lokale Gemeinschaften.",
     storyParagraph3:
@@ -1412,11 +1412,11 @@ export const translations = {
     customerSupport: "Supporto Clienti",
 
     // About Page
-    aboutSafariAdventures: "Su Safari Adventures",
+    aboutSafariAdventures: "Su JaeTravel Expedition",
     trustedPartner: "Il tuo partner di fiducia per esperienze di safari in Africa Orientale indimenticabili",
     ourStory: "La nostra Storia",
     storyParagraph1:
-      "Fondato nel 2009, Safari Adventures è iniziato come un piccolo affare familiare con una semplice missione: condividere la fauna e la bellezza naturale incredibile dell'Africa Orientale con i viaggiatori di tutto il mondo.",
+      "Fondato nel 2009, JaeTravel Expedition è iniziato come un piccolo affare familiare con una semplice missione: condividere la fauna e la bellezza naturale incredibile dell'Africa Orientale con i viaggiatori di tutto il mondo.",
     storyParagraph2:
       "Nel corso degli anni, siamo cresciuti in un operatore di safari di fiducia, ma non abbiamo mai perso di vista i nostre valori fondamentali: esperienze autentiche, turismo sostenibile e vera attenzione ai nostre clienti e alle comunità locali.",
     storyParagraph3:
@@ -1632,11 +1632,11 @@ export const translations = {
     customerSupport: "Suporte ao Cliente",
 
     // About Page
-    aboutSafariAdventures: "Sobre Safari Adventures",
+    aboutSafariAdventures: "Sobre JaeTravel Expedition",
     trustedPartner: "Seu parceiro de confiança para experiências de safari na África Oriental inesquecíveis",
     ourStory: "Nossa História",
     storyParagraph1:
-      "Fundada em 2009, Safari Adventures começou como um pequeno negócio familiar com uma missão simples: compartilhar a incrível fauna e beleza natural da África Oriental com viajantes de todo o mundo.",
+      "Fundada em 2009, JaeTravel Expedition começou como um pequeno negócio familiar com uma missão simples: compartilhar a incrível fauna e beleza natural da África Oriental com viajantes de todo o mundo.",
     storyParagraph2:
       "Ao longo dos anos, crescemos em um operador de safaris de confiança, mas nunca perdemos de vista nossos valores fundamentais: experiências autênticas, turismo sustentável e verdadeiro cuidado com nossos clientes e comunidades locais.",
     storyParagraph3:
@@ -1851,11 +1851,11 @@ export const translations = {
     customerSupport: "Customer Support",
 
     // About Page
-    aboutSafariAdventures: "About Safari Adventures",
+    aboutSafariAdventures: "About JaeTravel Expedition",
     trustedPartner: "Your trusted partner for unforgettable East African safari experiences",
     ourStory: "Our Story",
     storyParagraph1:
-      "Founded in 2009, Safari Adventures began as a small family business with a simple mission: to share the incredible wildlife and natural beauty of East Africa with travelers from around the world.",
+      "Founded in 2009, JaeTravel Expedition began as a small family business with a simple mission: to share the incredible wildlife and natural beauty of East Africa with travelers from around the world.",
     storyParagraph2:
       "Over the years, we've grown into a trusted safari operator, but we've never lost sight of our core values: authentic experiences, sustainable tourism, and genuine care for our guests and local communities.",
     storyParagraph3:

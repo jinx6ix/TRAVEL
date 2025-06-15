@@ -11,7 +11,7 @@ const toursData = [
   {
     id: 1,
     slug: "masai-mara-safari-adventure",
-    title: "Masai Mara Safari Adventure",
+    title: "Masai Mara JaeTravel Expedition",
     destination: "Kenya",
     duration: "5 days",
     price: 1200,
@@ -71,7 +71,7 @@ export default function BookingConfirmationPage() {
             </motion.div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Booking Request Submitted!</h1>
             <p className="text-gray-600">
-              Thank you for choosing Safari Adventures. Your booking request has been sent successfully.
+              Thank you for choosing JaeTravel Expedition. Your booking request has been sent successfully.
             </p>
           </div>
 
@@ -179,14 +179,14 @@ export default function BookingConfirmationPage() {
                     <MessageCircle className="text-green-600" size={20} />
                     <div>
                       <div className="font-medium">WhatsApp</div>
-                      <div className="text-sm text-gray-600">+254 757 662 968</div>
+                      <div className="text-sm text-gray-600">+254 726 485 228</div>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
                     <Mail className="text-blue-600" size={20} />
                     <div>
                       <div className="font-medium">Email</div>
-                      <div className="text-sm text-gray-600">irayaian4@gmail.com</div>
+                      <div className="text-sm text-gray-600">Jaetravelexpeditions@gmail.com</div>
                     </div>
                   </div>
                 </div>
@@ -214,7 +214,7 @@ export default function BookingConfirmationPage() {
                   if (navigator.share) {
                     navigator.share({
                       title: "Safari Booking Confirmation",
-                      text: `I just booked ${tour.title} with Safari Adventures!`,
+                      text: `I just booked ${tour.title} with JaeTravel Expedition!`,
                       url: window.location.href,
                     })
                   }

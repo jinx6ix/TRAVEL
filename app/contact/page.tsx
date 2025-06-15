@@ -52,7 +52,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl mb-8"
           >
-            Get in touch to plan your perfect East African safari adventure
+            Get in touch to plan your perfect East African JaeTravel Expedition
           </motion.p>
         </div>
       </section>
@@ -76,7 +76,7 @@ export default function ContactPage() {
                     <Phone className="text-orange-600 mt-1" size={24} />
                     <div>
                       <h3 className="font-semibold mb-2">Phone & WhatsApp</h3>
-                      <p className="text-gray-600">+254 757 662 968</p>
+                      <p className="text-gray-600">+254 726 485 228</p>
                       <p className="text-sm text-gray-500 mt-1">Available 24/7 for emergencies</p>
                       <Button
                         size="sm"
@@ -99,7 +99,7 @@ export default function ContactPage() {
                     <Mail className="text-orange-600 mt-1" size={24} />
                     <div>
                       <h3 className="font-semibold mb-2">Email</h3>
-                      <p className="text-gray-600">irayaian4@gmail.com</p>
+                      <p className="text-gray-600">Jaetravelexpeditions@gmail.com</p>
                       <p className="text-sm text-gray-500 mt-1">We respond within 24 hours</p>
                     </div>
                   </div>
@@ -110,7 +110,7 @@ export default function ContactPage() {
                     <MapPin className="text-green-600 mt-1" size={24} />
                     <div>
                       <h3 className="font-semibold mb-2">Office Location</h3>
-                      <p className="text-gray-600">Safari Adventures Ltd</p>
+                      <p className="text-gray-600">JaeTravel Expedition Ltd</p>
                       <p className="text-gray-600">Westlands, Nairobi</p>
                       <p className="text-gray-600">Kenya, East Africa</p>
                     </div>
@@ -279,13 +279,13 @@ export default function ContactPage() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Safari Adventures Office Location"
+              title="JaeTravel Expedition Office Location"
               className="w-full h-96"
             />
             <div className="bg-white p-4 border-t">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-semibold text-lg">Safari Adventures Ltd</h3>
+                  <h3 className="font-semibold text-lg">JaeTravel Expedition Ltd</h3>
                   <p className="text-gray-600">Westlands, Nairobi, Kenya</p>
                 </div>
                 <Button
