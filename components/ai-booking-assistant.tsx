@@ -603,7 +603,7 @@ ${bookingData.specialRequests || "None"}
 Please confirm availability and send detailed itinerary. Thank you!`
 
       // Send to WhatsApp
-      const whatsappUrl = `https://wa.me/254757662968?text=${encodeURIComponent(whatsappMessage)}`
+      const whatsappUrl = `https://wa.me/254726485228?text=${encodeURIComponent(whatsappMessage)}`
       window.open(whatsappUrl, "_blank")
 
       // Send email

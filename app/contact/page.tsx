@@ -83,7 +83,7 @@ export default function ContactPage() {
                         className="mt-2 bg-orange-600 hover:bg-orange-700"
                         onClick={() =>
                           window.open(
-                            "https://wa.me/254757662968?text=Hello! I'm interested in your safari tours.",
+                            "https://wa.me/254726485228?text=Hello! I'm interested in your safari tours.",
                             "_blank",
                           )
                         }

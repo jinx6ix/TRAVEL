@@ -48,7 +48,7 @@ export function Navbar() {
   ]
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/254757662968?text=Hello! I'm interested in your safari tours.", "_blank")
+    window.open("https://wa.me/254726485228?text=Hello! I'm interested in your safari tours.", "_blank")
   }
 
   return (

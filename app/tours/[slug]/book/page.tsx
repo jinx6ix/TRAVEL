@@ -238,7 +238,7 @@ ${formData.specialRequests ? `• Special Requests: ${formData.specialRequests}`
 Please confirm availability and send detailed booking confirmation. Thank you!`
 
     // Send to WhatsApp
-    const whatsappUrl = `https://wa.me/254757662968?text=${encodeURIComponent(bookingMessage)}`
+    const whatsappUrl = `https://wa.me/254726485228?text=${encodeURIComponent(bookingMessage)}`
     window.open(whatsappUrl, "_blank")
 
     // Send email
