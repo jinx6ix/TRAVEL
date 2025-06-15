@@ -244,7 +244,7 @@ Please confirm availability and send detailed booking confirmation. Thank you!`
     // Send email
     const emailSubject = `🦁 Safari Booking Request - ${tour.title}`
     const emailBody = bookingMessage.replace(/\n/g, "%0D%0A")
-    const emailUrl = `mailto:Jaetravelexpeditions@gmail.com.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
+    const emailUrl = `mailto:Jaetravelexpeditions@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
     window.open(emailUrl, "_blank")
 
     setIsSubmitting(false)
