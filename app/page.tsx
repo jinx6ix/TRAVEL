@@ -14,31 +14,31 @@ import { ReviewsSection } from "@/components/reviews-section"
 
 const heroImages = [
   {
-    url: "/placeholder.svg?height=1080&width=1920&text=Masai+Mara+Safari",
+    url: "https://cwzwdxedgblbbabcbnkj.supabase.co/storage/v1/object/sign/travel-images/_8108019.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMTA2ZTM4Ni1hNGVjLTQ5MDEtYmU4NC1lZjgxY2E3OGI4YWMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0cmF2ZWwtaW1hZ2VzL184MTA4MDE5LmpwZyIsImlhdCI6MTc1MDAwMTk1OCwiZXhwIjoxNzgxNTM3OTU4fQ.BliZarhrxiotixnxtYX46nrQRZaMqxNoOpALoJDStxE",
     title: "Masai Mara Safari",
     location: "Kenya",
     description: "Unforgettable safaris, breathtaking landscapes, and authentic cultural experiences",
   },
   {
-    url: "/placeholder.svg?height=1080&width=1920&text=Serengeti+Wildlife",
+    url: "https://ik.imagekit.io/jinx/travel/_8501829.jpg?updatedAt=1750002842952",
     title: "Serengeti Wildlife",
     location: "Tanzania",
     description: "Witness the great migration and incredible wildlife diversity",
   },
   {
-    url: "/placeholder.svg?height=1080&width=1920&text=Mountain+Gorillas",
+    url: "https://ik.imagekit.io/jinx/travel/_Z9P8753%20BW%20DN%20logo%20verkleind.jpg?updatedAt=1750002836396",
     title: "Mountain Gorillas",
     location: "Rwanda",
     description: "Get up close with mountain gorillas in their natural habitat",
   },
   {
-    url: "/placeholder.svg?height=1080&width=1920&text=Bwindi+Forest",
+    url: "https://ik.imagekit.io/jinx/travel/_Z9P5462%20DN%20logo%20verkleind.jpg?updatedAt=1750002833108",
     title: "Bwindi Forest",
     location: "Uganda",
     description: "Experience the Pearl of Africa's incredible biodiversity",
   },
   {
-    url: "/placeholder.svg?height=1080&width=1920&text=Kilimanjaro+Adventure",
+    url: "https://ik.imagekit.io/jinx/travel/_8502455.jpg?updatedAt=1750002805348",
     title: "Mount Kilimanjaro",
     location: "Tanzania",
     description: "Conquer Africa's highest peak with expert guides",
@@ -46,10 +46,10 @@ const heroImages = [
 ]
 
 const destinations = [
-  { name: "Kenya", image: "/placeholder.svg?height=300&width=400", tours: 12 },
-  { name: "Tanzania", image: "/placeholder.svg?height=300&width=400", tours: 15 },
-  { name: "Rwanda", image: "/placeholder.svg?height=300&width=400", tours: 8 },
-  { name: "Uganda", image: "/placeholder.svg?height=300&width=400", tours: 7 },
+  { name: "Kenya", image: "https://ik.imagekit.io/jinx/travel/_8108045.jpg?updatedAt=1750002790492?height=300&width=400", tours: 12 },
+  { name: "Tanzania", image: "https://ik.imagekit.io/jinx/travel/_8502569.jpg?updatedAt=1750002716388?height=300&width=400", tours: 15 },
+  { name: "Rwanda", image: "https://ik.imagekit.io/jinx/travel/25-Top-Attractions-in-Rwanda-2.jpg?updatedAt=1750004163696?height=300&width=400", tours: 8 },
+  { name: "Uganda", image: "https://ik.imagekit.io/jinx/travel/lake_bunyonyi__uganda-the-pearl-of-africa.webp?updatedAt=1750004263683?height=300&width=400", tours: 7 },
 ]
 
 const featuredTours = [
