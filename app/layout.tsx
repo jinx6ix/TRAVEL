@@ -12,6 +12,9 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "JaeTravel",
+  icons: {
+    icon: '/logo.svg',
+  },
   description: "Discover the best safari experiences in Kenya, Tanzania, Rwanda, and Uganda",
   generator: 'v0.dev'
 }
