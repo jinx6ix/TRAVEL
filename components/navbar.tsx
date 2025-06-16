@@ -30,6 +30,7 @@ export function Navbar() {
   const { t } = useLanguage()
   const [isOpen, setIsOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [isNavHovered, setIsNavHovered] = useState(false)
 
   const navItems = [
     { name: t("home"), href: "/" },
@@ -59,6 +60,11 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b z-50"
+      onMouseEnter={() => setIsNavHovered(true)}
+      onMouseLeave={() => {
+        setIsNavHovered(false)
+        setActiveDropdown(null)
+      }}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
@@ -76,7 +82,6 @@ export function Navbar() {
                 key={item.name}
                 className="relative group"
                 onMouseEnter={() => item.dropdown && setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
               >
                 <Link
                   href={item.href}
@@ -92,12 +97,16 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border py-2 z-50"
+                    onMouseLeave={() => {
+                      if (!isNavHovered) setActiveDropdown(null)
+                    }}
                   >
                     {item.dropdown.map((dropdownItem) => (
                       <Link
                         key={dropdownItem.name}
                         href={dropdownItem.href}
                         className="block px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-colors"
+                        onMouseEnter={() => setActiveDropdown(item.name)}
                       >
                         {dropdownItem.name}
                       </Link>
