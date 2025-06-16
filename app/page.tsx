@@ -217,7 +217,7 @@ export default function HomePage() {
                 className="pl-10 py-3 text-lg"
               />
             </div>
-            <Button size="lg" className="px-8 py-3 bg-orange-600 hover:bg-orange-700 pb-5" >
+            <Button size="lg" className="px-8 py-3 bg-orange-600 hover:bg-orange-700">
               {t("searchTours")}
             </Button>
           </motion.div>
