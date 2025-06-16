@@ -565,6 +565,19 @@ const tours = [
     wildlife: [],
     slug: "ssese-islands-beach-holiday",
   },
+  {
+    id: 43,
+    title: "Lake Naivasha Boat Safari",
+    destination: "Kenya",
+    duration: "1 day",
+    price: 150,
+    rating: 4.3,
+    image: "https://ik.imagekit.io/jinx/travel/flamingos-lakes-great-rift-valley-1.jpg?updatedAt=1750072866145?updatedAt=1750016305699?height=250&width=350",
+    description: "Boat safari on freshwater Lake Naivasha with hippos, birds, and Crescent Island walking safari.",
+    category: "wildlife",
+    wildlife: ["Various"],
+    slug: "lake-naivasha-boat-safari",
+  },
 ]
 
 const TOURS_PER_PAGE = 10
