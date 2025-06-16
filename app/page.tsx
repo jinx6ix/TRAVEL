@@ -150,7 +150,7 @@ export default function HomePage() {
               alt={heroImages[currentSlide].title}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-600/30 to-red-600/30" />
+            <div className="absolute inset-0" />
           </motion.div>
 
           {/* Slide Indicators */}
@@ -191,7 +191,6 @@ export default function HomePage() {
             transition={{ duration: 1 }}
             className="text-5xl md:text-7xl font-bold mb-6"
           >
-            {t("discoverEastAfrica")}
           </motion.h1>
           <motion.p
             initial={{ y: 30, opacity: 0 }}
@@ -218,7 +217,7 @@ export default function HomePage() {
                 className="pl-10 py-3 text-lg"
               />
             </div>
-            <Button size="lg" className="px-8 py-3 bg-orange-600 hover:bg-orange-700">
+            <Button size="lg" className="px-8 py-3 bg-orange-600 hover:bg-orange-700 pb-5" >
               {t("searchTours")}
             </Button>
           </motion.div>
