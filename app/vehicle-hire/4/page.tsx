@@ -19,7 +19,7 @@ type FeatureKey =
 
 const photoSpecs = {
   name: "Photography Converted Vehicle",
-  image: "/placeholder.svg?height=400&width=600",
+  image: "https://ik.imagekit.io/jinx/travel/land2-1.png?updatedAt=1750087059667?height=400&width=600",
   descriptionKey: "photographyVehicleDescription",
   capacity: "4 passengers",
   pricePerDay: 180,

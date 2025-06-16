@@ -20,7 +20,7 @@ type FeatureKey =
 
 const landcruiserSpecs = {
   name: "Toyota Landcruiser",
-  image: "/placeholder.svg?height=400&width=600",
+  image: "https://ik.imagekit.io/jinx/travel/6-1536x776%20(2).png?updatedAt=1750087071508?height=400&width=600",
   descriptionKey: "landcruiserDescription",
   capacity: "7 passengers",
   pricePerDay: 120,

@@ -9,7 +9,7 @@ import { motion } from "framer-motion"
 
 const pradoSpecs = {
   name: "Toyota Prado",
-  image: "/placeholder.svg?height=400&width=600",
+  image: "https://ik.imagekit.io/jinx/travel/5-1536x776%20(1).png?updatedAt=1750087067905?height=400&width=600",
   description: "Comfortable and reliable SUV perfect for family safaris and city tours.",
   capacity: "5 passengers",
   pricePerDay: 90,

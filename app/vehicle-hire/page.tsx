@@ -11,7 +11,7 @@ const vehicles = [
   {
     id: 1,
     name: "Toyota Landcruiser",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/6-1536x776%20(2).png?updatedAt=1750087071508?height=300&width=400",
     description: "The ultimate safari vehicle with exceptional off-road capabilities and reliability.",
     capacity: "7 passengers",
     features: ["4WD", "Pop-up roof", "Charging ports", "Cooler box", "First aid kit"],
@@ -27,7 +27,7 @@ const vehicles = [
   {
     id: 2,
     name: "Toyota Prado",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/5-1536x776%20(1).png?updatedAt=1750087067905?height=300&width=400",
     description: "Comfortable and reliable SUV perfect for family safaris and city tours.",
     capacity: "5 passengers",
     features: ["4WD", "Air conditioning", "GPS navigation", "Bluetooth", "Safety features"],
@@ -43,7 +43,7 @@ const vehicles = [
   {
     id: 3,
     name: "Luxury Roof Top Camping",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/4-1536x776%20(1).png?updatedAt=1750087065024?height=300&width=400",
     description: "Experience the wild with luxury camping setup on your vehicle roof.",
     capacity: "4 passengers",
     features: ["Roof tent", "Camping gear", "Solar power", "Kitchenette", "Bedding included"],
@@ -59,7 +59,7 @@ const vehicles = [
   {
     id: 4,
     name: "Photography Converted Vehicle",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/land2-1.png?updatedAt=1750087059667?height=300&width=400",
     description: "Specially modified vehicle with photography equipment and optimal viewing angles.",
     capacity: "6 passengers",
     features: ["Camera mounts", "Bean bags", "Extended roof", "Charging stations", "Storage compartments"],
@@ -75,7 +75,7 @@ const vehicles = [
   {
     id: 5,
     name: "Wheelchair Accessible Vehicle",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/wheelchair-1-1536x776%20(1).png?updatedAt=1750087063365?height=300&width=400",
     description: "Fully accessible vehicle ensuring everyone can enjoy JaeTravel Expedition.",
     capacity: "4 passengers + wheelchair",
     features: ["Wheelchair ramp", "Secure wheelchair area", "Easy access", "Safety harnesses", "Accessible controls"],
@@ -88,6 +88,33 @@ const vehicles = [
       luggage: "Accessible storage",
     },
   },
+  {
+    "id": 6,
+    "name": "Family Safari Minivan",
+    "image": "https://ik.imagekit.io/jinx/travel/car-van-1536x776%20(1).png?updatedAt=1750087064275?height=300&width=400",
+    "description": "Spacious and comfortable minivan perfect for family safaris and group travel.",
+    "capacity": "7 passengers + driver",
+    "features": [
+      "Pop-up roof for game viewing",
+      "AC throughout",
+      "Charging ports",
+      "Comfortable seating",
+      "Large windows"
+    ],
+    "pricePerDay": 120,
+    "ideal": "Family safaris and small group tours",
+    "specifications": {
+      "engine": "2.4L 4-cylinder",
+      "transmission": "Automatic",
+      "fuelType": "Diesel",
+      "luggage": "Rear storage compartment",
+      "fuelEfficiency": "12L/100km"
+    },
+    "extras": {
+      "childSeats": "Available upon request (+$10/day)",
+      "coolerBox": "Included free of charge"
+    }
+  }
 ]
 
 export default function VehicleHirePage() {

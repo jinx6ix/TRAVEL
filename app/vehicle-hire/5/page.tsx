@@ -19,7 +19,7 @@ type FeatureKey =
 
 const accessibleSpecs = {
   name: "Wheelchair Accessible Vehicle",
-  image: "/placeholder.svg?height=400&width=600",
+  image: "https://ik.imagekit.io/jinx/travel/wheelchair-1-1536x776%20(1).png?updatedAt=1750087063365?height=400&width=600",
   descriptionKey: "accessibleVehicleDescription",
   capacity: "2 wheelchair users + 4 passengers",
   pricePerDay: 200,
