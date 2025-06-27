@@ -17,7 +17,7 @@ export function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="text-2xl">
-                <Image src={logo} alt="Logo" width={40} height={40} />
+                <Image src={logo} alt="Logo" width={80} height={80} />
               </div>
               <span className="text-xl font-bold">JaeTravel Expedition</span>
             </div>

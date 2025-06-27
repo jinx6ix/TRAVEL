@@ -67,10 +67,10 @@ export function Navbar() {
       }}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center space-x-2">
             <div className="text-2xl">
-              <Image src={logo} alt="Logo" width={60} height={100} />
+              <Image src={logo} alt="Logo" width={100} height={100} />
             </div>
             <span className="text-xl font-bold text-orange-600">JaeTravel Expedition</span>
           </Link>
