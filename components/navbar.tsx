@@ -72,7 +72,7 @@ export function Navbar() {
             <div className="text-2xl">
               <Image src={logo} alt="Logo" width={100} height={100} />
             </div>
-            <span className="text-xl font-bold text-orange-600">JaeTravel Expedition</span>
+            <span className="text-xl font-bold text-orange-600">JaeTravel Expeditions</span>
           </Link>
 
           {/* Desktop Navigation */}

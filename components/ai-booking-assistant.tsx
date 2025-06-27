@@ -37,7 +37,7 @@ const availableTours: Tour[] = [
   // Kenya Tours
   {
     id: 1,
-    title: "Masai Mara JaeTravel Expedition",
+    title: "Masai Mara JaeTravel Expeditions",
     destination: "Kenya",
     duration: "5 days",
     price: 1200,
@@ -280,7 +280,7 @@ export function AIBookingAssistant() {
       // Greeting responses
       if (input.includes("hello") || input.includes("hi") || input.includes("hey")) {
         return {
-          text: "Hello! Welcome to JaeTravel Expedition! I'm here to help you find the perfect East African safari experience. What type of adventure are you looking for today?",
+          text: "Hello! Welcome to JaeTravel Expeditions! I'm here to help you find the perfect East African safari experience. What type of adventure are you looking for today?",
           tours: availableTours.slice(0, 3),
         }
       }
@@ -506,7 +506,7 @@ export function AIBookingAssistant() {
         input.includes("support")
       ) {
         return {
-          text: "📞 You can reach us through:\n\n• WhatsApp: +254 726 485 228\n• Email: Jaetravelexpeditions@gmail.com\n• Or use our booking form to send your inquiry directly!\n\nWe're available 24/7 for emergencies and respond to all inquiries within 24 hours.",
+          text: "📞 You can reach us through:\n\n• WhatsApp: +254 726 485 228\n• Email: JaetravelExpeditionss@gmail.com\n• Or use our booking form to send your inquiry directly!\n\nWe're available 24/7 for emergencies and respond to all inquiries within 24 hours.",
         }
       }
 
@@ -609,13 +609,13 @@ Please confirm availability and send detailed itinerary. Thank you!`
       // Send email
       const emailSubject = `🦁 Safari Booking Request - ${selectedTour?.title || "Custom Tour"}`
       const emailBody = whatsappMessage.replace(/\n/g, "%0D%0A")
-      const emailUrl = `mailto:Jaetravelexpeditions@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
+      const emailUrl = `mailto:JaetravelExpeditionss@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
       window.open(emailUrl, "_blank")
 
       // Add confirmation message
       const confirmationMessage: Message = {
         id: messages.length + 1,
-        text: "✅ Perfect! Your booking request has been sent via WhatsApp and email. We'll get back to you within 24 hours with confirmation and detailed itinerary.\n\n📞 For immediate assistance, call us at +254 726 485 228\n\nThank you for choosing JaeTravel Expedition! 🦁",
+        text: "✅ Perfect! Your booking request has been sent via WhatsApp and email. We'll get back to you within 24 hours with confirmation and detailed itinerary.\n\n📞 For immediate assistance, call us at +254 726 485 228\n\nThank you for choosing JaeTravel Expeditions! 🦁",
         isBot: true,
         timestamp: new Date(),
       }

@@ -19,7 +19,7 @@ export function Footer() {
               <div className="text-2xl">
                 <Image src={logo} alt="Logo" width={80} height={80} />
               </div>
-              <span className="text-xl font-bold">JaeTravel Expedition</span>
+              <span className="text-xl font-bold">JaeTravel Expeditions</span>
             </div>
             <p className="text-gray-400 mb-4">{t("trustedPartner")}</p>
             <div className="flex space-x-4">
@@ -85,7 +85,7 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail size={16} />
-                <span className="text-gray-400">Jaetravelexpeditions@gmail.com</span>
+                <span className="text-gray-400">JaetravelExpeditionss@gmail.com</span>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin size={16} />
@@ -96,7 +96,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400">© 2024 JaeTravel Expedition. {t("allRightsReserved")}</p>
+          <p className="text-gray-400">© 2024 JaeTravel Expeditions. {t("allRightsReserved")}</p>
         </div>
       </div>
     </footer>

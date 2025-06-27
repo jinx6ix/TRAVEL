@@ -76,7 +76,7 @@ const vehicles = [
     id: 5,
     name: "Wheelchair Accessible Vehicle",
     image: "https://ik.imagekit.io/jinx/travel/wheelchair-1-1536x776%20(1).png?updatedAt=1750087063365?height=300&width=400",
-    description: "Fully accessible vehicle ensuring everyone can enjoy JaeTravel Expedition.",
+    description: "Fully accessible vehicle ensuring everyone can enjoy JaeTravel Expeditions.",
     capacity: "4 passengers + wheelchair",
     features: ["Wheelchair ramp", "Secure wheelchair area", "Easy access", "Safety harnesses", "Accessible controls"],
     pricePerDay: 150,

@@ -244,7 +244,7 @@ export default function LandcruiserPage() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Book Your Landcruiser?</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Experience the ultimate JaeTravel Expedition with our reliable Toyota Landcruiser
+              Experience the ultimate JaeTravel Expeditions with our reliable Toyota Landcruiser
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild>

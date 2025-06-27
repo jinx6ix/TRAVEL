@@ -164,7 +164,7 @@ export function ReviewsSection() {
             <Card className="max-w-2xl mx-auto">
               <CardHeader>
                 <CardTitle>Share Your Experience</CardTitle>
-                <CardDescription>Tell others about your JaeTravel Expedition with us</CardDescription>
+                <CardDescription>Tell others about your JaeTravel Expeditions with us</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">

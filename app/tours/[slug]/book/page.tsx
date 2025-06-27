@@ -68,7 +68,7 @@ const toursData = [
     {
       id: 1,
       slug: "masai-mara-safari-adventure",
-      title: "Masai Mara JaeTravel Expedition",
+      title: "Masai Mara JaeTravel Expeditions",
       destination: "Kenya",
       duration: "5 days",
       price: 1200,
@@ -139,7 +139,7 @@ const toursData = [
     },
     {
       id: 7,
-      slug: "mount-kenya-climbing-expedition",
+      slug: "mount-kenya-climbing-Expeditions",
       title: "Mount Kenya Climbing",
       destination: "Kenya",
       duration: "5 days",
@@ -235,7 +235,7 @@ const toursData = [
     },
     {
       id: 15,
-      slug: "kilimanjaro-climbing-expedition",
+      slug: "kilimanjaro-climbing-Expeditions",
       title: "Kilimanjaro Climbing",
       destination: "Tanzania",
       duration: "8 days",
@@ -726,7 +726,7 @@ Please confirm availability and send detailed booking confirmation. Thank you!`
     // Send email
     const emailSubject = `🦁 Safari Booking Request - ${tour.title}`
     const emailBody = bookingMessage.replace(/\n/g, "%0D%0A")
-    const emailUrl = `mailto:Jaetravelexpeditions@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
+    const emailUrl = `mailto:JaetravelExpeditionss@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
     window.open(emailUrl, "_blank")
 
     setIsSubmitting(false)
@@ -1337,7 +1337,7 @@ Please confirm availability and send detailed booking confirmation. Thank you!`
                       </div>
                       <div className="flex items-center gap-2">
                         <Mail size={16} className="text-gray-400" />
-                        <span>Jaetravelexpeditions@gmail.com</span>
+                        <span>JaetravelExpeditionss@gmail.com</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Globe size={16} className="text-gray-400" />

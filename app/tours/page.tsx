@@ -15,7 +15,7 @@ const tours = [
   // Kenya Tours
   {
     id: 1,
-    title: "Masai Mara JaeTravel Expedition",
+    title: "Masai Mara JaeTravel Expeditions",
     destination: "Kenya",
     duration: "5 days",
     price: 1200,
@@ -86,7 +86,7 @@ const tours = [
     price: 1600,
     rating: 4.7,
     image: "https://ik.imagekit.io/jinx/travel/kenya-beach-safari-prices-jt-safaris-julius-safaris-diani-beach.jpg?updatedAt=1750012979870?height=250&width=350",
-    description: "Combine JaeTravel Expedition with beach relaxation.",
+    description: "Combine JaeTravel Expeditions with beach relaxation.",
     category: "adventure",
     wildlife: ["Various"],
     slug: "mombasa-coastal-safari",
@@ -102,7 +102,7 @@ const tours = [
     description: "Challenge yourself with Africa's second highest peak.",
     category: "adventure",
     wildlife: [],
-    slug: "mount-kenya-climbing-expedition",
+    slug: "mount-kenya-climbing-Expeditions",
   },
   {
     id: 8,
@@ -208,7 +208,7 @@ const tours = [
     description: "Conquer Africa's highest peak.",
     category: "adventure",
     wildlife: [],
-    slug: "kilimanjaro-climbing-expedition",
+    slug: "kilimanjaro-climbing-Expeditions",
   },
   {
     id: 16,

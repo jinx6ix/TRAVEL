@@ -22,7 +22,7 @@ const teamMembers = [
     image: "/placeholder.svg?height=300&width=300",
     experience: "12 years",
     description:
-      "An expert in wildlife behavior and conservation, Mary leads our guests on unforgettable JaeTravel Expedition.",
+      "An expert in wildlife behavior and conservation, Mary leads our guests on unforgettable JaeTravel Expeditions.",
   },
   {
     name: "David Mwangi",
@@ -82,7 +82,7 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl font-bold mb-4"
           >
-            About JaeTravel Expedition
+            About JaeTravel Expeditions
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -107,7 +107,7 @@ export default function AboutPage() {
             >
               <h2 className="text-4xl font-bold mb-6">Our Story</h2>
               <p className="text-lg text-gray-600 mb-6">
-                Founded in 2009, JaeTravel Expedition began as a small family business with a simple mission: to share the
+                Founded in 2009, JaeTravel Expeditions began as a small family business with a simple mission: to share the
                 incredible wildlife and natural beauty of East Africa with travelers from around the world.
               </p>
               <p className="text-lg text-gray-600 mb-6">
@@ -133,7 +133,7 @@ export default function AboutPage() {
             >
               <img
                 src="/placeholder.svg?height=500&width=600"
-                alt="JaeTravel Expedition Story"
+                alt="JaeTravel Expeditions Story"
                 className="rounded-lg shadow-xl"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-lg" />

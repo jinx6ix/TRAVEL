@@ -12,7 +12,7 @@ const toursData = [
 {
   id: 1,
   slug: "masai-mara-safari-adventure",
-  title: "Masai Mara JaeTravel Expedition",
+  title: "Masai Mara JaeTravel Expeditions",
   destination: "Kenya",
   duration: "5 days",
   price: 1200,
@@ -65,7 +65,7 @@ const toursData = [
 },
 {
   id: 7,
-  slug: "mount-kenya-climbing-expedition",
+  slug: "mount-kenya-climbing-Expeditions",
   title: "Mount Kenya Climbing",
   destination: "Kenya",
   duration: "5 days",
@@ -139,7 +139,7 @@ const toursData = [
 },
 {
   id: 15,
-  slug: "kilimanjaro-climbing-expedition",
+  slug: "kilimanjaro-climbing-Expeditions",
   title: "Kilimanjaro Climbing",
   destination: "Tanzania",
   duration: "8 days",
@@ -438,7 +438,7 @@ export default function BookingConfirmationPage() {
             </motion.div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Booking Request Submitted!</h1>
             <p className="text-gray-600">
-              Thank you for choosing JaeTravel Expedition. Your booking request has been sent successfully.
+              Thank you for choosing JaeTravel Expeditions. Your booking request has been sent successfully.
             </p>
           </div>
 
@@ -553,7 +553,7 @@ export default function BookingConfirmationPage() {
                     <Mail className="text-blue-600" size={20} />
                     <div>
                       <div className="font-medium">Email</div>
-                      <div className="text-sm text-gray-600">Jaetravelexpeditions@gmail.com</div>
+                      <div className="text-sm text-gray-600">JaetravelExpeditionss@gmail.com</div>
                     </div>
                   </div>
                 </div>
@@ -581,7 +581,7 @@ export default function BookingConfirmationPage() {
                   if (navigator.share) {
                     navigator.share({
                       title: "Safari Booking Confirmation",
-                      text: `I just booked ${tour.title} with JaeTravel Expedition!`,
+                      text: `I just booked ${tour.title} with JaeTravel Expeditions!`,
                       url: window.location.href,
                     })
                   }

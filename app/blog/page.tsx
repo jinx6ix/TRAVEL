@@ -32,7 +32,7 @@ const blogPosts = [
   },
   {
     id: 3,
-    title: "Photography Tips for Your JaeTravel Expedition",
+    title: "Photography Tips for Your JaeTravel Expeditions",
     excerpt: "Professional tips to capture stunning wildlife photos during your East African safari experience.",
     image: "https://ik.imagekit.io/jinx/travel/new%20(1).png?updatedAt=1750098099514?height=300&width=400",
     author: "David Mwangi",
@@ -72,7 +72,7 @@ const blogPosts = [
   },
   {
     id: 7,
-    title: "Packing Essentials for Your JaeTravel Expedition",
+    title: "Packing Essentials for Your JaeTravel Expeditions",
     excerpt: "The ultimate packing checklist for your East African safari, from clothing to camera gear.",
     image: "https://ik.imagekit.io/jinx/travel/Mombasa-beach-2-1960x800.webp?updatedAt=1750085411718?height=300&width=400",
     author: "David Mwangi",

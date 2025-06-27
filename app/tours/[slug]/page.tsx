@@ -58,7 +58,7 @@ const toursData: TourData[] = [
   {
     id: 1,
     slug: "masai-mara-safari-adventure",
-    title: "Masai Mara JaeTravel Expedition",
+    title: "Masai Mara JaeTravel Expeditions",
     destination: "Kenya",
     duration: "5 days",
     price: 1200,
@@ -70,7 +70,7 @@ const toursData: TourData[] = [
     groupSize: "2-8 people",
     wildlife: ["Big Five", "Great Migration", "Lions", "Elephants", "Cheetahs", "Hippos"],
     description:
-      "Experience the world-famous Masai Mara National Reserve, home to the Great Migration and the Big Five. This 5-day JaeTravel Expedition offers unparalleled wildlife viewing opportunities in one of Africa's most iconic destinations.",
+      "Experience the world-famous Masai Mara National Reserve, home to the Great Migration and the Big Five. This 5-day JaeTravel Expeditions offers unparalleled wildlife viewing opportunities in one of Africa's most iconic destinations.",
     highlights: [
       "Witness the Great Migration (seasonal)",
       "Big Five game viewing",
@@ -990,7 +990,7 @@ const toursData: TourData[] = [
     },
     {
       id: 7,
-      slug: "mount-kenya-climbing-expedition",
+      slug: "mount-kenya-climbing-Expeditions",
       title: "Mount Kenya Climbing",
       destination: "Kenya",
       duration: "5 days",
@@ -1214,7 +1214,7 @@ const toursData: TourData[] = [
     },
     {
       id: 15,
-      slug: "kilimanjaro-climbing-expedition",
+      slug: "kilimanjaro-climbing-Expeditions",
       title: "Kilimanjaro Climbing",
       destination: "Tanzania",
       duration: "7 days",

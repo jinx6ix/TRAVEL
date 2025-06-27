@@ -12,7 +12,7 @@ const destinations = [
     name: "Kenya",
     slug: "kenya",
     image: "https://ik.imagekit.io/jinx/travel/ChatGPT%20Image%20Jun%2015,%202025,%2011_15_36%20PM.png?updatedAt=1750018565605?height=400&width=600",
-    description: "The heart of JaeTravel Expedition with the famous Masai Mara and diverse wildlife.",
+    description: "The heart of JaeTravel Expeditions with the famous Masai Mara and diverse wildlife.",
     highlights: ["Masai Mara", "Amboseli", "Samburu", "Lake Nakuru"],
     tours: 12,
     bestTime: "July - October",
