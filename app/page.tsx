@@ -208,18 +208,6 @@ export default function HomePage() {
             transition={{ duration: 1, delay: 0.6 }}
             className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto mb-8"
           >
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-              <Input
-                placeholder={t("searchPlaceholder")}
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 py-3 text-lg"
-              />
-            </div>
-            <Button size="lg" className="px-8 py-3 bg-orange-600 hover:bg-orange-700">
-              {t("searchTours")}
-            </Button>
           </motion.div>
 
           <motion.div
@@ -229,7 +217,6 @@ export default function HomePage() {
             className="flex flex-col md:flex-row gap-4 justify-center"
           >
             <Button size="lg" className="px-8 py-3" asChild>
-              <Link href="/tours">{t("exploreTours")}</Link>
             </Button>
             <Button
               size="lg"
@@ -237,7 +224,6 @@ export default function HomePage() {
               className="px-8 py-3 text-white border-white hover:bg-white hover:text-black"
               asChild
             >
-              <Link href="/vehicle-hire">Vehicle Hire</Link>
             </Button>
           </motion.div>
         </div>
