@@ -198,7 +198,6 @@ export default function HomePage() {
             transition={{ duration: 1, delay: 0.3 }}
             className="text-xl md:text-2xl mb-8"
           >
-            {t("heroDescription")}
           </motion.p>
 
           {/* Search Bar */}
