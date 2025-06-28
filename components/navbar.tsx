@@ -10,6 +10,7 @@ import { LanguageSelector } from "@/components/language-selector"
 import { useLanguage } from "@/hooks/useLanguage"
 import logo from "@/public/logo.svg"
 import Image from "next/image"
+import SearchButton from "./searchButton"
 
 const destinations = [
   { name: "Kenya", href: "/destinations/kenya" },
@@ -129,6 +130,9 @@ export function Navbar() {
           </div>
 
           {/* Mobile Navigation */}
+          <div className="left-0">
+            <SearchButton />
+          </div>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon">

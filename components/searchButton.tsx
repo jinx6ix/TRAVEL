@@ -42,7 +42,7 @@ export default function SearchButton() {
   return (
     <div 
       ref={searchContainerRef}
-      className="fixed top-4 left-4 z-50 flex items-center"
+      className=" top-10 left-4 z-50 flex items-center lg:hidden"
     >
       <button
         onClick={toggleSearch}
