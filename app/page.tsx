@@ -258,14 +258,6 @@ export default function HomePage() {
               className="text-5xl md:text-7xl font-bold mb-6"
             >
             </motion.h1>
-            <motion.p
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="text-xl md:text-2xl mb-8"
-            >
-              Discover the wild beauty of Kenya, Tanzania, Uganda & Rwanda with expert guides
-            </motion.p>
 
             {/* Search Bar */}
           </div>
