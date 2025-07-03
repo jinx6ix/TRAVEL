@@ -3,11 +3,11 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Search, Calendar, Star, ChevronLeft, ChevronRight } from "lucide-react"
+import { Search, Calendar, Star, ChevronLeft, ChevronRight, ArrowRight, Check } from "lucide-react"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { useEffect } from "react"
 import { useLanguage } from "@/hooks/useLanguage"
 import { ReviewsSection } from "@/components/reviews-section"
@@ -54,6 +54,75 @@ const destinations = [
   { name: "Uganda", image: "https://ik.imagekit.io/jinx/travel/lake_bunyonyi__uganda-the-pearl-of-africa.webp?updatedAt=1750004263683?height=300&width=400", tours: 7 },
 ]
 
+const offers = [
+  {
+    id: 1,
+    title: "Nairobi Highlights Express Tour",
+    destination: "Kenya",
+    duration: "Half Day (5 hrs)",
+    price: "$99",
+    originalPrice: "$129",
+    rating: 4.8,
+    reviews: 142,
+    image: "https://ik.imagekit.io/jinx/travel/nairobi-skyline.jpg?updatedAt=1750000000000?height=250&width=350",
+    description: "Perfect for layovers! Experience Nairobi's top attractions in just hours",
+    badge: "TRANSIT SPECIAL",
+    highlights: [
+      "Hotel pickup/drop-off included",
+      "Giraffe Centre & Karen Blixen Museum",
+      "Optional Sheldrick Wildlife Trust",
+      "Local artisan shopping"
+    ],
+    offer: "Book 48hrs in advance & get free airport transfer",
+    availability: "Only 3 spots left today",
+    cta: "Reserve Now - Instant Confirmation"
+  },
+  {
+    id: 2,
+    title: "Maasai Mara Luxury Safari",
+    destination: "Kenya",
+    duration: "3 Days / 2 Nights",
+    price: "$1,299",
+    originalPrice: "$1,599",
+    rating: 4.9,
+    reviews: 89,
+    image: "https://ik.imagekit.io/jinx/travel/masai-mara-sunset.jpg?updatedAt=1750000000000?height=250&width=350",
+    description: "Premium safari with luxury tents & private game drives",
+    badge: "BEST SELLER",
+    highlights: [
+      "Award-winning eco-lodges",
+      "Sunset champagne game drives",
+      "Hot air balloon add-on available",
+      "Maasai cultural experience"
+    ],
+    offer: "FREE night + massage for couples (limited time)",
+    availability: "High season - booking fast",
+    cta: "Secure Your Luxury Safari"
+  },
+  {
+    id: 3,
+    title: "Amboseli Elephant Paradise",
+    destination: "Kenya",
+    duration: "2 Days / 1 Night",
+    price: "$749",
+    originalPrice: "$899",
+    rating: 4.7,
+    reviews: 63,
+    image: "https://ik.imagekit.io/jinx/travel/amboseli-elephants.jpg?updatedAt=1750000000000?height=250&width=350",
+    description: "Hundreds of elephants with Kilimanjaro backdrop",
+    badge: "FAMILY FAVORITE",
+    highlights: [
+      "Guaranteed elephant sightings",
+      "Kilimanjaro photo opportunities",
+      "Child-friendly lodge with pool",
+      "400+ bird species"
+    ],
+    offer: "Kids under 12 stay FREE (2 adults minimum)",
+    availability: "Only 1 lodge remaining",
+    cta: "Book Family Package"
+  }
+]
+
 const featuredTours = [
   {
     id: 1,
@@ -87,6 +156,211 @@ const featuredTours = [
   },
 ]
 
+const OfferCard = ({ offer, featured = false }: { offer: typeof offers[0]; featured?: boolean }) => {
+  return (
+    <motion.div
+      whileHover={{ y: -5 }}
+      transition={{ type: "spring", stiffness: 300 }}
+      className={`h-full ${featured ? "transform md:-translate-y-4" : ""}`}
+    >
+      <Card className="h-full flex flex-col overflow-hidden border-2 border-orange-100 hover:border-orange-300 transition-colors shadow-lg hover:shadow-xl">
+        <div className="relative">
+          <img
+            src={offer.image}
+            alt={offer.title}
+            className="w-full h-48 object-cover"
+            loading="lazy"
+          />
+          <Badge className="absolute top-4 left-4 bg-orange-600 hover:bg-orange-700">
+            {offer.badge}
+          </Badge>
+          <Badge className="absolute top-4 right-4 bg-green-600 hover:bg-green-700">
+            {offer.availability}
+          </Badge>
+        </div>
+
+        <CardHeader>
+          <CardTitle className="text-2xl">{offer.title}</CardTitle>
+          <div className="flex items-center gap-2">
+            <Calendar size={16} className="text-orange-600" />
+            <span className="text-sm text-gray-600">{offer.duration}</span>
+            <span className="mx-2">•</span>
+            <Star size={16} className="fill-yellow-400 text-yellow-400" />
+            <span className="text-sm font-medium">{offer.rating}</span>
+            <span className="text-sm text-gray-500">({offer.reviews})</span>
+          </div>
+        </CardHeader>
+
+        <CardContent className="flex-grow">
+          <p className="mb-4">{offer.description}</p>
+          
+          <div className="mb-4 p-3 bg-orange-50 rounded-lg border border-orange-100">
+            <p className="text-sm font-medium text-orange-800">{offer.offer}</p>
+          </div>
+
+          <div className="space-y-2 mb-4">
+            <h4 className="font-semibold text-gray-900">Tour Highlights:</h4>
+            <ul className="space-y-1">
+              {offer.highlights.map((highlight, i) => (
+                <li key={i} className="flex items-start">
+                  <Check className="h-4 w-4 mt-0.5 mr-2 text-green-600 flex-shrink-0" />
+                  <span className="text-sm">{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex items-end justify-between mt-4">
+            <div>
+              <p className="text-sm text-gray-500 line-through">{offer.originalPrice}</p>
+              <p className="text-2xl font-bold text-orange-600">{offer.price}</p>
+              <p className="text-xs text-gray-500">per person</p>
+            </div>
+          </div>
+        </CardContent>
+
+        <CardFooter className="mt-auto">
+          <Button className="w-full bg-orange-600 hover:bg-orange-700" asChild>
+            <Link href={`/offers/${offer.id}`}>
+              {offer.cta} <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </CardFooter>
+      </Card>
+    </motion.div>
+  )
+}
+
+const OffersSection = () => {
+  const { t } = useLanguage()
+  const [activeOffer, setActiveOffer] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveOffer((prev) => (prev + 1) % offers.length)
+    }, 8000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  }
+
+  const offerVariants = {
+    enter: (direction: number) => {
+      return {
+        x: direction > 0 ? 1000 : -1000,
+        opacity: 0
+      }
+    },
+    center: {
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => {
+      return {
+        x: direction < 0 ? 1000 : -1000,
+        opacity: 0
+      }
+    }
+  }
+
+  return (
+    <section className="py-20 bg-gradient-to-b from-orange-50 to-white">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Special Offers</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">Limited time deals on our most popular tours</p>
+        </motion.div>
+
+        <div className="lg:hidden">
+          <div className="relative h-[600px] overflow-hidden">
+            <AnimatePresence custom={1} initial={false}>
+              <motion.div
+                key={activeOffer}
+                custom={1}
+                variants={offerVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="absolute top-0 left-0 right-0"
+              >
+                <OfferCard offer={offers[activeOffer]} />
+              </motion.div>
+            </AnimatePresence>
+
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+              {offers.map((_, index) => (
+                <button
+                  title="button"
+                  key={index}
+                  onClick={() => setActiveOffer(index)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    index === activeOffer ? "bg-orange-600 w-6" : "bg-gray-300"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              title="button"
+              onClick={() => setActiveOffer((prev) => (prev - 1 + offers.length) % offers.length)}
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg z-10"
+            >
+              <ChevronLeft className="text-orange-600" size={24} />
+            </button>
+            <button
+              title="button"
+              onClick={() => setActiveOffer((prev) => (prev + 1) % offers.length)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg z-10"
+            >
+              <ChevronRight className="text-orange-600" size={24} />
+            </button>
+          </div>
+        </div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {offers.map((offer, index) => (
+            <motion.div key={offer.id} variants={itemVariants}>
+              <OfferCard offer={offer} featured={index === 1} />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
 export default function HomePage() {
   const { t } = useLanguage()
   const [isVideoPlaying, setIsVideoPlaying] = useState(true)
@@ -101,11 +375,10 @@ export default function HomePage() {
     setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length)
   }
 
-  // Auto-advance slides
   useEffect(() => {
     const timer = setInterval(() => {
       nextSlide()
-    }, 5000) // Change slide every 5 seconds
+    }, 5000)
 
     return () => clearInterval(timer)
   }, [])
@@ -138,7 +411,6 @@ export default function HomePage() {
         <meta name="description" content={SEO.description} />
         <link rel="canonical" href={SEO.canonical} />
         
-        {/* Open Graph / Facebook */}
         <meta property="og:type" content={SEO.openGraph.type} />
         <meta property="og:url" content={SEO.openGraph.url} />
         <meta property="og:title" content={SEO.defaultTitle} />
@@ -146,7 +418,6 @@ export default function HomePage() {
         <meta property="og:image" content={SEO.openGraph.images[0].url} />
         <meta property="og:site_name" content={SEO.openGraph.site_name} />
         
-        {/* Twitter */}
         <meta name="twitter:card" content={SEO.twitter.cardType} />
         <meta name="twitter:site" content={SEO.twitter.site} />
         <meta name="twitter:creator" content={SEO.twitter.handle} />
@@ -154,7 +425,6 @@ export default function HomePage() {
         <meta name="twitter:description" content={SEO.description} />
         <meta name="twitter:image" content={SEO.openGraph.images[0].url} />
         
-        {/* Additional Meta Tags */}
         {SEO.additionalMetaTags?.map((tag, index) => (
           <meta 
             key={index}
@@ -165,7 +435,6 @@ export default function HomePage() {
           />
         ))}
         
-        {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -194,11 +463,9 @@ export default function HomePage() {
       </Head>
 
       <div className="min-h-screen">
-        {/* Hero Section with Image Slider */}
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-black/40 z-10" />
 
-          {/* Image Slider */}
           <div className="absolute inset-0">
             <motion.div
               key={currentSlide}
@@ -217,7 +484,6 @@ export default function HomePage() {
               <div className="absolute inset-0" />
             </motion.div>
 
-            {/* Slide Indicators */}
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
               {heroImages.map((_, index) => (
                 <button
@@ -231,7 +497,6 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Navigation Arrows */}
             <button
               title="button"
               onClick={prevSlide}
@@ -258,11 +523,8 @@ export default function HomePage() {
               className="text-5xl md:text-7xl font-bold mb-6"
             >
             </motion.h1>
-
-            {/* Search Bar */}
           </div>
 
-          {/* Slide Info */}
           <div className="absolute bottom-20 left-8 z-20 text-white">
             <motion.div
               key={currentSlide}
@@ -277,7 +539,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Destinations Section */}
         <section className="py-20 bg-orange-50">
           <div className="container mx-auto px-4">
             <motion.div
@@ -287,8 +548,8 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">{t("ourDestinations")}</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t("exploreMostBeautiful")}</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Destinations</h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">Explore the most beautiful places in East Africa</p>
             </motion.div>
 
             <motion.div
@@ -312,14 +573,14 @@ export default function HomePage() {
                       <div className="absolute bottom-4 left-4 text-white">
                         <h3 className="text-2xl font-bold">{destination.name}</h3>
                         <p className="text-sm">
-                          {destination.tours} {t("toursAvailable")}
+                          {destination.tours} tours available
                         </p>
                       </div>
                     </div>
                     <CardContent className="p-4">
                       <Button className="w-full" asChild>
                         <Link href={`/destinations/${destination.name.toLowerCase()}`}>
-                          {t("explore")} {destination.name}
+                          Explore {destination.name}
                         </Link>
                       </Button>
                     </CardContent>
@@ -330,7 +591,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Featured Tours Section */}
+        <OffersSection />
+
         <section className="py-20">
           <div className="container mx-auto px-4">
             <motion.div
@@ -340,8 +602,8 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">{t("featuredTours")}</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t("handpickedAdventures")}</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">Featured Tours</h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">Handpicked adventures for your perfect safari</p>
             </motion.div>
 
             <motion.div
@@ -381,7 +643,7 @@ export default function HomePage() {
                       <div className="flex items-center justify-between">
                         <span className="text-2xl font-bold text-orange-600">{tour.price}</span>
                         <Button asChild>
-                          <Link href={`/tours/${tour.id}`}>{t("bookNow")}</Link>
+                          <Link href={`/tours/${tour.id}`}>Book Now</Link>
                         </Button>
                       </div>
                     </CardContent>
@@ -398,13 +660,12 @@ export default function HomePage() {
               className="text-center mt-12"
             >
               <Button size="lg" asChild>
-                <Link href="/tours">{t("viewAllTours")}</Link>
+                <Link href="/tours">View All Tours</Link>
               </Button>
             </motion.div>
           </div>
         </section>
 
-        {/* Why Choose Us Section */}
         <section className="py-20 bg-orange-50">
           <div className="container mx-auto px-4">
             <motion.div
@@ -414,8 +675,8 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">{t("whyChooseUs")}</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t("exceptionalSafariExperiences")}</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">Why Choose Us</h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">Exceptional safari experiences with local expertise</p>
             </motion.div>
 
             <motion.div
@@ -428,18 +689,18 @@ export default function HomePage() {
               {[
                 {
                   icon: "🦁",
-                  title: t("expertGuides"),
-                  description: t("professionalLocalGuides"),
+                  title: "Expert Guides",
+                  description: "Professional local guides with decades of experience",
                 },
                 {
                   icon: "🚗",
-                  title: t("qualityVehicles"),
-                  description: t("wellMaintainedVehicles"),
+                  title: "Quality Vehicles",
+                  description: "Well-maintained 4x4 vehicles with pop-up roofs",
                 },
                 {
                   icon: "⭐",
-                  title: t("bestExperience"),
-                  description: t("unforgettableMemories"),
+                  title: "Best Experience",
+                  description: "We create unforgettable memories that last a lifetime",
                 },
               ].map((feature, index) => (
                 <motion.div key={index} variants={itemVariants}>
@@ -458,7 +719,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Reviews Section */}
         <ReviewsSection />
       </div>
     </>
