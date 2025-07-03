@@ -257,7 +257,6 @@ export default function HomePage() {
               transition={{ duration: 1 }}
               className="text-5xl md:text-7xl font-bold mb-6"
             >
-              Premium Safaris in East Africa
             </motion.h1>
             <motion.p
               initial={{ y: 30, opacity: 0 }}
@@ -269,45 +268,6 @@ export default function HomePage() {
             </motion.p>
 
             {/* Search Bar */}
-            <motion.div
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 0.6 }}
-              className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto mb-8"
-            >
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                <Input
-                  type="text"
-                  placeholder="Search destinations or tours..."
-                  className="pl-10 pr-4 py-3 rounded-full bg-white/20 backdrop-blur-sm border-white/30 text-white placeholder-white/70"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-              </div>
-              <Button size="lg" className="px-8 py-3 rounded-full">
-                Find Tours
-              </Button>
-            </motion.div>
-
-            <motion.div
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 0.9 }}
-              className="flex flex-col md:flex-row gap-4 justify-center"
-            >
-              <Button size="lg" className="px-8 py-3" asChild>
-                <Link href="/tours">Book Your Safari</Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="px-8 py-3 text-white border-white hover:bg-white hover:text-black"
-                asChild
-              >
-                <Link href="/about">Learn More</Link>
-              </Button>
-            </motion.div>
           </div>
 
           {/* Slide Info */}
