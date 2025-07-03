@@ -506,7 +506,7 @@ export function AIBookingAssistant() {
         input.includes("support")
       ) {
         return {
-          text: "📞 You can reach us through:\n\n• WhatsApp: +254 726 485 228\n• Email: JaetravelExpeditionss@gmail.com\n• Or use our booking form to send your inquiry directly!\n\nWe're available 24/7 for emergencies and respond to all inquiries within 24 hours.",
+          text: "📞 You can reach us through:\n\n• WhatsApp: +254 726 485 228\n• Email: Info@jaetravel.co.ke\n• Or use our booking form to send your inquiry directly!\n\nWe're available 24/7 for emergencies and respond to all inquiries within 24 hours.",
         }
       }
 
@@ -609,7 +609,7 @@ Please confirm availability and send detailed itinerary. Thank you!`
       // Send email
       const emailSubject = `🦁 Safari Booking Request - ${selectedTour?.title || "Custom Tour"}`
       const emailBody = whatsappMessage.replace(/\n/g, "%0D%0A")
-      const emailUrl = `mailto:JaetravelExpeditionss@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
+      const emailUrl = `mailto:Info@jaetravel.co.ke?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
       window.open(emailUrl, "_blank")
 
       // Add confirmation message

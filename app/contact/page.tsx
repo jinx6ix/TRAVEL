@@ -99,7 +99,7 @@ export default function ContactPage() {
                     <Mail className="text-orange-600 mt-1" size={24} />
                     <div>
                       <h3 className="font-semibold mb-2">Email</h3>
-                      <p className="text-gray-600">JaetravelExpeditionss@gmail.com</p>
+                      <p className="text-gray-600">Info@jaetravel.co.ke</p>
                       <p className="text-sm text-gray-500 mt-1">We respond within 24 hours</p>
                     </div>
                   </div>

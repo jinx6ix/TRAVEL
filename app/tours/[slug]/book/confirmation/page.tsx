@@ -553,7 +553,7 @@ export default function BookingConfirmationPage() {
                     <Mail className="text-blue-600" size={20} />
                     <div>
                       <div className="font-medium">Email</div>
-                      <div className="text-sm text-gray-600">JaetravelExpeditionss@gmail.com</div>
+                      <div className="text-sm text-gray-600">Info@jaetravel.co.ke</div>
                     </div>
                   </div>
                 </div>

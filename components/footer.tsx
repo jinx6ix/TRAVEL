@@ -85,7 +85,7 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail size={16} />
-                <span className="text-gray-400">JaetravelExpeditionss@gmail.com</span>
+                <span className="text-gray-400">Info@jaetravel.co.ke</span>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin size={16} />
