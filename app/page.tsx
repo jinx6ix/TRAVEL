@@ -57,6 +57,7 @@ const destinations = [
 const offers = [
   {
     id: 1,
+    slug: "nairobi-highlights-express-tour",
     title: "Nairobi Highlights Express Tour",
     destination: "Kenya",
     duration: "Half Day (5 hrs)",
@@ -79,6 +80,7 @@ const offers = [
   },
   {
     id: 2,
+    slug: "maasai-mara-luxury-safari",
     title: "Maasai Mara Luxury Safari",
     destination: "Kenya",
     duration: "3 Days / 2 Nights",
@@ -101,6 +103,7 @@ const offers = [
   },
   {
     id: 3,
+    slug: "amboseli-elephant-paradise",
     title: "Amboseli Elephant Paradise",
     destination: "Kenya",
     duration: "2 Days / 1 Night",
@@ -126,6 +129,7 @@ const offers = [
 const featuredTours = [
   {
     id: 1,
+    slug: "masai-mara-safari-adventure",
     title: "Masai Mara JaeTravel Expeditions",
     destination: "Kenya",
     duration: "5 days",
@@ -136,6 +140,7 @@ const featuredTours = [
   },
   {
     id: 2,
+    slug: "serengeti-wildlife-safari",
     title: "Serengeti Wildlife Safari",
     destination: "Tanzania",
     duration: "7 days",
@@ -146,6 +151,7 @@ const featuredTours = [
   },
   {
     id: 3,
+    slug: "gorilla-trekking-experience",
     title: "Gorilla Trekking Experience",
     destination: "Rwanda",
     duration: "3 days",
@@ -221,10 +227,63 @@ const OfferCard = ({ offer, featured = false }: { offer: typeof offers[0]; featu
 
         <CardFooter className="mt-auto">
           <Button className="w-full bg-orange-600 hover:bg-orange-700" asChild>
-            <Link href={`/offers/${offer.id}`}>
+            <Link href={`/offers/${offer.slug}/book`}>
               {offer.cta} <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
+        </CardFooter>
+      </Card>
+    </motion.div>
+  )
+}
+
+const FeaturedTourCard = ({ tour }: { tour: typeof featuredTours[0] }) => {
+  return (
+    <motion.div
+      whileHover={{ y: -5 }}
+      transition={{ type: "spring", stiffness: 300 }}
+      className="h-full"
+    >
+      <Card className="h-full flex flex-col overflow-hidden hover:shadow-xl transition-shadow">
+        <div className="relative">
+          <img
+            src={tour.image}
+            alt={tour.title}
+            className="w-full h-48 object-cover"
+            loading="lazy"
+          />
+          <Badge className="absolute top-4 left-4 bg-orange-600 hover:bg-orange-700">
+            {tour.destination}
+          </Badge>
+        </div>
+
+        <CardHeader>
+          <CardTitle className="text-xl">{tour.title}</CardTitle>
+          <CardDescription>{tour.description}</CardDescription>
+        </CardHeader>
+
+        <CardContent className="flex-grow">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <Calendar size={16} className="text-orange-600" />
+              <span className="text-sm text-gray-600">{tour.duration}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Star size={16} className="fill-yellow-400 text-yellow-400" />
+              <span className="text-sm font-medium">{tour.rating}</span>
+            </div>
+          </div>
+        </CardContent>
+
+        <CardFooter className="mt-auto">
+          <div className="flex items-center justify-between w-full">
+            <span className="text-2xl font-bold text-orange-600">{tour.price}</span>
+            <Button asChild>
+              <Link href={`/offers/${tour.slug}/book`}>
+                Book Now <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
         </CardFooter>
       </Card>
     </motion.div>
@@ -293,7 +352,7 @@ const OffersSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Special Offers</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">Limited time deals on our most popular tours</p>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">Limited time deals on our most popular safaris</p>
         </motion.div>
 
         <div className="lg:hidden">
@@ -442,11 +501,12 @@ export default function HomePage() {
             "name": "Jae Travel Expeditions",
             "description": SEO.description,
             "url": SEO.canonical,
-            "logo": "https://www.jaetravel.com/images/logo.png",
+            "logo": "/public/logo.svg",
             "sameAs": [
-              "https://www.facebook.com/jaetravel",
-              "https://www.instagram.com/jaetravel",
-              "https://twitter.com/jaetravel"
+              "https://www.facebook.com/share/1CRoWAaLaa/",
+              "https://www.instagram.com/jaetravelexpeditions?utm_source=qr&igsh=MWIxYWowaWZhMm83cg==",
+              "https://twitter.com/jaetravel",
+              "http://tiktok.com/@jaetravelexpeditions"
             ],
             "address": {
               "@type": "PostalAddress",
@@ -457,7 +517,7 @@ export default function HomePage() {
               "addressCountry": "KE"
             },
             "openingHours": "Mo-Fr 08:00-17:00",
-            "telephone": "+254700123456"
+            "telephone": "+254 726 485228"
           })}
         </script>
       </Head>
@@ -573,7 +633,7 @@ export default function HomePage() {
                       <div className="absolute bottom-4 left-4 text-white">
                         <h3 className="text-2xl font-bold">{destination.name}</h3>
                         <p className="text-sm">
-                          {destination.tours} tours available
+                          {destination.tours} safaris available
                         </p>
                       </div>
                     </div>
@@ -602,7 +662,7 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Featured Tours</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">Featured Safaris</h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">Handpicked adventures for your perfect safari</p>
             </motion.div>
 
@@ -615,39 +675,7 @@ export default function HomePage() {
             >
               {featuredTours.map((tour) => (
                 <motion.div key={tour.id} variants={itemVariants}>
-                  <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
-                    <div className="relative overflow-hidden">
-                      <img
-                        src={tour.image || "/placeholder.svg"}
-                        alt={`${tour.title} safari tour`}
-                        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                        loading="lazy"
-                      />
-                      <Badge className="absolute top-4 left-4 bg-orange-600">{tour.destination}</Badge>
-                    </div>
-                    <CardHeader>
-                      <CardTitle className="text-xl">{tour.title}</CardTitle>
-                      <CardDescription>{tour.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-2">
-                          <Calendar size={16} />
-                          <span className="text-sm text-gray-600">{tour.duration}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Star size={16} className="fill-yellow-400 text-yellow-400" />
-                          <span className="text-sm font-medium">{tour.rating}</span>
-                        </div>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold text-orange-600">{tour.price}</span>
-                        <Button asChild>
-                          <Link href={`/tours/${tour.id}`}>Book Now</Link>
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <FeaturedTourCard tour={tour} />
                 </motion.div>
               ))}
             </motion.div>
@@ -660,7 +688,7 @@ export default function HomePage() {
               className="text-center mt-12"
             >
               <Button size="lg" asChild>
-                <Link href="/tours">View All Tours</Link>
+                <Link href="/offers">View All Safaris</Link>
               </Button>
             </motion.div>
           </div>

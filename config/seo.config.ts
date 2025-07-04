@@ -13,7 +13,7 @@ export const SEO: SEOConfig = {
     site_name: 'Jae Travel',
     images: [
       {
-        url: 'https://www.jaetravel.com/images/og-image.jpg',
+        url: '/public/logo.svg',
         width: 1200,
         height: 630,
         alt: 'Jae Travel Expeditions - East Africa Safari Tours',

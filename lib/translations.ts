@@ -13,6 +13,7 @@ export const translations = {
     handpickedAdventures: "Our handpicked adventures for an unforgettable experience",
     exceptionalSafariExperiences: "We provide exceptional safari experiences with local expertise",
     blog: "Blog",
+    specialOffers: "Special Offers",
     contact: "Contact",
     otherServices: "Other Services",
 
