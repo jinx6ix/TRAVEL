@@ -65,7 +65,7 @@ const offers = [
     originalPrice: "$129",
     rating: 4.8,
     reviews: 142,
-    image: "https://ik.imagekit.io/jinx/travel/nairobi-skyline.jpg?updatedAt=1750000000000?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/Giraffe-at-Nairobi-National-Park.webp?updatedAt=1751635762605?height=250&width=350",
     description: "Perfect for layovers! Experience Nairobi's top attractions in just hours",
     badge: "TRANSIT SPECIAL",
     highlights: [
@@ -88,7 +88,7 @@ const offers = [
     originalPrice: "$1,599",
     rating: 4.9,
     reviews: 89,
-    image: "https://ik.imagekit.io/jinx/travel/masai-mara-sunset.jpg?updatedAt=1750000000000?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/mahali-mzuri-2-2-420x310.jpg?updatedAt=1751635762576?height=250&width=350",
     description: "Premium safari with luxury tents & private game drives",
     badge: "BEST SELLER",
     highlights: [
@@ -111,7 +111,7 @@ const offers = [
     originalPrice: "$899",
     rating: 4.7,
     reviews: 63,
-    image: "https://ik.imagekit.io/jinx/travel/amboseli-elephants.jpg?updatedAt=1750000000000?height=250&width=350",
+    image: "https://ik.imagekit.io/jinx/travel/Amboseli-National-Park-Elephantsssss.jpg?updatedAt=1751635762755?height=250&width=350",
     description: "Hundreds of elephants with Kilimanjaro backdrop",
     badge: "FAMILY FAVORITE",
     highlights: [
