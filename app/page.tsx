@@ -1,18 +1,15 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Search, Calendar, Star, ChevronLeft, ChevronRight, ArrowRight, Check } from "lucide-react"
+import { Calendar, Star, ChevronLeft, ChevronRight, ArrowRight, Check } from "lucide-react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { useEffect } from "react"
-import { useLanguage } from "@/hooks/useLanguage"
-import { ReviewsSection } from "@/components/reviews-section"
 import Head from "next/head"
-import { SEO } from "@/config/seo.config"
+import Script from "next/script"
+import { ReviewsSection } from "@/components/reviews-section"
 
 const heroImages = [
   {
@@ -44,14 +41,14 @@ const heroImages = [
     title: "Mount Kilimanjaro",
     location: "Tanzania",
     description: "Conquer Africa's highest peak with expert guides",
-  },
+  }
 ]
 
 const destinations = [
   { name: "Kenya", image: "https://ik.imagekit.io/jinx/travel/_8108045.jpg?updatedAt=1750002790492?height=300&width=400", tours: 12 },
   { name: "Tanzania", image: "https://ik.imagekit.io/jinx/travel/_8502569.jpg?updatedAt=1750002716388?height=300&width=400", tours: 15 },
   { name: "Rwanda", image: "https://ik.imagekit.io/jinx/travel/25-Top-Attractions-in-Rwanda-2.jpg?updatedAt=1750004163696?height=300&width=400", tours: 8 },
-  { name: "Uganda", image: "https://ik.imagekit.io/jinx/travel/lake_bunyonyi__uganda-the-pearl-of-africa.webp?updatedAt=1750004263683?height=300&width=400", tours: 7 },
+  { name: "Uganda", image: "https://ik.imagekit.io/jinx/travel/lake_bunyonyi__uganda-the-pearl-of-africa.webp?updatedAt=1750004263683?height=300&width=400", tours: 7 }
 ]
 
 const offers = [
@@ -159,7 +156,7 @@ const featuredTours = [
     rating: 5.0,
     image: "https://ik.imagekit.io/jinx/travel/Gorilla-Tours-from-Mombasa-1024x675.webp?updatedAt=1750005789952?height=250&width=350",
     description: "Get up close with mountain gorillas in their natural habitat.",
-  },
+  }
 ]
 
 const OfferCard = ({ offer, featured = false }: { offer: typeof offers[0]; featured?: boolean }) => {
@@ -291,7 +288,6 @@ const FeaturedTourCard = ({ tour }: { tour: typeof featuredTours[0] }) => {
 }
 
 const OffersSection = () => {
-  const { t } = useLanguage()
   const [activeOffer, setActiveOffer] = useState(0)
 
   useEffect(() => {
@@ -421,24 +417,13 @@ const OffersSection = () => {
 }
 
 export default function HomePage() {
-  const { t } = useLanguage()
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true)
-  const [searchQuery, setSearchQuery] = useState("")
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroImages.length)
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length)
-  }
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroImages.length)
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length)
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      nextSlide()
-    }, 5000)
-
+    const timer = setInterval(() => nextSlide(), 5000)
     return () => clearInterval(timer)
   }, [])
 
@@ -466,46 +451,34 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>{SEO.defaultTitle}</title>
-        <meta name="description" content={SEO.description} />
-        <link rel="canonical" href={SEO.canonical} />
+        <title>Jae Travel Expeditions | Premium African Safaris</title>
+        <meta name="description" content="Experience unforgettable safaris in Kenya, Tanzania, Rwanda and Uganda with expert guides and luxury accommodations" />
+        <meta name="keywords" content="African safari, Kenya tours, Tanzania wildlife, gorilla trekking, luxury safaris" />
+        <link rel="canonical" href="https://jaetravel.com" />
         
-        <meta property="og:type" content={SEO.openGraph.type} />
-        <meta property="og:url" content={SEO.openGraph.url} />
-        <meta property="og:title" content={SEO.defaultTitle} />
-        <meta property="og:description" content={SEO.description} />
-        <meta property="og:image" content={SEO.openGraph.images[0].url} />
-        <meta property="og:site_name" content={SEO.openGraph.site_name} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://jaetravelexpeditions.com" />
+        <meta property="og:title" content="Jae Travel Expeditions | Premium African Safaris" />
+        <meta property="og:description" content="Experience unforgettable safaris in Kenya, Tanzania, Rwanda and Uganda with expert guides and luxury accommodations" />
+        <meta property="og:image" content="https://jaetravelexpeditions.com/social-preview.jpg" />
         
-        <meta name="twitter:card" content={SEO.twitter.cardType} />
-        <meta name="twitter:site" content={SEO.twitter.site} />
-        <meta name="twitter:creator" content={SEO.twitter.handle} />
-        <meta name="twitter:title" content={SEO.defaultTitle} />
-        <meta name="twitter:description" content={SEO.description} />
-        <meta name="twitter:image" content={SEO.openGraph.images[0].url} />
-        
-        {SEO.additionalMetaTags?.map((tag, index) => (
-          <meta 
-            key={index}
-            {...tag.name && { name: tag.name }}
-            {...tag.property && { property: tag.property }}
-            {...tag.httpEquiv && { httpEquiv: tag.httpEquiv }}
-            content={tag.content}
-          />
-        ))}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://jaetravelexpeditions.com" />
+        <meta property="twitter:title" content="Jae Travel Expeditions | Premium African Safaris" />
+        <meta property="twitter:description" content="Experience unforgettable safaris in Kenya, Tanzania, Rwanda and Uganda with expert guides and luxury accommodations" />
+        <meta property="twitter:image" content="https://jaetravelexpeditions.com/social-preview.jpg" />
         
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "TravelAgency",
             "name": "Jae Travel Expeditions",
-            "description": SEO.description,
-            "url": SEO.canonical,
-            "logo": "/public/logo.svg",
+            "description": "Premium safari experiences in East Africa",
+            "url": "https://jaetravel.com",
+            "logo": "https://ik.imagekit.io/jinx/travel/logo.svg?updatedAt=1751814070863",
             "sameAs": [
               "https://www.facebook.com/share/1CRoWAaLaa/",
               "https://www.instagram.com/jaetravelexpeditions?utm_source=qr&igsh=MWIxYWowaWZhMm83cg==",
-              "https://twitter.com/jaetravel",
               "http://tiktok.com/@jaetravelexpeditions"
             ],
             "address": {
@@ -522,6 +495,11 @@ export default function HomePage() {
         </script>
       </Head>
 
+      <Script 
+        src="https://widgets.bokun.io/assets/javascripts/apps/build/BokunWidgetsLoader.js?bookingChannelUUID=c1b81411-c441-4e77-9045-5ed0256bd1b4" 
+        strategy="afterInteractive"
+      />
+
       <div className="min-h-screen">
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-black/40 z-10" />
@@ -536,7 +514,7 @@ export default function HomePage() {
               className="w-full h-full relative"
             >
               <img
-                src={heroImages[currentSlide].url || "/placeholder.svg"}
+                src={heroImages[currentSlide].url}
                 alt={heroImages[currentSlide].title}
                 className="w-full h-full object-cover"
                 loading="eager"
@@ -582,6 +560,7 @@ export default function HomePage() {
               transition={{ duration: 1 }}
               className="text-5xl md:text-7xl font-bold mb-6"
             >
+              Jae Travel Expeditions
             </motion.h1>
           </div>
 
@@ -624,7 +603,7 @@ export default function HomePage() {
                   <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
                     <div className="relative overflow-hidden">
                       <img
-                        src={destination.image || "/placeholder.svg"}
+                        src={destination.image}
                         alt={`${destination.name} safari tours`}
                         className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                         loading="lazy"
@@ -652,6 +631,25 @@ export default function HomePage() {
         </section>
 
         <OffersSection />
+
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">Book Your Safari</h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Secure your adventure with our instant booking system
+              </p>
+            </div>
+            
+            <div className="max-w-4xl mx-auto bg-gray-50 p-6 rounded-lg shadow-md">
+              <div 
+                className="bokunWidget" 
+                data-src="https://widgets.bokun.io/online-sales/c1b81411-c441-4e77-9045-5ed0256bd1b4/experience/1052204"
+              ></div>
+              <noscript>Please enable javascript in your browser to book</noscript>
+            </div>
+          </div>
+        </section>
 
         <section className="py-20">
           <div className="container mx-auto px-4">

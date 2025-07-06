@@ -12,9 +12,9 @@ import { LanguageProvider } from "@/hooks/useLanguage"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "JaeTravel",
+  title: "JaeTravel Expeditions",
   icons: {
-    icon: '/logo.svg',
+    icon: 'https://ik.imagekit.io/jinx/travel/logo.svg?updatedAt=1751814070863',
   },
   description: "Discover the best safari experiences in Kenya, Tanzania, Rwanda, and Uganda",
   generator: 'v0.dev'
