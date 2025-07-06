@@ -107,12 +107,44 @@ const galleryItems = [
     id: 2,
     type: "video",
     title: "Gorilla Trekking",
-    src: "https://example.com/gorilla-trekking.mp4",
+    src: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Video%202025-07-06%20at%2021.39.39_fc1ee175.mp4?updatedAt=1751827587454",
     description: "Our team tracking mountain gorillas in Rwanda",
     date: "2023-12-15"
   },
   {
     id: 3,
+    type: "video",
+    title: "Gorilla Trekking",
+    src: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Video%202025-07-06%20at%2021.39.37_afc307d2.mp4?updatedAt=1751827566022",
+    description: "Our team tracking mountain gorillas in Rwanda",
+    date: "2023-12-15"
+  },
+  {
+    id: 4,
+    type: "video",
+    title: "Gorilla Trekking",
+    src: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Video%202025-07-06%20at%2021.39.38_16f7fe74.mp4?updatedAt=1751827535288",
+    description: "Our team tracking mountain gorillas in Rwanda",
+    date: "2023-12-15"
+  },
+  {
+    id: 5,
+    type: "video",
+    title: "Gorilla Trekking",
+    src: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Video%202025-07-06%20at%2021.39.38_631b1f42.mp4?updatedAt=1751827502305",
+    description: "Our team tracking mountain gorillas in Rwanda",
+    date: "2023-12-15"
+  },
+  {
+    id: 6,
+    type: "video",
+    title: "Gorilla Trekking",
+    src: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Video%202025-07-06%20at%2021.39.39_7dead60e.mp4?updatedAt=1751827500814",
+    description: "Our team tracking mountain gorillas in Rwanda",
+    date: "2023-12-15"
+  },
+  {
+    id: 7,
     type: "image",
     title: "Kilimanjaro Summit",
     src: "https://ik.imagekit.io/jinx/travel/kilimanjaro-moutain-climbing.jpg",
