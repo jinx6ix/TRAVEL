@@ -132,7 +132,7 @@ const galleryItems = [
     type: "video",
     title: "Hyenas feeding",
     src: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Video%202025-07-06%20at%2021.39.38_631b1f42.mp4?updatedAt=1751827502305",
-    description: "Our team watching hyenas eating",
+    description: "Our team watching hyenas eating dead zebra",
     date: "2023-12-15"
   },
   {
