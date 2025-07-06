@@ -128,18 +128,18 @@ const galleryItems = [
     date: "2023-12-15"
   },
   {
-    id: 5,
+    id: 6,
     type: "video",
     title: "Hyenas feeding",
-    src: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Video%202025-07-06%20at%2021.39.38_631b1f42.mp4?updatedAt=1751827502305",
-    description: "Our team watching hyenas eating dead zebra",
+    src: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Video%202025-07-06%20at%2021.39.39_7dead60e.mp4?updatedAt=1751827500814",
+    description: "Our team watching hyenas eating dead bufall0",
     date: "2023-12-15"
   },
   {
-    id: 6,
+    id: 5,
     type: "video",
     title: "Savanna Wildlife",
-    src: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Video%202025-07-06%20at%2021.39.39_7dead60e.mp4?updatedAt=1751827500814",
+    src: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Video%202025-07-06%20at%2021.39.38_631b1f42.mp4?updatedAt=1751827502305",
     description: "Our team exploring the savanna wildlife in East Africa",
     date: "2023-12-15"
   },
