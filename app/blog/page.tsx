@@ -108,7 +108,7 @@ const galleryItems = [
     type: "video",
     title: "Our fleet",
     src: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Video%202025-07-06%20at%2021.39.39_fc1ee175.mp4?updatedAt=1751827587454",
-    description: "Our team enjoying the safari in East Africa",
+    description: "Our clients enjoying their safari at dry Lake Ambosel",
     date: "2023-12-15"
   },
   {
@@ -116,7 +116,7 @@ const galleryItems = [
     type: "video",
     title: "Lion cubs playing",
     src: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Video%202025-07-06%20at%2021.39.37_afc307d2.mp4?updatedAt=1751827566022",
-    description: "Our team watching lion cubs play in the Serengeti",
+    description: "Our clients enjoying their early morning gamedrive and encountered the Rongai Pride of lions in the heart of Maasai Mara",
     date: "2023-12-15"
   },
   {
@@ -140,7 +140,7 @@ const galleryItems = [
     type: "video",
     title: "Savanna Wildlife",
     src: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Video%202025-07-06%20at%2021.39.38_631b1f42.mp4?updatedAt=1751827502305",
-    description: "Our team exploring the savanna wildlife in East Africa",
+    description: "Our clients having bush breakfast after the early morning gamedrive before proceeding on with their fullday gamedrive",
     date: "2023-12-15"
   },
   {
@@ -149,6 +149,30 @@ const galleryItems = [
     title: "Kilimanjaro Summit",
     src: "https://ik.imagekit.io/jinx/travel/kilimanjaro-moutain-climbing.jpg",
     description: "View from the top of Africa's highest peak",
+    date: "2023-11-20"
+  },
+  {
+    id: 8,
+    type: "video",
+    title: "Driving in Maasai Mara",
+    src: "/assets/videos/WhatsApp Video 2025-07-07 at 18.28.18_e6475437.mp4",
+    description: "Game driving on a rainy day in the heart of Maasai Mara",
+    date: "2023-11-20"
+  },
+  {
+    id: 9,
+    type: "video",
+    title: "Photography",
+    src: "/assets/videos/WhatsApp Video 2025-07-07 at 18.28.18_858f2162.mp4",
+    description: "Our day in the maasai mara doing photography",
+    date: "2023-11-20"
+  },
+  {
+    id: 10,
+    type: "video",
+    title: "Landcruiser Safari Vehicle",
+    src: "/assets/videos/WhatsApp Video 2025-07-07 at 18.28.17_fa769db9.mp4",
+    description: "Our photographic converted safari landcruiser",
     date: "2023-11-20"
   },
 ];

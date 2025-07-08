@@ -61,7 +61,7 @@ const vehicles = [
   {
     id: 4,
     name: "Photography Converted Vehicle",
-    image: "https://ik.imagekit.io/jinx/travel/land2-1.png?updatedAt=1750087059667?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Image%202025-07-07%20at%2018.28.17_94668579.jpg?updatedAt=1751902480309?height=300&width=400",
     description: "Specially modified vehicle with photography equipment and optimal viewing angles.",
     capacity: "6 passengers",
     features: ["Camera mounts", "Bean bags", "Extended roof", "Charging stations", "Storage compartments"],
