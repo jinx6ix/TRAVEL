@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     template: "%s | JaeTravel Expeditions"
   },
   icons: {
-    icon: 'https://ik.imagekit.io/jinx/travel/logo.jpg',
-    apple: 'https://ik.imagekit.io/jinx/travel/logo.jpg',
+    icon: 'https://ik.imagekit.io/jinx/travel/logo.jpg?updatedAt=1751985025367',
+    apple: 'https://ik.imagekit.io/jinx/travel/logo.jpg?updatedAt=1751985025367',
   },
   description: "Luxury safari tours and bespoke travel experiences in East Africa. Explore Kenya, Tanzania, Rwanda & Uganda with our expert guides. Book your dream African adventure today.",
   keywords: [
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     siteName: "JaeTravel Expeditions",
     images: [
       {
-        url: "https://ik.imagekit.io/jinx/travel/logo.jpg",
+        url: "https://ik.imagekit.io/jinx/travel/logo.jpg?updatedAt=1751985025367",
         width: 1200,
         height: 630,
         alt: "JaeTravel Expeditions Safari Experience",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "JaeTravel Expeditions | Premium African Safari Experiences",
     description: "Luxury safari tours and bespoke travel experiences in East Africa",
-    images: ["https://ik.imagekit.io/jinx/travel/logo.jpg"],
+    images: ["https://ik.imagekit.io/jinx/travel/logo.jpg?updatedAt=1751985025367"],
     creator: "@jaetravel",
   },
   robots: {
