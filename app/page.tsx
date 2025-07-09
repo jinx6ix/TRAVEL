@@ -416,6 +416,29 @@ const OffersSection = () => {
   )
 }
 
+const BookingWidgetSection = () => {
+  return (
+    <section className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Instant Booking</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Secure your adventure with our easy booking system
+          </p>
+        </div>
+        
+        <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md border border-gray-200">
+          <div 
+            className="bokunWidget" 
+            data-src="https://widgets.bokun.io/online-sales/c1b81411-c441-4e77-9045-5ed0256bd1b4/experience/1052204"
+          ></div>
+          <noscript>Please enable JavaScript in your browser to view the booking widget</noscript>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0)
 
@@ -632,24 +655,7 @@ export default function HomePage() {
 
         <OffersSection />
 
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Book Your Safari</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Secure your adventure with our instant booking system
-              </p>
-            </div>
-            
-            <div className="max-w-4xl mx-auto bg-gray-50 p-6 rounded-lg shadow-md">
-              <div 
-                className="bokunWidget" 
-                data-src="https://widgets.bokun.io/online-sales/c1b81411-c441-4e77-9045-5ed0256bd1b4/experience/1052204"
-              ></div>
-              <noscript>Please enable javascript in your browser to book</noscript>
-            </div>
-          </div>
-        </section>
+        <BookingWidgetSection />
 
         <section className="py-20">
           <div className="container mx-auto px-4">
