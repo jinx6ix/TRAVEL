@@ -1,14 +1,13 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import "./globals.css"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { AIBookingAssistant } from "@/components/ai-booking-assistant"
 import { LanguageProvider } from "@/hooks/useLanguage"
-import "./globals.css"
-import Script from "next/script"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -93,19 +92,17 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Google Analytics tag */}
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-Q6Y2Y3PSXH"
-          strategy="afterInteractive"
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6Y2Y3PSXH"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Q6Y2Y3PSXH');
+            `,
+          }}
         />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-Q6Y2Y3PSXH');
-          `}
-        </Script>
       </head>
       <body className={inter.className}>
         <LanguageProvider>
