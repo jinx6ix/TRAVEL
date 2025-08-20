@@ -8,6 +8,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { AIBookingAssistant } from "@/components/ai-booking-assistant"
 import { LanguageProvider } from "@/hooks/useLanguage"
+import { pageKeywords } from "@/lib/keywords"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -87,9 +88,9 @@ export const metadata: Metadata = {
     "safari packages",
     "wildlife photography tours"
   ],
-  authors: [{ name: "JaeTravel Expeditions", url: "https://jaetravel.com" }],
-  creator: "JaeTravel Expeditions",
-  publisher: "JaeTravel Expeditions",
+  authors: [{ name: "Ian Iraya", url: "https://jaetravel.com" }],
+  creator: "Ian Iraya",
+  publisher: "Ian Iraya",
   metadataBase: new URL('https://jaetravel.com'),
   alternates: {
     canonical: '/',
@@ -136,7 +137,36 @@ export const metadata: Metadata = {
   },
   category: "travel & tourism",
 }
+// SERVER-SIDE DYNAMIC METADATA
+export async function generateMetadata({
+  params,
+}: {
+  params: Record<string, string | string[]>;
+}): Promise<Metadata> {
+  const slugParts = Object.values(params).flat().map(String);
+  const path = "/" + slugParts.join("/");
 
+  const matched = pageKeywords.find((item: { url: string; h1: string; h2: string; metaTitle: string; metaDescription: string; internalLinks: string[]; keywords?: string[] }) => item.url === path) as { url: string; h1: string; h2: string; metaTitle: string; metaDescription: string; internalLinks: string[]; keywords?: string[] } | undefined;
+
+  if (!matched) return metadata;
+
+  return {
+    title: matched.metaTitle,
+    description: matched.metaDescription,
+    keywords: matched?.keywords || metadata.keywords,
+  };
+}
+
+// Helper: find H1/H2 and internal links for current path
+function getPageContent(pathname: string) {
+  const matched = pageKeywords.find((item) => item.url === pathname);
+  if (!matched) return { h1: "", h2: "", internalLinks: [] };
+  return {
+    h1: matched.h1,
+    h2: matched.h2,
+    internalLinks: matched.internalLinks || [],
+  };
+}
 export default function RootLayout({
   children,
 }: {
