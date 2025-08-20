@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jaetravel.com/sitemap.xml
