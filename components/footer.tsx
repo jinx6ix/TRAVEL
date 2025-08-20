@@ -201,6 +201,9 @@ export function Footer() {
           <p className="text-gray-400">
             © 2024 <Link href="/" className="hover:text-orange-400 transition-colors">JaeTravel Expeditions</Link>. {t("allRightsReserved")}
           </p>
+          <p className="text-gray-400">
+            © 2024 Created and developed by <Link href="https://portfolio2-delta-two-93.vercel.app/" className="hover:text-orange-400 transition-colors">Ian Iraya</Link>. {t("allRightsReserved")}
+          </p>
         </div>
       </div>
     </footer>
