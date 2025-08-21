@@ -1,84 +1,31 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-import "./globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
-import { AIBookingAssistant } from "@/components/ai-booking-assistant";
-import { LanguageProvider } from "@/hooks/useLanguage";
-import { pageKeywords } from "@/lib/keywords";
+// app/layout.tsx
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
+import "./globals.css"
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import { AIBookingAssistant } from "@/components/ai-booking-assistant"
+import { LanguageProvider } from "@/hooks/useLanguage"
+import { pageKeywords } from "@/lib/keywords"
+import { usePathname } from "next/navigation"
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] })
 
 // --- DEFAULT KEYWORDS ---
-const defaultKeywords = [
-  "African safari",
-  "Things to do in Kenya",
-  "Kenya safari tours",
-  "East Africa tours",
-  "luxury safari",
-  "safari adventures",
-  "Kenya wildlife tours",
-  "safari experiences",
-  "safari holidays",
-  "Kenya tours",
-  "safari travel",
-  "adventure travel",
-  "wildlife safaris",
-  "Kenya wildlife",
-  "safari guides",
-  "Kenya travel",
-  "safari booking",
-  "safari planning",
-  "Kenya adventure",
-  "safari excursions",
-  "Kenya adventure tours",
-  "Kenya luxury safari",
-  "Tanzania safari tours",
-  "Rwanda safari tours",
-  "Uganda safari tours",
-  "gorilla trekking tours",
-  "wildlife conservation",
-  "safari experiences Kenya",
-  "safari tours Kenya",
-  "safari tours Tanzania",
-  "safari tours Rwanda",
-  "safari tours Uganda",
-  "Kenya adventure travel",
-  "Tanzania adventure travel",
-  "things to do in places",
-  "top attractions in East Africa",
-  "restaurants in Kenya",
-  "restaurants in Tanzania",
-  "restaurants in Rwanda",
-  "restaurants in Uganda",
-  "top attractions in Kenya",
-  "top attractions in Tanzania",
-  "top attractions in Rwanda",
-  "top attractions in Uganda",
-  "top attractions in places",
-  "Kenya attractions",
-  "Tanzania attractions",
-  "Rwanda attractions",
-  "Uganda attractions",
-  "tourist attractions",
-  "Kenya tourist attractions",
-  "Tanzania tourist attractions",
-  "Rwanda tourist attractions",
-  "Uganda tourist attractions",
-  "Kenya travel guide",
-  "luxury travel Kenya",
-  "Tanzania tours",
-  "Rwanda gorilla trekking",
-  "Uganda wildlife",
-  "bespoke safari",
-  "private guided tours",
-  "East Africa travel",
-  "safari packages",
-  "wildlife photography tours",
-];
+const defaultKeywords: string[] = [
+  "African Safari",
+  "Luxury Safari Tours",
+  "Kenya Safari Packages",
+  "Tanzania Serengeti Tours",
+  "Uganda Gorilla Trekking",
+  "Rwanda Safari Holidays",
+  "East Africa Travel",
+  "Wildlife Safari Expeditions",
+  "Luxury African Vacations",
+]
 
 // --- DEFAULT METADATA ---
 export const defaultMetadata: Metadata = {
@@ -121,7 +68,8 @@ export const defaultMetadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "JaeTravel Expeditions | Premium African Safari Experiences",
-    description: "Luxury safari tours and bespoke travel experiences in East Africa",
+    description:
+      "Luxury safari tours and bespoke travel experiences in East Africa",
     images: [
       "https://ik.imagekit.io/jinx/travel/logo.jpg?updatedAt=1751985025367",
     ],
@@ -140,24 +88,30 @@ export const defaultMetadata: Metadata = {
   },
   verification: { yandex: "b585127e41b6a92f" },
   category: "travel & tourism",
-};
+}
 
 // --- SERVER-SIDE DYNAMIC METADATA ---
 export async function generateMetadata({
   params,
 }: {
-  params: Record<string, string | string[]>;
+  params: Record<string, string | string[]>
 }): Promise<Metadata> {
-  const path = "/" + Object.values(params).flat().map(String).join("/");
-  const matched = pageKeywords.find((item) => item.url === path);
+  const path = "/" + Object.values(params).flat().map(String).join("/")
+  const matched = pageKeywords.find((item) => item.url === path)
 
-  if (!matched) return defaultMetadata;
+  if (!matched) return defaultMetadata
 
   return {
     ...defaultMetadata,
-    title: { default: matched.metaTitle, template: "%s | JaeTravel Expeditions" },
+    title: {
+      default: matched.metaTitle,
+      template: "%s | JaeTravel Expeditions",
+    },
     description: matched.metaDescription,
-    keywords: "keywords" in matched ? (matched.keywords as string[] | undefined) : defaultKeywords,
+    keywords:
+      "keywords" in matched
+        ? (matched.keywords as string[] | undefined)
+        : defaultKeywords,
     openGraph: {
       ...defaultMetadata.openGraph,
       title: matched.metaTitle,
@@ -168,18 +122,77 @@ export async function generateMetadata({
       title: matched.metaTitle,
       description: matched.metaDescription,
     },
-  };
+  }
 }
 
-// --- HELPER FUNCTION FOR PAGE CONTENT ---
-export function getPageContent(pathname: string) {
-  const matched = pageKeywords.find((item) => item.url === pathname);
-  if (!matched) return { h1: "", h2: "", internalLinks: [] };
-  return {
-    h1: matched.h1,
-    h2: matched.h2,
-    internalLinks: matched.internalLinks || [],
-  };
+// --- CLIENT-SIDE DYNAMIC SCHEMA + LINKS ---
+// --- CLIENT-SIDE DYNAMIC SCHEMA + LINKS ---
+function DynamicSEO() {
+  "use client"
+  const pathname = usePathname()
+  const matched = pageKeywords.find((item) => item.url === pathname)
+
+  if (!matched) return null
+
+  // --- JSON-LD Schema ---
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "TouristTrip",
+    name: matched.metaTitle,
+    description: matched.metaDescription,
+    image:
+      "https://ik.imagekit.io/jinx/travel/logo.jpg?updatedAt=1751985025367",
+    provider: {
+      "@type": "TravelAgency",
+      name: "JaeTravel Expeditions",
+      url: "https://jaetravel.com",
+    },
+  }
+
+  // --- Internal Links or Auto Suggestions ---
+  let linksToShow = matched.internalLinks || []
+
+  if (!linksToShow || linksToShow.length === 0) {
+    // Fallback: suggest related safaris (same region/country if possible)
+    const related = pageKeywords
+      .filter(
+        (item) =>
+          item.url !== pathname && // avoid self
+          (item.region === matched.region || item.country === matched.country)
+      )
+      .slice(0, 4) // limit to 4 suggestions
+
+    linksToShow = related.map((r) => ({
+      url: r.url,
+      label: r.metaTitle,
+    }))
+  }
+
+  return (
+    <>
+      {/* ✅ JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+
+      {/* ✅ Internal Links or Auto Suggestions */}
+      {linksToShow.length > 0 && (
+        <section className="p-6 bg-gray-50">
+          <h3 className="text-lg font-semibold mb-3">Explore More Safaris</h3>
+          <ul className="list-disc list-inside space-y-2">
+            {linksToShow.map((link, idx) => (
+              <li key={idx}>
+                <a href={link.url} className="text-blue-600 hover:underline">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </>
+  )
 }
 
 // --- ROOT LAYOUT ---
@@ -191,24 +204,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           dangerouslySetInnerHTML={{
             __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-5MCS8TS6');
-          `,
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-5MCS8TS6');
+            `,
           }}
         />
+
         {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6Y2Y3PSXH"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6Y2Y3PSXH" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-Q6Y2Y3PSXH');
-          `,
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Q6Y2Y3PSXH');
+            `,
           }}
         />
       </head>
@@ -231,6 +245,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           >
             <Navbar />
             <main>{children}</main>
+            <DynamicSEO /> {/* ✅ per-page schema + links */}
             <Footer />
             <AIBookingAssistant />
           </ThemeProvider>
@@ -240,5 +255,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SpeedInsights />
       </body>
     </html>
-  );
+  )
 }
