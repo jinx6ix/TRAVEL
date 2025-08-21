@@ -1,4 +1,3 @@
-  "use client"
 // app/layout.tsx
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
@@ -11,6 +10,7 @@ import { Footer } from "@/components/footer"
 import { AIBookingAssistant } from "@/components/ai-booking-assistant"
 import { LanguageProvider } from "@/hooks/useLanguage"
 import { pageKeywords } from "@/lib/keywords"
+import DynamicSEO from "@/components/dynamic-seo"   // ✅ moved out
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -94,9 +94,14 @@ export const defaultMetadata: Metadata = {
 export async function generateMetadata({
   params,
 }: {
-  params: Record<string, string | string[]>
-}): Promise<Metadata> {
-  const path = "/" + Object.values(params).flat().map(String).join("/")
+  params?: Record<string, string | string[]>
+} = {}): Promise<Metadata> {
+  // ✅ Guard against undefined params
+  const path =
+    params && Object.keys(params).length > 0
+      ? "/" + Object.values(params).flat().map(String).join("/")
+      : "/"
+
   const matched = pageKeywords.find((item) => item.url === path)
 
   if (!matched) return defaultMetadata
@@ -123,71 +128,6 @@ export async function generateMetadata({
       description: matched.metaDescription,
     },
   }
-}
-
-// --- CLIENT-SIDE DYNAMIC SCHEMA + LINKS ---
-function DynamicSEO() {
-  // ✅ now imported only in client context
-  const { usePathname } = require("next/navigation")
-  const pathname = usePathname()
-  const matched = pageKeywords.find((item) => item.url === pathname)
-
-  if (!matched) return null
-
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "TouristTrip",
-    name: matched.metaTitle,
-    description: matched.metaDescription,
-    image:
-      "https://ik.imagekit.io/jinx/travel/logo.jpg?updatedAt=1751985025367",
-    provider: {
-      "@type": "TravelAgency",
-      name: "JaeTravel Expeditions",
-      url: "https://jaetravel.com",
-    },
-  }
-
-  let linksToShow = matched.internalLinks || []
-
-  if (!linksToShow || linksToShow.length === 0) {
-    const related = pageKeywords
-      .filter(
-        (item) =>
-          item.url !== pathname &&
-          (item.region === matched.region || item.country === matched.country)
-      )
-      .slice(0, 4)
-
-    linksToShow = related.map((r) => ({
-      url: r.url,
-      label: r.metaTitle,
-    }))
-  }
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
-
-      {linksToShow.length > 0 && (
-        <section className="p-6 bg-gray-50">
-          <h3 className="text-lg font-semibold mb-3">Explore More Safaris</h3>
-          <ul className="list-disc list-inside space-y-2">
-            {linksToShow.map((link, idx) => (
-              <li key={idx}>
-                <a href={link.url} className="text-blue-600 hover:underline">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-    </>
-  )
 }
 
 // --- ROOT LAYOUT ---
@@ -240,7 +180,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           >
             <Navbar />
             <main>{children}</main>
-            <DynamicSEO />
+            <DynamicSEO />   {/* ✅ safe client-only SEO */}
             <Footer />
             <AIBookingAssistant />
           </ThemeProvider>
