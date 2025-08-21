@@ -10,7 +10,6 @@ import { Footer } from "@/components/footer"
 import { AIBookingAssistant } from "@/components/ai-booking-assistant"
 import { LanguageProvider } from "@/hooks/useLanguage"
 import { pageKeywords } from "@/lib/keywords"
-import { usePathname } from "next/navigation"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -126,15 +125,15 @@ export async function generateMetadata({
 }
 
 // --- CLIENT-SIDE DYNAMIC SCHEMA + LINKS ---
-// --- CLIENT-SIDE DYNAMIC SCHEMA + LINKS ---
 function DynamicSEO() {
   "use client"
+  // ✅ now imported only in client context
+  const { usePathname } = require("next/navigation")
   const pathname = usePathname()
   const matched = pageKeywords.find((item) => item.url === pathname)
 
   if (!matched) return null
 
-  // --- JSON-LD Schema ---
   const schema = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
@@ -149,18 +148,16 @@ function DynamicSEO() {
     },
   }
 
-  // --- Internal Links or Auto Suggestions ---
   let linksToShow = matched.internalLinks || []
 
   if (!linksToShow || linksToShow.length === 0) {
-    // Fallback: suggest related safaris (same region/country if possible)
     const related = pageKeywords
       .filter(
         (item) =>
-          item.url !== pathname && // avoid self
+          item.url !== pathname &&
           (item.region === matched.region || item.country === matched.country)
       )
-      .slice(0, 4) // limit to 4 suggestions
+      .slice(0, 4)
 
     linksToShow = related.map((r) => ({
       url: r.url,
@@ -170,13 +167,11 @@ function DynamicSEO() {
 
   return (
     <>
-      {/* ✅ JSON-LD Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* ✅ Internal Links or Auto Suggestions */}
       {linksToShow.length > 0 && (
         <section className="p-6 bg-gray-50">
           <h3 className="text-lg font-semibold mb-3">Explore More Safaris</h3>
@@ -245,7 +240,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           >
             <Navbar />
             <main>{children}</main>
-            <DynamicSEO /> {/* ✅ per-page schema + links */}
+            <DynamicSEO />
             <Footer />
             <AIBookingAssistant />
           </ThemeProvider>
