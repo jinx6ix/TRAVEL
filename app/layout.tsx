@@ -147,6 +147,39 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `,
           }}
         />
+         {/* ✅ Structured Schema for Google */}
+         <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "TravelAgency",
+              name: "Jae Travel Expeditions",
+              url: "https://jaetravel.com",
+              logo: "https://jaetravel.com/logo.png",
+              sameAs: [
+                "https://www.facebook.com/jaetravel",
+                "https://twitter.com/jaetravel",
+                "https://www.instagram.com/jaetravel",
+              ],
+              description:
+                "Jae Travel Expeditions offers guided East Africa safaris including Kenya, Tanzania, Uganda & Rwanda safari packages.",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Nairobi CBD",
+                addressLocality: "Nairobi",
+                addressCountry: "Kenya",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+254700123456",
+                contactType: "Customer Service",
+              },
+              areaServed: ["Kenya", "Tanzania", "Uganda", "Rwanda"],
+              serviceType: "Safari Tours & Travel Packages",
+            }),
+          }}
+        />
 
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6Y2Y3PSXH" />
