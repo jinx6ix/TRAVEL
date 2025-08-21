@@ -1,3 +1,4 @@
+  "use client"
 // app/layout.tsx
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
@@ -126,7 +127,6 @@ export async function generateMetadata({
 
 // --- CLIENT-SIDE DYNAMIC SCHEMA + LINKS ---
 function DynamicSEO() {
-  "use client"
   // ✅ now imported only in client context
   const { usePathname } = require("next/navigation")
   const pathname = usePathname()
