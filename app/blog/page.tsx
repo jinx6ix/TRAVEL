@@ -396,7 +396,7 @@ export default function ContentPage() {
                               </div>
                             </div>
                             <Button asChild>
-                              <Link href={`/blog/${featuredPost.slug}`} aria-label={`Read full article: ${featuredPost.title}`}>
+                              <Link href={`/blog/${featuredPost.id}`} aria-label={`Read full article: ${featuredPost.title}`}>
                                 Read Full Article
                                 <ArrowRight size={16} className="ml-2" />
                               </Link>
@@ -475,7 +475,7 @@ export default function ContentPage() {
                               {new Date(post.date).toLocaleDateString()}
                             </time>
                             <Button variant="ghost" size="sm" asChild>
-                              <Link href={`/blog/${post.slug}`} aria-label={`Read more about ${post.title}`}>
+                              <Link href={`/blog/${post.id}`} aria-label={`Read more about ${post.title}`}>
                                 Read More
                                 <ArrowRight size={14} className="ml-1" />
                               </Link>

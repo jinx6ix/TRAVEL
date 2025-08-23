@@ -1,3 +1,4 @@
+
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Image from 'next/image';
@@ -167,6 +168,138 @@ const blogPosts: BlogPost[] = [
         <li class="leading-relaxed"><strong class="font-semibold text-gray-900">Macro lens:</strong> For detailed shots of insects, flowers, and small creatures</li>
       </ul>
     `
+  },
+  {
+    id: 4,
+    title: "Cultural Experiences: Meeting the Maasai People in Kenya",
+    excerpt: "Learn about authentic cultural interactions and respectful tourism practices with local communities.",
+    image: "https://ik.imagekit.io/jinx/travel/magestic-maasai-serengeti.jpg?updatedAt=1750013375250",
+    author: "Sarah Akinyi",
+    authorImage: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=100&q=80",
+    authorBio: "Cultural anthropologist passionate about community-based tourism in East Africa.",
+    date: "2023-12-28",
+    readTime: "7 min read",
+    category: "Culture",
+    location: "Narok, Kenya",
+    metaDescription: "Explore Maasai culture and traditions in Kenya. Learn about ceremonies, cultural practices, and ethical tourism interactions.",
+    keywords: "Maasai people, cultural safari, Kenya tourism, Maasai traditions, responsible travel",
+    relatedPosts: [1, 6, 7],
+    content: `
+      <h2 class="text-2xl font-bold mt-8 mb-4">Respectful Cultural Tourism</h2>
+      <p>Visiting the Maasai provides insight into one of Africa’s most iconic cultures. However, respectful engagement is key.</p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Support community-led initiatives and homestays</li>
+        <li>Ask permission before taking photographs</li>
+        <li>Participate in storytelling, dance, and craft-making</li>
+      </ul>
+    `
+  },
+  {
+    id: 5,
+    title: "Climbing Mount Kilimanjaro: Routes, Preparation & Tips",
+    excerpt: "A comprehensive guide to Africa's highest peak, including route options, training tips, and what to expect.",
+    image: "https://ik.imagekit.io/jinx/travel/kilimanjaro-moutain-climbing.jpg?updatedAt=1750013910253",
+    author: "John Safari",
+    authorImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80",
+    authorBio: "Experienced mountain guide specializing in Kilimanjaro and Mount Kenya treks.",
+    date: "2023-12-20",
+    readTime: "10 min read",
+    category: "Adventure",
+    location: "Mount Kilimanjaro, Tanzania",
+    metaDescription: "Comprehensive Kilimanjaro climbing guide: best routes, physical preparation, altitude acclimatization, and trekking tips.",
+    keywords: "Kilimanjaro climbing, trekking Africa, mountain hiking, Kilimanjaro routes, adventure travel",
+    relatedPosts: [3, 6, 8],
+    content: `
+      <h2 class="text-2xl font-bold mt-8 mb-4">Popular Routes to the Summit</h2>
+      <p>The most popular routes include Marangu, Machame, and Lemosho, each offering unique scenery and difficulty levels.</p>
+      <h3 class="text-xl font-semibold mt-6 mb-3">Preparation Tips</h3>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Train at least 3-6 months in advance</li>
+        <li>Practice hiking with a backpack</li>
+        <li>Acclimatize properly to reduce altitude sickness risk</li>
+      </ul>
+    `
+  },
+  {
+    id: 6,
+    title: "Sustainable Safari Tourism in East Africa | Eco-Friendly Travel",
+    excerpt: "How responsible tourism practices benefit wildlife conservation and local communities.",
+    image: "https://ik.imagekit.io/jinx/4-Days-Ngorongoro-Wildlife-Tour.jpg?updatedAt=1750076232872",
+    author: "Mary Kimani",
+    authorImage: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80",
+    authorBio: "Eco-tourism advocate working with NGOs to promote conservation-focused travel in Africa.",
+    date: "2023-12-15",
+    readTime: "6 min read",
+    category: "Eco-Tourism",
+    location: "Ngorongoro, Tanzania",
+    metaDescription: "Learn how eco-friendly safari practices protect wildlife and support African communities.",
+    keywords: "eco tourism, sustainable safari, responsible travel, conservation Africa",
+    relatedPosts: [1, 4, 8],
+    content: `
+      <h2 class="text-2xl font-bold mt-8 mb-4">Principles of Sustainable Safaris</h2>
+      <p>Sustainable safaris aim to minimize environmental impact while maximizing benefits for communities and conservation.</p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Choose lodges with eco-certifications</li>
+        <li>Support local guides and community projects</li>
+        <li>Limit plastic use and waste generation</li>
+      </ul>
+    `
+  },
+  {
+    id: 7,
+    title: "Safari Packing List: Essentials for Your African Adventure",
+    excerpt: "The ultimate packing checklist for your East African safari, from clothing to camera gear.",
+    image: "https://ik.imagekit.io/jinx/travel/Mombasa-beach-2-1960x800.webp?updatedAt=1750085411718",
+    author: "David Mwangi",
+    authorImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80",
+    authorBio: "Safari planner and travel writer specializing in East African travel logistics.",
+    date: "2023-12-10",
+    readTime: "4 min read",
+    category: "Travel Tips",
+    location: "East Africa",
+    metaDescription: "Essential safari packing guide: clothing, gear, and accessories to make your African safari safe and enjoyable.",
+    keywords: "safari packing list, travel essentials Africa, safari tips, safari gear",
+    relatedPosts: [3, 4, 5],
+    content: `
+      <h2 class="text-2xl font-bold mt-8 mb-4">Clothing Essentials</h2>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Neutral-colored clothing (avoid bright colors)</li>
+        <li>Lightweight, breathable fabrics</li>
+        <li>Warm layers for early morning game drives</li>
+      </ul>
+      <h3 class="text-xl font-semibold mt-6 mb-3">Other Essentials</h3>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Binoculars for wildlife viewing</li>
+        <li>Insect repellent and sunscreen</li>
+        <li>Reusable water bottle</li>
+      </ul>
+    `
+  },
+  {
+    id: 8,
+    title: "Bird Watching in Uganda: Diverse Species & Best Locations",
+    excerpt: "Discover Uganda's incredible bird diversity across different habitats and national parks.",
+    image: "https://ik.imagekit.io/jinx/travel/lilac.jpg?updatedAt=1750098330501",
+    author: "Sarah Akinyi",
+    authorImage: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=100&q=80",
+    authorBio: "Ornithologist with extensive field research on East African bird species.",
+    date: "2023-12-05",
+    readTime: "8 min read",
+    category: "Birding",
+    location: "Uganda",
+    metaDescription: "Uganda birdwatching guide: best birding locations, unique species, and seasonal tips for bird enthusiasts.",
+    keywords: "bird watching Uganda, birding safari, Uganda wildlife, best birding spots Africa",
+    relatedPosts: [2, 6, 7],
+    content: `
+      <h2 class="text-2xl font-bold mt-8 mb-4">Top Birding Destinations</h2>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Queen Elizabeth National Park — over 600 recorded species</li>
+        <li>Mabamba Swamp — famous for the rare Shoebill Stork</li>
+        <li>Bwindi Impenetrable Forest — diverse forest species</li>
+      </ul>
+      <h3 class="text-xl font-semibold mt-6 mb-3">Best Time for Birding</h3>
+      <p>November to April offers the best opportunity as migratory species join Uganda’s resident birds.</p>
+    `
   }
 ];
 
@@ -291,7 +424,7 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
         </div>
         
         {/* Article Content */}
-        <div className="mb-12 text-lg">
+        <div className="mb-12 text-lg text-black">
           <div 
             className="article-content"
             dangerouslySetInnerHTML={{ __html: post.content }} 
