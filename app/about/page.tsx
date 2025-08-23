@@ -3,7 +3,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Users, Globe, Heart, Star } from "lucide-react"
+import { Users, Globe, Heart, Star, Plus } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 
@@ -11,7 +11,7 @@ const teamMembers = [
   {
     name: "John Safari",
     role: "Founder & CEO",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
     experience: "15 years",
     description:
       "A visionary leader with a passion for connecting people with nature and creating sustainable tourism opportunities.",
@@ -19,7 +19,7 @@ const teamMembers = [
   {
     name: "Mary Kimani",
     role: "Head Guide",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
     experience: "12 years",
     description:
       "An expert in wildlife behavior and conservation, Mary leads our guests on unforgettable JaeTravel Expeditions.",
@@ -27,7 +27,7 @@ const teamMembers = [
   {
     name: "David Mwangi",
     role: "Operations Manager",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
     experience: "10 years",
     description:
       "David ensures the smooth and efficient operation of our tours, providing exceptional support to our guests and team.",
@@ -35,10 +35,19 @@ const teamMembers = [
   {
     name: "Sarah Akinyi",
     role: "Cultural Guide",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
     experience: "8 years",
     description:
       "Sarah is dedicated to sharing the rich cultural heritage of East Africa, creating meaningful connections between our guests and local communities.",
+  },
+  {
+    name: "Join Our Team",
+    role: "Wildlife Guide",
+    image: "",
+    experience: "Open Position",
+    description:
+      "Passionate about wildlife and conservation? We're looking for experienced guides to join our growing team.",
+    isOpenPosition: true,
   },
 ]
 
@@ -88,9 +97,9 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl mb-8"
+            className="text-xl mb-8 max-w-3xl mx-auto"
           >
-            Your trusted partner for unforgettable East African safari experiences
+            Your trusted partner for unforgettable East African safari experiences since 2009
           </motion.p>
         </div>
       </section>
@@ -105,21 +114,21 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl font-bold mb-6">Our Story</h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <h2 className="text-4xl font-bold mb-6 text-gray-900">Our Story</h2>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
                 Founded in 2009, JaeTravel Expeditions began as a small family business with a simple mission: to share the
                 incredible wildlife and natural beauty of East Africa with travelers from around the world.
               </p>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
                 Over the years, we've grown into a trusted safari operator, but we've never lost sight of our core
                 values: authentic experiences, sustainable tourism, and genuine care for our guests and local
                 communities.
               </p>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                 Today, we're proud to offer comprehensive safari experiences across Kenya, Tanzania, Rwanda, and Uganda,
                 with a team of passionate guides and a fleet of well-maintained vehicles.
               </p>
-              <Button size="lg" asChild>
+              <Button size="lg" asChild className="bg-orange-600 hover:bg-orange-700">
                 <Link href="/tours">Explore Our Tours</Link>
               </Button>
             </motion.div>
@@ -132,9 +141,9 @@ export default function AboutPage() {
               className="relative"
             >
               <img
-                src="/placeholder.svg?height=500&width=600"
-                alt="JaeTravel Expeditions Story"
-                className="rounded-lg shadow-xl"
+                src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                alt="JaeTravel Expeditions team on safari in Masai Mara"
+                className="rounded-lg shadow-xl w-full h-auto"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-lg" />
             </motion.div>
@@ -152,9 +161,9 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Achievements</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Numbers that reflect our commitment to excellence and customer satisfaction
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Our Achievements</h2>
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+              Numbers that reflect our commitment to excellence and customer satisfaction in East African safari tours
             </p>
           </motion.div>
 
@@ -167,10 +176,10 @@ export default function AboutPage() {
           >
             {achievements.map((achievement, index) => (
               <motion.div key={index} variants={itemVariants}>
-                <Card className="text-center p-6 hover:shadow-lg transition-shadow">
+                <Card className="text-center p-6 hover:shadow-lg transition-shadow border-0 bg-white">
                   <CardContent className="p-0">
                     <div className="text-4xl md:text-5xl font-bold text-orange-600 mb-2">{achievement.number}</div>
-                    <p className="text-gray-600 font-medium">{achievement.label}</p>
+                    <p className="text-gray-700 font-medium">{achievement.label}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -189,8 +198,8 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Values</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">The principles that guide everything we do</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Our Values</h2>
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto">The principles that guide everything we do at JaeTravel Expeditions</p>
           </motion.div>
 
           <motion.div
@@ -223,13 +232,13 @@ export default function AboutPage() {
               },
             ].map((value, index) => (
               <motion.div key={index} variants={itemVariants}>
-                <Card className="text-center p-6 hover:shadow-lg transition-shadow h-full">
+                <Card className="text-center p-6 hover:shadow-lg transition-shadow h-full border-0 bg-gray-50">
                   <div className="flex justify-center mb-4">{value.icon}</div>
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-xl">{value.title}</CardTitle>
+                    <CardTitle className="text-xl text-gray-900">{value.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600">{value.description}</p>
+                    <p className="text-gray-700">{value.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -248,9 +257,9 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Meet Our Team</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Passionate professionals dedicated to creating unforgettable safari experiences
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Meet Our Team</h2>
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+              Passionate professionals dedicated to creating unforgettable safari experiences across East Africa
             </p>
           </motion.div>
 
@@ -263,22 +272,38 @@ export default function AboutPage() {
           >
             {teamMembers.map((member, index) => (
               <motion.div key={index} variants={itemVariants}>
-                <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={member.image || "/placeholder.svg"}
-                      alt={member.name}
-                      className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                    <Badge className="absolute top-4 right-4 bg-orange-600">{member.experience}</Badge>
+                <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 border-0 h-full flex flex-col">
+                  <div className="relative overflow-hidden h-64 bg-gray-200 flex items-center justify-center">
+                    {member.image ? (
+                      <>
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                        <Badge className="absolute top-4 right-4 bg-orange-600">{member.experience}</Badge>
+                      </>
+                    ) : (
+                      <div className="flex flex-col items-center justify-center text-gray-500">
+                        <Plus size={48} className="mb-2" />
+                        <p>Join Our Team</p>
+                      </div>
+                    )}
                   </div>
                   <CardHeader>
-                    <CardTitle className="text-xl">{member.name}</CardTitle>
+                    <CardTitle className="text-xl text-gray-900">{member.name}</CardTitle>
                     <CardDescription className="text-orange-600 font-medium">{member.role}</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">{member.description}</p>
+                  <CardContent className="flex-grow">
+                    <p className="text-gray-700">{member.description}</p>
                   </CardContent>
+                  {member.isOpenPosition && (
+                    <div className="p-4 pt-0">
+                      <Button asChild className="w-full bg-green-600 hover:bg-green-700">
+                        <Link href="/careers">Apply Now</Link>
+                      </Button>
+                    </div>
+                  )}
                 </Card>
               </motion.div>
             ))}
@@ -297,10 +322,10 @@ export default function AboutPage() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Your Adventure?</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Join hundreds of satisfied travelers who have experienced the magic of East Africa with us.
+              Join hundreds of satisfied travelers who have experienced the magic of East Africa with JaeTravel Expeditions.
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" asChild>
+              <Button size="lg" variant="secondary" asChild className="bg-white text-orange-600 hover:bg-gray-100">
                 <Link href="/tours">Browse Tours</Link>
               </Button>
               <Button
