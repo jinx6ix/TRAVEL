@@ -1,6 +1,6 @@
-// app/layout.tsx
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -10,9 +10,12 @@ import { Footer } from "@/components/footer"
 import { AIBookingAssistant } from "@/components/ai-booking-assistant"
 import { LanguageProvider } from "@/hooks/useLanguage"
 import { pageKeywords } from "@/lib/keywords"
-import DynamicSEO from "@/components/dynamic-seo"   // ✅ moved out
+import DynamicSEO from "@/components/dynamic-seo"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap", // ✅ reduces CLS
+})
 
 // --- DEFAULT KEYWORDS ---
 const defaultKeywords: string[] = [
@@ -96,7 +99,6 @@ export async function generateMetadata({
 }: {
   params?: Record<string, string | string[]>
 } = {}): Promise<Metadata> {
-  // ✅ Guard against undefined params
   const path =
     params && Object.keys(params).length > 0
       ? "/" + Object.values(params).flat().map(String).join("/")
@@ -135,20 +137,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Google Tag Manager */}
+        {/* ✅ Preconnect for faster FCP */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+        {/* ✅ Structured Data */}
         <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-5MCS8TS6');
-            `,
-          }}
-        />
-         {/* ✅ Structured Schema for Google */}
-         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -172,7 +167,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               },
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+254700123456",
+                telephone: "+254-726-485-228",
                 contactType: "Customer Service",
               },
               areaServed: ["Kenya", "Tanzania", "Uganda", "Rwanda"],
@@ -180,26 +175,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }),
           }}
         />
-
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6Y2Y3PSXH" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-Q6Y2Y3PSXH');
-            `,
-          }}
-        />
       </head>
+
       <body className={inter.className}>
+        {/* GTM (noscript) */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-5MCS8TS6"
             height="0"
             width="0"
+            loading="lazy"
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
@@ -213,11 +198,35 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           >
             <Navbar />
             <main>{children}</main>
-            <DynamicSEO />   {/* ✅ safe client-only SEO */}
+            <DynamicSEO />
             <Footer />
             <AIBookingAssistant />
           </ThemeProvider>
         </LanguageProvider>
+
+        {/* ✅ Load analytics AFTER interactive (reduces TBT) */}
+        <Script id="gtm" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-5MCS8TS6');
+          `}
+        </Script>
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Q6Y2Y3PSXH"
+          strategy="afterInteractive"
+        />
+        <Script id="ga" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-Q6Y2Y3PSXH');
+          `}
+        </Script>
 
         <Analytics />
         <SpeedInsights />
