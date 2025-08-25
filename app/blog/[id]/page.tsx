@@ -341,7 +341,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function BlogDetailPage({ params }: { params: { id: string } }) {
+export default async function BlogDetailPage({ params }: { params: { id: string } }) {
   const post = blogPosts.find(p => p.id === Number(params.id));
   
   if (!post) {
