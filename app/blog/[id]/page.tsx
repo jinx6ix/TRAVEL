@@ -1,11 +1,10 @@
-
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Calendar, User, Clock, ArrowLeft, Share, BookOpen, MapPin } from "lucide-react";
+import { Calendar, User, Clock, ArrowLeft, MapPin } from "lucide-react";
 
-// Define the blog post interface
+// Blog post interface
 interface BlogPost {
   id: number;
   title: string;
@@ -25,7 +24,7 @@ interface BlogPost {
   relatedPosts?: number[];
 }
 
-// Blog posts data with full content
+// Blog posts data
 const blogPosts: BlogPost[] = [
   {
     id: 1,
@@ -186,7 +185,7 @@ const blogPosts: BlogPost[] = [
     relatedPosts: [1, 6, 7],
     content: `
       <h2 class="text-2xl font-bold mt-8 mb-4">Respectful Cultural Tourism</h2>
-      <p>Visiting the Maasai provides insight into one of Africa’s most iconic cultures. However, respectful engagement is key.</p>
+      <p>Visiting the Maasai provides insight into one of Africa's most iconic cultures. However, respectful engagement is key.</p>
       <ul class="list-disc pl-5 space-y-2">
         <li>Support community-led initiatives and homestays</li>
         <li>Ask permission before taking photographs</li>
@@ -298,21 +297,20 @@ const blogPosts: BlogPost[] = [
         <li>Bwindi Impenetrable Forest — diverse forest species</li>
       </ul>
       <h3 class="text-xl font-semibold mt-6 mb-3">Best Time for Birding</h3>
-      <p>November to April offers the best opportunity as migratory species join Uganda’s resident birds.</p>
+      <p>November to April offers the best opportunity as migratory species join Uganda's resident birds.</p>
     `
   }
 ];
 
-// Generate metadata for SEO
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const post = blogPosts.find(p => p.id === Number(params.id));
+// Generate metadata
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const post = blogPosts.find(p => p.id === Number(id));
   
   if (!post) {
-    return {
-      title: 'Post Not Found | Safari Experts Blog',
-    };
+    return { title: "Post Not Found | Safari Experts Blog" };
   }
-  
+
   return {
     title: `${post.title} | Safari Experts Blog`,
     description: post.metaDescription,
@@ -336,20 +334,16 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
 
 // Generate static params for SSG
 export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    id: post.id.toString(),
-  }));
+  return blogPosts.map(post => ({ id: post.id.toString() }));
 }
 
-export default async function BlogDetailPage({ params }: { params: { id: string } }) {
-  const post = blogPosts.find(p => p.id === Number(params.id));
-  
-  if (!post) {
-    notFound();
-  }
-  
-  // Get related posts
-  const relatedPosts = post.relatedPosts 
+// Blog detail page component
+export default async function BlogDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const post = blogPosts.find(p => p.id === Number(id));
+  if (!post) notFound();
+
+  const relatedPosts = post.relatedPosts
     ? blogPosts.filter(p => post.relatedPosts?.includes(p.id))
     : blogPosts.filter(p => p.id !== post.id && p.category === post.category).slice(0, 3);
 
@@ -357,183 +351,96 @@ export default async function BlogDetailPage({ params }: { params: { id: string 
     <article className="min-h-screen bg-white">
       {/* Header */}
       <header className="bg-gradient-to-r from-orange-600 to-red-600 text-white py-4 sticky top-0 z-10 shadow-md">
-        <div className="container mx-auto px-4">
-          <nav className="flex justify-between items-center">
-            <Link href="/blog" className="flex items-center text-sm font-medium hover:text-orange-200 transition-colors">
-              <ArrowLeft size={16} className="mr-2" />
-              Back to Blog
-            </Link>
-            <div className="flex gap-6 text-sm">
-              <Link href="/destinations" className="hover:text-orange-200 transition-colors">Destinations</Link>
-              <Link href="/tours" className="hover:text-orange-200 transition-colors">Tours</Link>
-              <Link href="/about" className="hover:text-orange-200 transition-colors">About</Link>
-              <Link href="/contact" className="hover:text-orange-200 transition-colors">Contact</Link>
-            </div>
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <Link href="/blog" className="flex items-center text-sm font-medium hover:text-orange-200 transition-colors">
+            <ArrowLeft size={16} className="mr-2" />
+            Back to Blog
+          </Link>
+          <nav className="flex gap-6 text-sm">
+            <Link href="/destinations" className="hover:text-orange-200 transition-colors">Destinations</Link>
+            <Link href="/tours" className="hover:text-orange-200 transition-colors">Tours</Link>
+            <Link href="/about" className="hover:text-orange-200 transition-colors">About</Link>
+            <Link href="/contact" className="hover:text-orange-200 transition-colors">Contact</Link>
           </nav>
         </div>
       </header>
-      
+
       {/* Blog Content */}
       <div className="container mx-auto px-4 py-8 max-w-4xl">
-        {/* Category and Breadcrumb */}
+        {/* Breadcrumb */}
         <div className="flex items-center justify-between mb-6">
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
-            {post.category}
-          </span>
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">{post.category}</span>
           <div className="text-sm text-gray-600">
             <Link href="/" className="hover:text-orange-600 transition-colors">Home</Link> / 
             <Link href="/blog" className="hover:text-orange-600 transition-colors"> Blog</Link> / 
             <span className="text-gray-800 font-medium"> {post.title}</span>
           </div>
         </div>
-        
+
         {/* Title */}
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">{post.title}</h1>
-        
-        {/* Meta Information */}
+
+        {/* Meta Info */}
         <div className="flex flex-wrap items-center gap-4 text-gray-600 mb-6">
-          <div className="flex items-center gap-1">
-            <User size={16} className="text-gray-500" />
-            <span className="text-gray-700">{post.author}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Calendar size={16} className="text-gray-500" />
-            <span className="text-gray-700">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Clock size={16} className="text-gray-500" />
-            <span className="text-gray-700">{post.readTime}</span>
-          </div>
-          {post.location && (
-            <div className="flex items-center gap-1">
-              <MapPin size={16} className="text-gray-500" />
-              <span className="text-gray-700">{post.location}</span>
-            </div>
-          )}
+          <div className="flex items-center gap-1"><User size={16} className="text-gray-500" /><span>{post.author}</span></div>
+          <div className="flex items-center gap-1"><Calendar size={16} className="text-gray-500" /><span>{new Date(post.date).toLocaleDateString()}</span></div>
+          <div className="flex items-center gap-1"><Clock size={16} className="text-gray-500" /><span>{post.readTime}</span></div>
+          {post.location && <div className="flex items-center gap-1"><MapPin size={16} className="text-gray-500" /><span>{post.location}</span></div>}
         </div>
-        
+
         {/* Featured Image */}
         <div className="relative h-64 md:h-96 mb-8 rounded-lg overflow-hidden shadow-lg">
-          <Image
-            src={post.image}
-            alt={post.title}
-            fill
-            className="object-cover"
-            priority
-          />
+          <Image src={post.image} alt={post.title} fill className="object-cover" priority />
         </div>
-        
-        {/* Article Content */}
+
+        {/* Content */}
         <div className="mb-12 text-lg text-black">
-          <div 
-            className="article-content"
-            dangerouslySetInnerHTML={{ __html: post.content }} 
-          />
+          <div className="article-content" dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
-        
+
         {/* Author Bio */}
-        <div className="bg-gray-50 rounded-lg p-6 mb-12 border border-gray-200">
-          <div className="flex items-start gap-4">
-            {post.authorImage && (
-              <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-white shadow-md">
-                <Image
-                  src={post.authorImage}
-                  alt={post.author}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            )}
+        {post.authorImage && (
+          <div className="bg-gray-50 rounded-lg p-6 mb-12 border border-gray-200 flex items-start gap-4">
+            <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-white shadow-md">
+              <Image src={post.authorImage} alt={post.author} fill className="object-cover" />
+            </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">About {post.author}</h3>
               <p className="text-gray-700">{post.authorBio}</p>
             </div>
           </div>
-        </div>
-        
-        {/* Share Buttons */}
-        <div className="border-t border-b border-gray-200 py-6 mb-12">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Share this article</h3>
-          <div className="flex gap-3">
-            <button className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors shadow-md">
-              <span className="sr-only">Share on Facebook</span>
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-              </svg>
-            </button>
-            <button className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-400 text-white hover:bg-blue-500 transition-colors shadow-md">
-              <span className="sr-only">Share on Twitter</span>
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-              </svg>
-            </button>
-            <button className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-700 text-white hover:bg-blue-800 transition-colors shadow-md">
-              <span className="sr-only">Share on LinkedIn</span>
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        
+        )}
+
         {/* Related Posts */}
         <div className="mb-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-orange-500 pl-3">Related Articles</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {relatedPosts.map(relatedPost => (
-              <div key={relatedPost.id} className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300">
-                <div className="relative h-48">
-                  <Image
-                    src={relatedPost.image}
-                    alt={relatedPost.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+            {relatedPosts.map(rp => (
+              <div key={rp.id} className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300">
+                <div className="relative h-48"><Image src={rp.image} alt={rp.title} fill className="object-cover" /></div>
                 <div className="p-4">
-                  <span className="inline-block px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800 rounded-full mb-2">
-                    {relatedPost.category}
-                  </span>
-                  <h3 className="font-semibold text-lg mb-2 line-clamp-2 text-gray-900">{relatedPost.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">{relatedPost.excerpt}</p>
-                  <Link 
-                    href={`/blog/${relatedPost.id}`}
-                    className="text-orange-600 font-medium text-sm hover:text-orange-700 inline-flex items-center transition-colors"
-                  >
-                    Read more
-                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
+                  <span className="inline-block px-2 py-1 text-xs font-medium bg-orange-100 text-orange-800 rounded-full mb-2">{rp.category}</span>
+                  <h3 className="font-semibold text-lg mb-2 line-clamp-2 text-gray-900">{rp.title}</h3>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">{rp.excerpt}</p>
+                  <Link href={`/blog/${rp.id}`} className="text-orange-600 font-medium text-sm hover:text-orange-700 inline-flex items-center transition-colors">
+                    Read more <span className="ml-1">→</span>
                   </Link>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
-      
-      {/* Newsletter Subscription */}
-      <section className="bg-orange-50 py-12 border-t border-orange-100">
-        <div className="container mx-auto px-4 max-w-3xl text-center">
+
+        {/* Newsletter */}
+        <section className="bg-orange-50 py-12 border-t border-orange-100 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Stay Updated with Our Safari Insights</h2>
           <p className="text-gray-700 mb-6">Subscribe to our newsletter for the latest safari tips, wildlife updates, and exclusive travel offers.</p>
           <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-              required
-            />
-            <button
-              type="submit"
-              className="px-6 py-3 bg-orange-600 text-white font-medium rounded-lg hover:bg-orange-700 transition-colors shadow-md"
-            >
-              Subscribe
-            </button>
+            <input type="email" placeholder="Enter your email" className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" required />
+            <button type="submit" className="px-6 py-3 bg-orange-600 text-white font-medium rounded-lg hover:bg-orange-700 transition-colors shadow-md">Subscribe</button>
           </form>
-        </div>
-      </section>
-      
+        </section>
+      </div>
     </article>
   );
 }
