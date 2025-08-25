@@ -2,11 +2,6 @@ import { Metadata } from 'next'
 import AboutClient from './AboutClient'
 
 // Preload critical images
-export const preload = () => {
-  return [
-    { href: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80", as: "image" },
-  ]
-}
 
 export const metadata: Metadata = {
   title: "About JaeTravel Expeditions - Safari Experts Since 2009",
