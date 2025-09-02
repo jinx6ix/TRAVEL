@@ -601,7 +601,7 @@ const tours = [
   duration: "7 days",
   price: 2450,
   rating: 4.8,
-  image: "https://ik.imagekit.io/jinx/travel/accessible-safari-kenya.jpg?updatedAt=1750073000000?height=250&width=350",
+  image: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Image%202025-09-01%20at%204.36.05%20PM.jpeg?updatedAt=1756810077465",
   description: "A fully accessible safari experience designed for travelers with mobility challenges, featuring wheelchair-accessible vehicles, accommodations, and tailored wildlife viewing.",
   category: "wildlife",
   wildlife: ["Elephants", "Lions", "Giraffes", "Zebras", "Hippos", "Various Bird Species"],
