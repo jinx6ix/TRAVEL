@@ -596,7 +596,7 @@ const tours = [
   },
 {
   id: 44,
-  title: "Accessible  Kenya Safari Experience",
+  title: "Accessible Kenya Safari Experience for people with disabilities",
   destination: "Kenya",
   duration: "7 days",
   price: 2450,
