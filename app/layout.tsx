@@ -28,7 +28,58 @@ const defaultKeywords: string[] = [
   "East Africa Travel",
   "Wildlife Safari Expeditions",
   "Luxury African Vacations",
-]
+  
+  // Disability and accessible tourism keywords
+  "Accessible Safari Africa",
+  "Wheelchair Friendly Safari",
+  "Disability Tours Kenya",
+  "Special Needs Safari",
+  "Mobility Impaired Safari",
+  "Accessible Tanzania Tours",
+  "Disabled Travel East Africa",
+  "Barrier-Free Safari",
+  "Inclusive African Tours",
+  "Adapted Safari Vehicles",
+  "Wheelchair Accessible Safari Truck",
+  "Handicap Friendly Safari",
+  
+  // Vehicle booking and rental keywords
+  "Safari Vehicle Rental",
+  "4x4 Hire Kenya",
+  "Landcruiser Rental Tanzania",
+  "Safari Truck Booking",
+  "Uganda 4x4 Rental",
+  "Rwanda Tour Vehicle Hire",
+  "Book Safari Vehicle",
+  "Safari Transport Rental",
+  "Overland Truck Hire",
+  "Pop-Up Roof Safari Vehicle",
+  "Photography Safari Truck",
+  "Custom Safari Vehicle Rental",
+  
+  // Additional general safari keywords
+  "Maasai Mara Safari",
+  "Serengeti Migration Tour",
+  "Ngorongoro Crater Safari",
+  "Amboseli Elephant Safari",
+  "Victoria Falls Tours",
+  "Zanzibar Beach Holiday",
+  "Big Five Safari Africa",
+  "Great Migration Safari",
+  "Family Safari Africa",
+  "Honeymoon Safari Package",
+  "Budget Safari Tours",
+  "Group Safari Expeditions",
+  "Private Safari Guide",
+  "Custom Safari Itinerary",
+  "African Photo Safari",
+  "Cultural Safari Experience",
+  "Safari and Beach Package",
+  "Conservation Tourism Africa",
+  "Mobility tours", 
+  "Accessible tours",
+  "Handicapped tours"
+];
 
 // --- DEFAULT METADATA ---
 export const defaultMetadata: Metadata = {

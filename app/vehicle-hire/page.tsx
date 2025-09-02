@@ -17,11 +17,11 @@ const vehicles = [
     description: "The ultimate safari vehicle with exceptional off-road capabilities and reliability.",
     capacity: "7 passengers",
     features: ["4WD", "Pop-up roof", "Charging ports", "Cooler box", "First aid kit"],
-    pricePerDay: 120,
+    pricePerDay: 200,
     ideal: "Perfect for game drives and rough terrain",
     specifications: {
       engine: "4.5L V8",
-      transmission: "Automatic",
+      transmission: "Manual",
       fuelType: "Diesel",
       luggage: "Large capacity",
     },
@@ -33,7 +33,7 @@ const vehicles = [
     description: "Comfortable and reliable SUV perfect for family safaris and city tours.",
     capacity: "5 passengers",
     features: ["4WD", "Air conditioning", "GPS navigation", "Bluetooth", "Safety features"],
-    pricePerDay: 90,
+    pricePerDay: 200,
     ideal: "Great for families and comfortable touring",
     specifications: {
       engine: "3.0L Turbo",
@@ -49,7 +49,7 @@ const vehicles = [
     description: "Experience the wild with luxury camping setup on your vehicle roof.",
     capacity: "4 passengers",
     features: ["Roof tent", "Camping gear", "Solar power", "Kitchenette", "Bedding included"],
-    pricePerDay: 180,
+    pricePerDay: 200,
     ideal: "Perfect for adventurous camping safaris",
     specifications: {
       engine: "4.0L V6",
@@ -65,7 +65,7 @@ const vehicles = [
     description: "Specially modified vehicle with photography equipment and optimal viewing angles.",
     capacity: "6 passengers",
     features: ["Camera mounts", "Bean bags", "Extended roof", "Charging stations", "Storage compartments"],
-    pricePerDay: 200,
+    pricePerDay: 250,
     ideal: "Designed for professional photography",
     specifications: {
       engine: "4.2L Diesel",
@@ -77,11 +77,11 @@ const vehicles = [
   {
     id: 5,
     name: "Wheelchair Accessible Vehicle",
-    image: "https://ik.imagekit.io/jinx/travel/wheelchair-1-1536x776%20(1).png?updatedAt=1750087063365?height=300&width=400",
+    image: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Image%202025-09-02%20at%2011.43.25%20AM.jpeg?updatedAt=1756810077606",
     description: "Fully accessible vehicle ensuring everyone can enjoy JaeTravel Expeditions.",
     capacity: "4 passengers + wheelchair",
     features: ["Wheelchair ramp", "Secure wheelchair area", "Easy access", "Safety harnesses", "Accessible controls"],
-    pricePerDay: 150,
+    pricePerDay: 300,
     ideal: "Inclusive safari experiences for all",
     specifications: {
       engine: "3.5L V6",
@@ -103,7 +103,7 @@ const vehicles = [
       "Comfortable seating",
       "Large windows"
     ],
-    pricePerDay: 120,
+    pricePerDay: 300,
     ideal: "Family safaris and small group tours",
     specifications: {
       engine: "2.4L 4-cylinder",
@@ -120,7 +120,7 @@ const vehicles = [
 ]
 
 export default function VehicleHirePage() {
-  const pageTitle = "Safari Vehicle Hire | Jae Travel Expeditions"
+  const pageTitle = "Safari Vehicle Hire | Jae Travel Expeditions | Disability Tours in Kenya | Accessible Safaris Kenya | Disabled Travel Kenya | Accessible Tourism Kenya | Barrier-Free Safari in Kenya| Kenya Disability Travel | Wheel Chair accessible Kenya ? "
   const pageDescription = "Rent premium safari vehicles in East Africa. Choose from Landcruisers, Prados, photography rigs, and wheelchair accessible options for your perfect safari adventure."
   
   const containerVariants = {
@@ -163,8 +163,7 @@ export default function VehicleHirePage() {
         <meta name="twitter:image" content="https://www.jaetravel.com/images/vehicle-hire-twitter.jpg" />
         
         {/* Additional Tags */}
-        <meta name="keywords" content="safari vehicle hire, Kenya 4x4 rental, Tanzania Landcruiser, Uganda safari car, Rwanda tour vehicle, wheelchair accessible safari, photography safari vehicle" />
-        
+        <meta name="keywords" content="safari vehicle hire, Kenya 4x4 rental, Tanzania Landcruiser, Uganda safari car, Rwanda tour vehicle, wheelchair accessible safari, photography safari vehicle, disability tour vehicle, accessible safari transport, wheelchair friendly safari truck, adapted safari vehicle Kenya, modified 4x4 for disabled, handicap accessible safari car, special needs safari transport, disability friendly Landcruiser, wheelchair lift safari vehicle, accessible pop-up roof safari truck, disability adapted tour vehicle, safari vehicle with wheelchair ramp, mobility impaired safari transport, disabled access safari hire, adaptive equipment safari vehicle, barrier-free safari transport, inclusive tourism vehicles, accessible overland truck Kenya" />        
         {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({

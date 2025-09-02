@@ -580,6 +580,18 @@ const toursData = [
       rating: 4.3,
       reviewCount: 56,
       image: "https://ik.imagekit.io/jinx/travel/flamingos-lakes-great-rift-valley-1.jpg?updatedAt=1750072866145?height=200&width=300"
+    },
+    {
+      id: 44,
+      slug: "kenya-disability-safari",
+      title: "Accessible Kenya Safari Experience",
+      destination: "Kenya",
+      duration: "7 days",
+      price: 2450,
+      category: "wildlife",
+      rating: 4.8,
+      reviewCount: 24,
+      image: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Image%202025-09-02%20at%2011.43.25%20AM.jpeg?updatedAt=1756810077606"
     }
 
 ]

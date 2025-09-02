@@ -3255,7 +3255,146 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+      },
+      {
+        id: 44,
+        slug: "kenya-disability-safari",
+        title: "Accessible Kenya Safari Experience for people with disabilities",
+        destination: "Kenya",
+        duration: "7 days",
+        price: 2450,
+        category: "wildlife",
+        rating: 4.8,
+        reviewCount: 24,
+        difficulty: "Easy",
+        groupSize: "2-6 people",
+        wildlife: ["Elephants", "Lions", "Giraffes", "Zebras", "Hippos", "Flamingos", "Various Birds"],
+        description: "Accessible Safaris in Kenya. Explore the beauty of Kenya with confidence and comfort. Our Disability Tours in Kenya are designed to provide accessible and inclusive travel experiences, allowing travelers with disabilities to enjoy the stunning landscapes, diverse wildlife, and vibrant cultures of East Africa.",
+        highlights: [
+          "Wheelchair-accessible safari vehicles",
+          "Barrier-free lodging accommodations",
+          "Trained guides in disability assistance",
+          "Accessible game drives in Maasai Mara",
+          "Mount Kilimanjaro viewpoints in Amboseli",
+          "Accessible trails at Lake Nakuru",
+          "Nairobi accessible city tours"
+        ],
+        included: [
+          "Accessible 4x4 safari vehicles with wheelchair ramps",
+          "Barrier-free lodge accommodations",
+          "Professional guides trained in accessibility",
+          "All park entry fees and permits",
+          "All meals with dietary accommodations",
+          "Accessible transportation throughout",
+          "Medical equipment assistance coordination"
+        ],
+        excluded: [
+          "International flights",
+          "Travel insurance",
+          "Personal expenses",
+          "Specialized medical equipment rental",
+          "Visa fees"
+        ],
+        itinerary: [
+          {
+            day: 1,
+            title: "Arrival in Nairobi",
+            description: "Accessible airport transfer and check-in to wheelchair-accessible hotel",
+            activities: ["Airport greeting", "Accessibility briefing", "Hotel orientation"],
+            accommodation: "Accessible Nairobi Hotel",
+            meals: "Dinner"
+          },
+          {
+            day: 2,
+            title: "Nairobi Accessible City Tour",
+            description: "Visit Nairobi's accessible attractions including David Sheldrick Wildlife Trust and Giraffe Centre",
+            activities: ["Wildlife orphanage visit", "Giraffe feeding experience", "City orientation"],
+            accommodation: "Accessible Nairobi Hotel",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 3,
+            title: "Lake Nakuru National Park",
+            description: "Travel to Lake Nakuru with accessible picnic sites and wildlife viewing",
+            activities: ["Scenic drive", "Accessible game drive", "Flamingo viewing", "Accessible picnic"],
+            accommodation: "Accessible Lake Nakuru Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 4,
+            title: "Maasai Mara National Reserve",
+            description: "Transfer to Maasai Mara, Kenya's premier accessible wildlife destination",
+            activities: ["Accessible transfer", "Afternoon accessible game drive", "Wildlife viewing"],
+            accommodation: "Accessible Mara Safari Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 5,
+            title: "Full Day Maasai Mara",
+            description: "Complete accessible safari experience in Maasai Mara with Big Five viewing",
+            activities: ["Morning game drive", "Accessible wildlife viewing", "Afternoon game drive", "Cultural visit"],
+            accommodation: "Accessible Mara Safari Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 6,
+            title: "Maasai Mara to Nairobi",
+            description: "Return journey to Nairobi with scenic stops",
+            activities: ["Final game drive", "Accessible return transfer", "Farewell dinner"],
+            accommodation: "Accessible Nairobi Hotel",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 7,
+            title: "Departure",
+            description: "Accessible transfer to Jomo Kenyatta International Airport",
+            activities: ["Hotel checkout", "Airport transfer"],
+            meals: "Breakfast"
+          }
+        ],
+        gallery: [
+          "https://ik.imagekit.io/jinx/travel/WhatsApp%20Image%202025-07-07%20at%2018.28.17_94668579.jpg?updatedAt=1751902480309",
+          "https://ik.imagekit.io/jinx/travel/WhatsApp%20Image%202025-09-02%20at%2011.43.25%20AM.jpeg?updatedAt=1756810077606",
+          "https://ik.imagekit.io/jinx/travel/WhatsApp%20Image%202025-09-01%20at%204.36.05%20PM.jpeg?updatedAt=1756810077465"
+        ],
+        bestTime: "June to October (Dry season for best accessibility)",
+        whatToBring: [
+          "Comfortable clothing",
+          "Binoculars",
+          "Camera",
+          "Sun protection",
+          "Personal medical supplies"
+        ],
+        physicalRequirements: "Designed for travelers with mobility challenges. Minimal physical effort required.",
+        cancellationPolicy: "Free cancellation up to 21 days before departure. Special medical cancellation policy available.",
+        reviews: [
+          {
+            id: 1,
+            name: "Michael Johnson",
+            rating: 5,
+            comment: "Life-changing experience! As a wheelchair user, I never thought I could enjoy a safari. The accessible vehicles and accommodations were perfect.",
+            date: "2024-02-10",
+            verified: true
+          },
+          {
+            id: 2,
+            name: "Sarah Williams",
+            rating: 5,
+            comment: "They thought of everything for my father who has limited mobility. The staff was incredibly attentive and the adapted vehicles made all the difference.",
+            date: "2024-01-22",
+            verified: true
+          },
+          {
+            id: 3,
+            name: "David Chen",
+            rating: 5,
+            comment: "The sign language interpreter made this experience accessible for our deaf daughter. Thank you for making our family safari possible!",
+            date: "2024-03-05",
+            verified: true
+          }
+        ]
       }
+
     ];
 
 

@@ -594,6 +594,19 @@ const tours = [
     wildlife: ["Various"],
     slug: "lake-naivasha-boat-safari",
   },
+{
+  id: 44,
+  title: "Accessible  Kenya Safari Experience",
+  destination: "Kenya",
+  duration: "7 days",
+  price: 2450,
+  rating: 4.8,
+  image: "https://ik.imagekit.io/jinx/travel/accessible-safari-kenya.jpg?updatedAt=1750073000000?height=250&width=350",
+  description: "A fully accessible safari experience designed for travelers with mobility challenges, featuring wheelchair-accessible vehicles, accommodations, and tailored wildlife viewing.",
+  category: "wildlife",
+  wildlife: ["Elephants", "Lions", "Giraffes", "Zebras", "Hippos", "Various Bird Species"],
+  slug: "kenya-disability-safari"
+}
 ]
 
 const TOURS_PER_PAGE = 10
