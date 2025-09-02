@@ -102,4 +102,38 @@ export const pageKeywords = [
       { label: "Kigali Tours", url: "/destinations/rwanda/kigali" }
     ]
   },
+  {
+    url: "/vehicle-hire",
+    h1: "Safari Vehicle Hire & Rental",
+    h2: "4x4 Landcruisers, Adapted Vehicles & Safari Trucks",
+    metaTitle: "Safari Vehicle Hire | 4x4 Rental Kenya & Tanzania | Accessible Safari Vehicles",
+    metaDescription: "Book fully equipped safari vehicles for your African adventure. 4x4 Landcruisers, wheelchair accessible trucks, and photography safari vehicles available for hire across East Africa.",
+    keywords: [
+      "safari vehicle hire",
+      "4x4 rental kenya",
+      "tanzania landcruiser hire",
+      "uganda safari car rental",
+      "rwanda tour vehicle",
+      "wheelchair accessible safari vehicle",
+      "photography safari truck",
+      "disabled access safari hire",
+      "adapted 4x4 africa",
+      "pop-up roof safari vehicle",
+      "safari truck booking",
+      "overland vehicle rental",
+      "accessible safari transport",
+      "special needs safari vehicle",
+      "mobility impaired safari truck"
+    ],
+    region: "East Africa",
+    countries: ["Kenya", "Tanzania", "Uganda", "Rwanda"],
+    internalLinks: [
+      { label: "Wheelchair Accessible Vehicles", url: "/vehicle-hire/vehicle-hire#wheelchair" },
+      { label: "4x4 Landcruiser Rental", url: "/vehicle-hire/landcruiser" },
+      { label: "Photography Safari Vehicles", url: "/vehicle-hire/vehicle-hire#photography" },
+      { label: "Self-Drive Safari Options", url: "/vehicle-hire/" },
+      { label: "With Driver Packages", url: "/vehicle-hire/" },
+      { label: "Group Safari Trucks", url: "/vehicle-hire/" }
+    ]
+  }
 ]
