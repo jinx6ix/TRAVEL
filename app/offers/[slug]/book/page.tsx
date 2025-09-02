@@ -150,7 +150,7 @@ const accommodationTypes = [
 ]
 
 export default function BookingPage() {
-  const params = useParams()
+  const params = useParams<{ slug?: string }>()
   const router = useRouter()
   const { t } = useLanguage()
   const [currentStep, setCurrentStep] = useState(1)
@@ -179,14 +179,17 @@ export default function BookingPage() {
     paymentMethod: "full",
   })
 
-  const offer = safariOffers.find((o) => o.slug === params.slug)
+  const slug = params?.slug
+  const offer = safariOffers.find((o) => o.slug === slug)
 
-  if (!offer) {
+  if (!slug || !offer) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Offer Not Found</h1>
-          <Button onClick={() => router.push("/offers")}>Back to Offers</Button>
+          <Button onClick={() => router.push("/offers")}>
+            Back to Offers
+          </Button>
         </div>
       </div>
     )
