@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { notFound } from "next/navigation";
 import { useParams, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -27,6 +28,10 @@ import {
 } from "lucide-react"
 import { motion } from "framer-motion"
 import { useLanguage } from "@/hooks/useLanguage"
+
+interface PageProps {
+  params: { slug?: string };
+}
 
 interface BookingFormData {
   // Personal Information
@@ -643,13 +648,24 @@ export default function BookingPage() {
     paymentMethod: "full",
   })
 
+  if (!params?.slug) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Invalid tour</h1>
+          <Button onClick={() => router.push("/tours")}>Back to Tours</Button>
+        </div>
+      </div>
+    )
+  }
+
   const tour = toursData.find((t) => t.slug === params.slug)
 
   if (!tour) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Tour Not Found</h1>
+          <h1 className="text-2xl font-bold mb-4">Tours Not Found</h1>
           <Button onClick={() => router.push("/tours")}>Back to Tours</Button>
         </div>
       </div>
