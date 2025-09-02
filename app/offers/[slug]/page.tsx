@@ -101,13 +101,18 @@ const safariOffers = [
 ]
 
 export default function OfferDetailPage() {
-  const params = useParams()
+  const params = useParams<{ slug: string }>()
   const router = useRouter()
   const { t } = useLanguage()
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
+  // Safely extract slug (fallback to empty string if null)
+  const slug = params?.slug ?? ""
+
   // Find offer by slug or ID
-  const offer = safariOffers.find((o) => o.slug === params.slug || o.id.toString() === params.slug)
+  const offer = safariOffers.find(
+    (o) => o.slug === slug || o.id.toString() === slug
+  )
 
   // Generate SEO metadata
   const pageTitle = `${offer?.title} | ${SEO.defaultTitle}`
