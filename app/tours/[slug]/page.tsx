@@ -58,13 +58,35 @@ interface TourData {
 import  toursData  from "@/data/tours-data"
 
 export default function TourDetailPage() {
-  const params = useParams()
+  const params = useParams<{ slug?: string }>()
   const router = useRouter()
   const { t } = useLanguage()
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-  // Find tour by slug or ID
-  const tour = toursData.find((t) => t.slug === params.slug || t.id.toString() === params.slug)
+  const slug = params?.slug
+  const tour = toursData.find(
+    (t) => t.slug === slug || t.id.toString() === slug
+  )
+
+  // Guard if no slug or tour not found
+  if (!slug || !tour) {
+    return (
+      <div className="min-h-screen flex items-center justify-center pt-16">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Tour Not Found</h1>
+          <p className="text-gray-600 mb-4">
+            The tour you're looking for doesn't exist.
+          </p>
+          <Button
+            onClick={() => router.push("/tours")}
+            className="bg-orange-600 hover:bg-orange-700"
+          >
+            Back to Tours
+          </Button>
+        </div>
+      </div>
+    )
+  }
 
   // Generate SEO metadata
   const pageTitle = `${tour?.title} | ${SEO.defaultTitle}`

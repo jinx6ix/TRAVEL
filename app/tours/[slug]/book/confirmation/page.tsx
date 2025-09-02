@@ -405,22 +405,26 @@ const toursData = [
 ]
 
 export default function BookingConfirmationPage() {
-  const params = useParams()
+  const params = useParams<{ slug?: string }>()
   const router = useRouter()
 
-  const tour = toursData.find((t) => t.slug === params.slug)
+  const slug = params?.slug
+  const tour = toursData.find((t) => t.slug === slug)
   const bookingReference = `SAF${Date.now().toString().slice(-6)}`
 
-  if (!tour) {
+  if (!slug || !tour) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Tour Not Found</h1>
-          <Button onClick={() => router.push("/tours")}>Back to Tours</Button>
+          <Button onClick={() => router.push("/tours")}>
+            Back to Tours
+          </Button>
         </div>
       </div>
     )
   }
+
 
   return (
     <div className="min-h-screen bg-gray-50">
