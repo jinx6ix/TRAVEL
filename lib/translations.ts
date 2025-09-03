@@ -6,6 +6,7 @@ export const translations = {
     destinations: "Destinations",
     vehicleHire: "Vehicle Hire",
     about: "About",
+    disabilityTours: "Disability Tours",
 
     // ... existing translations
     exploreMostBeautiful: "Explore the most beautiful destinations in East Africa",

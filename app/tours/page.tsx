@@ -594,19 +594,84 @@ const tours = [
     wildlife: ["Various"],
     slug: "lake-naivasha-boat-safari",
   },
-{
-  id: 44,
-  title: "Accessible Kenya Safari Experience for people with disabilities",
-  destination: "Kenya",
-  duration: "7 days",
-  price: 2450,
-  rating: 4.8,
-  image: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Image%202025-09-01%20at%204.36.05%20PM.jpeg?updatedAt=1756810077465",
-  description: "A fully accessible safari experience designed for travelers with mobility challenges, featuring wheelchair-accessible vehicles, accommodations, and tailored wildlife viewing.",
-  category: "wildlife",
-  wildlife: ["Elephants", "Lions", "Giraffes", "Zebras", "Hippos", "Various Bird Species"],
-  slug: "kenya-disability-safari"
-}
+  {
+    id: 44,
+    title: "Accessible Kenya Safari Experience for people with disabilities",
+    destination: "Kenya",
+    duration: "7 days",
+    price: 2450,
+    rating: 4.8,
+    image: "https://ik.imagekit.io/jinx/travel/WhatsApp%20Image%202025-09-01%20at%204.36.05%20PM.jpeg?updatedAt=1756810077465",
+    description: "A fully accessible safari experience designed for travelers with mobility challenges, featuring wheelchair-accessible vehicles, accommodations, and tailored wildlife viewing.",
+    category: "wildlife",
+    wildlife: ["Elephants", "Lions", "Giraffes", "Zebras", "Hippos", "Various Bird Species"],
+    slug: "kenya-disability-safari"
+  },
+  {
+    id: 45,
+    title: "4-Day Accessible Masai Mara Experience",
+    destination: "Kenya",
+    duration: "4 days",
+    price: 1450,
+    rating: 4.9,
+    image: "https://ik.imagekit.io/jinx/travel/63baaaef6b14d.jpg?updatedAt=1756903341232",
+    description: "A focused accessible safari in the Masai Mara with wheelchair-adapted vehicles, accessible tented camps, and front-row seats to the Great Migration.",
+    category: "wildlife",
+    wildlife: ["Lions", "Elephants", "Cheetahs", "Buffalo", "Wildebeest", "Zebras"],
+    slug: "accessible-masai-mara-safari"
+  },
+  {
+    id: 46,
+    title: "Tanzania Accessible Safari Adventure",
+    destination: "Tanzania",
+    duration: "8 days",
+    price: 2950,
+    rating: 4.7,
+    image: "https://ik.imagekit.io/jinx/travel/WhatsApp-Image-2025-01-15-at-12.06.45-PM.webp?updatedAt=1756903260238",
+    description: "An inclusive journey through Tanzania’s Serengeti and Ngorongoro Crater with adapted safari vehicles, accessible lodges, and unforgettable wildlife encounters.",
+    category: "wildlife",
+    wildlife: ["Lions", "Leopards", "Elephants", "Wildebeest", "Rhinos", "Flamingos"],
+    slug: "tanzania-accessible-safari"
+  },
+  {
+    id: 47,
+    title: "Rwanda Accessible Gorilla Experience",
+    destination: "Rwanda",
+    duration: "5 days",
+    price: 3200,
+    rating: 4.9,
+    image: "https://ik.imagekit.io/jinx/travel/bisatelodge1.jpg?updatedAt=1756902495617",
+    description: "A rare opportunity to experience Rwanda’s mountain gorillas with specially designed accessible trekking routes, adapted viewing platforms, and cultural encounters.",
+    category: "wildlife",
+    wildlife: ["Mountain Gorillas", "Golden Monkeys", "Various Bird Species"],
+    slug: "rwanda-accessible-gorilla-safari"
+  },
+  {
+    id: 48,
+    title: "Uganda Accessible Primate Safari",
+    destination: "Uganda",
+    duration: "6 days",
+    price: 2200,
+    rating: 4.6,
+    image: "https://ik.imagekit.io/jinx/travel/6-days-gorilla-tracking-and-rafting-jinja.jpg?updatedAt=1750083327865",
+    description: "An accessible primate-focused safari in Uganda with wheelchair-friendly pathways, adapted chimpanzee and gorilla viewing, and a Kazinga Channel boat safari.",
+    category: "wildlife",
+    wildlife: ["Chimpanzees", "Gorillas", "Hippos", "Crocodiles", "Birdlife"],
+    slug: "uganda-accessible-primate-safari"
+  },
+  {
+    id: 49,
+    title: "East Africa Grand Accessible Safari",
+    destination: "Multi-Country",
+    duration: "12 days",
+    price: 5800,
+    rating: 4.9,
+    image: "https://ik.imagekit.io/jinx/travel/Tineke-in-Kenya.png?updatedAt=1756902738914",
+    description: "The ultimate East African accessible safari across Kenya and Tanzania, combining Maasai Mara, Serengeti, and Ngorongoro with premium accessible accommodations.",
+    category: "wildlife",
+    wildlife: ["Lions", "Leopards", "Elephants", "Zebras", "Wildebeest", "Rhinos"],
+    slug: "east-africa-grand-accessible-safari"
+  },  
 ]
 
 const TOURS_PER_PAGE = 10

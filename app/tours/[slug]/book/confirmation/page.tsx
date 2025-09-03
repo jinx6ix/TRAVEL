@@ -401,6 +401,60 @@ const toursData = [
   duration: "1 day",
   price: 150,
   category: "wildlife",
+},
+{
+  id: 44,
+  slug: "kenya-disability-safari",
+  title: "Accessible Kenya Safari Experience",
+  destination: "Kenya",
+  duration: "7 days",
+  price: 2450,
+  category: "wildlife"
+},
+{
+  id: 45,
+  slug: "accessible-masai-mara-safari",
+  title: "4-Day Accessible Masai Mara Experience",
+  destination: "Kenya",
+  duration: "4 days",
+  price: 1450,
+  category: "wildlife"
+},
+{
+  id: 46,
+  slug: "tanzania-accessible-safari",
+  title: "Tanzania Accessible Safari Adventure",
+  destination: "Tanzania",
+  duration: "8 days",
+  price: 2950,
+  category: "wildlife"
+},
+{
+  id: 47,
+  slug: "rwanda-accessible-gorilla-safari",
+  title: "Rwanda Accessible Gorilla Experience",
+  destination: "Rwanda",
+  duration: "5 days",
+  price: 3200,
+  category: "wildlife"
+},
+{
+  id: 48,
+  slug: "uganda-accessible-primate-safari",
+  title: "Uganda Accessible Primate Safari",
+  destination: "Uganda",
+  duration: "6 days",
+  price: 2200,
+  category: "wildlife"
+},
+{
+  id: 49,
+  slug: "east-africa-grand-accessible-safari",
+  title: "East Africa Grand Accessible Safari",
+  destination: "Multi-Country",
+  duration: "12 days",
+  price: 5800,
+  category: "wildlife"
 }
 ]
 

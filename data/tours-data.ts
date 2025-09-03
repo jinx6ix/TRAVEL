@@ -3393,8 +3393,637 @@ const toursData: TourData[] = [
             verified: true
           }
         ]
-      }
-
+      },
+      {
+        id: 45,
+        slug: "accessible-masai-mara-4days",
+        title: "4-Day Accessible Masai Mara Experience",
+        destination: "Kenya",
+        duration: "4 days",
+        price: 1450,
+        category: "wildlife",
+        rating: 4.9,
+        reviewCount: 18,
+        difficulty: "Easy",
+        groupSize: "2-6 people",
+        wildlife: ["Lions", "Elephants", "Cheetahs", "Zebras", "Wildebeest", "Buffalo"],
+        description: "Focused accessible safari in the world-famous Masai Mara National Reserve, designed for travelers with mobility challenges to enjoy the Great Migration and Kenya’s wildlife with adapted facilities and vehicles.",
+        highlights: [
+          "Specialized wheelchair vehicles",
+          "Accessible tented camp with barrier-free amenities",
+          "Prime Great Migration viewing areas",
+          "Cultural visits with accessibility support"
+        ],
+        included: [
+          "Adapted 4x4 safari vehicles",
+          "Wheelchair-accessible tented accommodations",
+          "All meals with dietary accommodations",
+          "Professional accessibility-trained guides",
+          "Park entry fees"
+        ],
+        excluded: [
+          "International flights",
+          "Travel insurance",
+          "Personal expenses",
+          "Visa fees"
+        ],
+        itinerary: [
+          {
+            day: 1,
+            title: "Arrival in Nairobi & Transfer to Masai Mara",
+            description: "Accessible transfer from Nairobi to Masai Mara with scenic stops.",
+            activities: ["Hotel pickup", "Accessible road transfer", "Scenic viewing stops"],
+            accommodation: "Accessible Mara Tented Camp",
+            meals: "Lunch, Dinner"
+          },
+          {
+            day: 2,
+            title: "Masai Mara Safari",
+            description: "Morning and afternoon accessible game drives in the Masai Mara.",
+            activities: ["Morning game drive", "Accessible picnic", "Afternoon game drive"],
+            accommodation: "Accessible Mara Tented Camp",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 3,
+            title: "Great Migration & Cultural Visit",
+            description: "View the Great Migration and experience Maasai culture with accessibility support.",
+            activities: ["Migration viewing", "Wildlife photography", "Cultural Maasai village visit"],
+            accommodation: "Accessible Mara Tented Camp",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 4,
+            title: "Return to Nairobi",
+            description: "Accessible road transfer back to Nairobi with farewell lunch.",
+            activities: ["Morning game drive", "Scenic stopovers", "Farewell lunch"],
+            meals: "Breakfast, Lunch"
+          }
+        ],
+        gallery: [
+          "https://ik.imagekit.io/jinx/travel/800x450.jpg?updatedAt=1756903039656",
+          "https://ik.imagekit.io/jinx/travel/Tineke-in-Kenya.png?updatedAt=1756902738914",
+          "https://ik.imagekit.io/jinx/travel/WhatsApp%20Image%202025-09-02%20at%2011.43.25%20AM.jpeg?updatedAt=1756810077606"
+        ],
+        bestTime: "July to October (Great Migration season)",
+        whatToBring: ["Camera", "Binoculars", "Comfortable clothing", "Sun protection"],
+        physicalRequirements: "Minimal physical effort required. Suitable for mobility-impaired travelers.",
+        cancellationPolicy: "Free cancellation up to 14 days before departure.",
+        reviews: [
+          {
+            id: 1,
+            name: "Emily Carter",
+            rating: 5,
+            comment: "The camp was perfectly accessible and the safari was unforgettable. Seeing the migration was a dream come true.",
+            date: "2024-06-15",
+            verified: true
+          },
+          {
+            id: 2,
+            name: "James Patel",
+            rating: 5,
+            comment: "Vehicles were very comfortable for wheelchair users, and the staff made everything seamless.",
+            date: "2024-08-02",
+            verified: true
+          },
+          {
+            id: 3,
+            name: "Maria Lopez",
+            rating: 5,
+            comment: "The cultural visit was amazing. They really adapted the experience so I could participate fully.",
+            date: "2024-09-20",
+            verified: true
+          }
+        ]
+      },
+      {
+        id: 46,
+        slug: "tanzania-accessible-safari",
+        title: "Tanzania Accessible Safari Adventure",
+        destination: "Tanzania",
+        duration: "8 days",
+        price: 2950,
+        category: "wildlife",
+        rating: 4.7,
+        reviewCount: 15,
+        difficulty: "Easy",
+        groupSize: "2-8 people",
+        wildlife: ["Lions", "Elephants", "Leopards", "Cheetahs", "Rhinos", "Flamingos", "Giraffes"],
+        description: "Accessible journey through Tanzania's iconic parks including Serengeti and Ngorongoro Crater. Specially designed vehicles, lodges, and itineraries ensure comfort and accessibility throughout your safari.",
+        highlights: [
+          "Adapted safari vehicles with lifts",
+          "Accessible lodges with wide pathways",
+          "Serengeti accessible viewing platforms",
+          "Ngorongoro Crater rim accessibility"
+        ],
+        included: [
+          "Accessible transfers and transport",
+          "Barrier-free accommodations",
+          "Professional guides trained in accessibility",
+          "All meals",
+          "All park entry fees"
+        ],
+        excluded: [
+          "International flights",
+          "Travel insurance",
+          "Personal expenses",
+          "Specialized medical equipment"
+        ],
+        itinerary: [
+          {
+            day: 1,
+            title: "Arrival in Arusha",
+            description: "Accessible airport transfer and overnight stay in Arusha.",
+            activities: ["Airport greeting", "Accessibility briefing", "Hotel orientation"],
+            accommodation: "Accessible Arusha Hotel",
+            meals: "Dinner"
+          },
+          {
+            day: 2,
+            title: "Tarangire National Park",
+            description: "Game drives in Tarangire with accessible picnic sites.",
+            activities: ["Morning drive", "Elephant viewing", "Accessible picnic"],
+            accommodation: "Accessible Tarangire Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 3,
+            title: "Lake Manyara",
+            description: "Accessible safari drive at Lake Manyara with flamingo viewing.",
+            activities: ["Wildlife viewing", "Birdwatching", "Scenic stops"],
+            accommodation: "Accessible Manyara Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 4,
+            title: "Ngorongoro Crater",
+            description: "Accessible drive along Ngorongoro rim and crater viewing.",
+            activities: ["Scenic rim tour", "Wildlife spotting", "Accessible viewpoints"],
+            accommodation: "Accessible Ngorongoro Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 5,
+            title: "Serengeti National Park",
+            description: "Transfer to Serengeti with afternoon accessible game drive.",
+            activities: ["Scenic drive", "Wildlife viewing", "Accessible photography stops"],
+            accommodation: "Accessible Serengeti Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 6,
+            title: "Full Day Serengeti",
+            description: "Complete accessible safari experience with Big Five sightings.",
+            activities: ["Morning game drive", "Accessible lunch stop", "Afternoon drive"],
+            accommodation: "Accessible Serengeti Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 7,
+            title: "Serengeti to Arusha",
+            description: "Return to Arusha with scenic stopovers.",
+            activities: ["Final game drive", "Accessible transfer", "Farewell dinner"],
+            accommodation: "Accessible Arusha Hotel",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 8,
+            title: "Departure",
+            description: "Accessible airport transfer for departure flight.",
+            activities: ["Hotel checkout", "Airport transfer"],
+            meals: "Breakfast"
+          }
+        ],
+        gallery: [
+          "https://ik.imagekit.io/jinx/travel/WhatsApp-Image-2025-01-15-at-12.06.45-PM.webp?updatedAt=1756903260238",
+          "https://ik.imagekit.io/jinx/travel/63baaaef6b14d.jpg?updatedAt=1756903341232",
+          "https://ik.imagekit.io/jinx/travel/wilderness-wonders-tanzania-wildlife-safari-adventure-banner.jpg?updatedAt=1756903393824"
+        ],
+        bestTime: "June to October (Dry season for wildlife viewing)",
+        whatToBring: ["Sunhat", "Binoculars", "Camera", "Light jacket"],
+        physicalRequirements: "Accessible for travelers with limited mobility.",
+        cancellationPolicy: "Free cancellation up to 21 days before departure.",
+        reviews: [
+          {
+            id: 1,
+            name: "Paul Schmidt",
+            rating: 5,
+            comment: "The Serengeti was breathtaking. Everything was thoughtfully adapted for my wheelchair.",
+            date: "2024-05-30",
+            verified: true
+          },
+          {
+            id: 2,
+            name: "Anita Rao",
+            rating: 4,
+            comment: "Some roads were bumpy but the staff made sure I was comfortable throughout.",
+            date: "2024-07-10",
+            verified: true
+          },
+          {
+            id: 3,
+            name: "Omar Khalid",
+            rating: 5,
+            comment: "The lift-equipped vehicle made my experience stress-free. Highly recommend!",
+            date: "2024-09-01",
+            verified: true
+          }
+        ]
+      },
+      {
+        id: 47,
+        slug: "rwanda-accessible-gorilla",
+        title: "Rwanda Accessible Gorilla Experience",
+        destination: "Rwanda",
+        duration: "5 days",
+        price: 3200,
+        category: "wildlife",
+        rating: 4.9,
+        reviewCount: 12,
+        difficulty: "Moderate",
+        groupSize: "2-6 people",
+        wildlife: ["Mountain Gorillas", "Golden Monkeys", "Various Birds"],
+        description: "A once-in-a-lifetime accessible gorilla trekking experience in Rwanda's Volcanoes National Park. With specially adapted trails, professional assistance, and accessible lodges, this safari ensures everyone can witness the majestic mountain gorillas up close.",
+        highlights: [
+          "Adapted gorilla tracking routes",
+          "Accessible Volcanoes National Park viewing",
+          "Kigali accessible city tour",
+          "Special permits for mobility-impaired visitors"
+        ],
+        included: [
+          "Accessible transfers",
+          "Barrier-free accommodations",
+          "Professional guides & trackers trained in accessibility",
+          "All meals",
+          "Gorilla trekking permits"
+        ],
+        excluded: [
+          "International flights",
+          "Travel insurance",
+          "Personal expenses",
+          "Visa fees"
+        ],
+        itinerary: [
+          {
+            day: 1,
+            title: "Arrival in Kigali",
+            description: "Accessible airport transfer and city orientation in Kigali.",
+            activities: ["Airport pickup", "Hotel orientation", "Kigali accessibility briefing"],
+            accommodation: "Accessible Kigali Hotel",
+            meals: "Dinner"
+          },
+          {
+            day: 2,
+            title: "Kigali Accessible City Tour",
+            description: "Explore accessible landmarks such as the Kigali Genocide Memorial and craft markets.",
+            activities: ["Museum visit", "Accessible shopping", "Cultural tour"],
+            accommodation: "Accessible Kigali Hotel",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 3,
+            title: "Transfer to Volcanoes National Park",
+            description: "Accessible transfer to Volcanoes National Park and lodge check-in.",
+            activities: ["Scenic drive", "Accessibility briefing", "Wildlife introduction"],
+            accommodation: "Accessible Volcanoes Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 4,
+            title: "Accessible Gorilla Trekking",
+            description: "Specially adapted trekking routes allow mobility-impaired travelers to see mountain gorillas.",
+            activities: ["Guided gorilla trek", "Wildlife viewing", "Photography session"],
+            accommodation: "Accessible Volcanoes Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 5,
+            title: "Return to Kigali & Departure",
+            description: "Accessible transfer back to Kigali for departure flight.",
+            activities: ["Hotel checkout", "Airport transfer"],
+            meals: "Breakfast"
+          }
+        ],
+        gallery: [
+          "https://ik.imagekit.io/jinx/travel/bisatelodge1.jpg?updatedAt=1756902495617",
+          "https://ik.imagekit.io/jinx/travel/6-days-gorilla-tracking-and-rafting-jinja.jpg?updatedAt=1750083327865",
+          "https://ik.imagekit.io/jinx/travel/aa-750x450.jpg?updatedAt=1750082584976"
+        ],
+        bestTime: "June to September (dry season, best trekking conditions)",
+        whatToBring: ["Sturdy clothing", "Camera", "Walking aid (if needed)", "Rain jacket"],
+        physicalRequirements: "Accessible trek routes available. Some assistance required for close encounters.",
+        cancellationPolicy: "Free cancellation up to 30 days before departure.",
+        reviews: [
+          {
+            id: 1,
+            name: "Helen Brooks",
+            rating: 5,
+            comment: "Seeing gorillas up close was magical. The adapted trails made it possible for me.",
+            date: "2024-06-12",
+            verified: true
+          },
+          {
+            id: 2,
+            name: "Marcus Lee",
+            rating: 5,
+            comment: "Staff were incredibly supportive. They provided extra carriers for my wheelchair.",
+            date: "2024-08-01",
+            verified: true
+          },
+          {
+            id: 3,
+            name: "Claire Dubois",
+            rating: 5,
+            comment: "Kigali tour was inspiring and the gorilla experience unforgettable.",
+            date: "2024-09-18",
+            verified: true
+          }
+        ]
+      },
+      {
+        id: 48,
+        slug: "uganda-accessible-primate",
+        title: "Uganda Accessible Primate Safari",
+        destination: "Uganda",
+        duration: "6 days",
+        price: 2200,
+        category: "wildlife",
+        rating: 4.6,
+        reviewCount: 16,
+        difficulty: "Moderate",
+        groupSize: "2-8 people",
+        wildlife: ["Gorillas", "Chimpanzees", "Colobus Monkeys", "Hippos", "Birds"],
+        description: "An accessible safari in Uganda featuring gorilla and chimpanzee encounters, boat cruises, and barrier-free lodges. Designed for travelers with mobility challenges to enjoy Uganda’s wildlife comfortably.",
+        highlights: [
+          "Wheelchair-friendly forest pathways",
+          "Accessible boat safaris on Kazinga Channel",
+          "Bwindi adapted gorilla viewing",
+          "Kibale chimpanzee tracking accessibility"
+        ],
+        included: [
+          "Accessible transportation",
+          "Barrier-free lodges",
+          "All park entry fees",
+          "Professional accessibility-trained guides",
+          "All meals"
+        ],
+        excluded: [
+          "International flights",
+          "Travel insurance",
+          "Personal expenses",
+          "Visa fees"
+        ],
+        itinerary: [
+          {
+            day: 1,
+            title: "Arrival in Entebbe",
+            description: "Accessible airport transfer and overnight in Entebbe.",
+            activities: ["Airport greeting", "Hotel orientation", "Accessibility briefing"],
+            accommodation: "Accessible Entebbe Hotel",
+            meals: "Dinner"
+          },
+          {
+            day: 2,
+            title: "Kibale Forest",
+            description: "Accessible transfer to Kibale Forest for chimpanzee experiences.",
+            activities: ["Scenic drive", "Chimpanzee tracking orientation"],
+            accommodation: "Accessible Kibale Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 3,
+            title: "Accessible Chimpanzee Trek",
+            description: "Guided chimpanzee viewing on adapted forest paths.",
+            activities: ["Chimpanzee viewing", "Forest walk", "Birdwatching"],
+            accommodation: "Accessible Kibale Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 4,
+            title: "Queen Elizabeth National Park",
+            description: "Transfer to Queen Elizabeth Park with accessible boat safari.",
+            activities: ["Scenic drive", "Accessible boat cruise", "Wildlife photography"],
+            accommodation: "Accessible QE National Park Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 5,
+            title: "Bwindi Impenetrable Forest",
+            description: "Accessible gorilla encounter with support staff and adapted viewing platforms.",
+            activities: ["Gorilla trek", "Photography", "Community cultural visit"],
+            accommodation: "Accessible Bwindi Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 6,
+            title: "Return to Entebbe & Departure",
+            description: "Accessible return transfer to Entebbe for departure.",
+            activities: ["Hotel checkout", "Airport transfer"],
+            meals: "Breakfast"
+          }
+        ],
+        gallery: [
+          "https://ik.imagekit.io/jinx/travel/aa-750x450.jpg?updatedAt=1750082584976",
+          "https://ik.imagekit.io/jinx/travel/Rushaga-Gorilla-Trekking-Sector.jpg?updatedAt=1750082585133",
+          "https://ik.imagekit.io/jinx/travel/bisatelodge1.jpg?updatedAt=1756902495617"
+        ],
+        bestTime: "December to February & June to August (dry seasons)",
+        whatToBring: ["Camera", "Light raincoat", "Comfortable shoes", "Binoculars"],
+        physicalRequirements: "Some treks require assistance; adapted routes are provided.",
+        cancellationPolicy: "Free cancellation up to 21 days before departure.",
+        reviews: [
+          {
+            id: 1,
+            name: "Laura Jensen",
+            rating: 5,
+            comment: "The boat safari was fantastic and fully accessible. I loved seeing hippos up close.",
+            date: "2024-07-11",
+            verified: true
+          },
+          {
+            id: 2,
+            name: "Mohammed Al-Sayed",
+            rating: 4,
+            comment: "Gorilla trekking was challenging but the team made it possible with adapted paths.",
+            date: "2024-08-22",
+            verified: true
+          },
+          {
+            id: 3,
+            name: "Rachel Green",
+            rating: 5,
+            comment: "Very well organized and supportive guides throughout the safari.",
+            date: "2024-09-05",
+            verified: true
+          }
+        ]
+      },
+      {
+        id: 49,
+        slug: "east-africa-grand-accessible",
+        title: "East Africa Grand Accessible Safari",
+        destination: "Kenya & Tanzania",
+        duration: "12 days",
+        price: 5800,
+        category: "wildlife",
+        rating: 4.9,
+        reviewCount: 8,
+        difficulty: "Easy",
+        groupSize: "2-10 people",
+        wildlife: ["Big Five", "Wildebeest", "Giraffes", "Flamingos", "Hippos"],
+        description: "The ultimate accessible safari experience across East Africa. Travel through Kenya’s Maasai Mara and Tanzania’s Serengeti and Ngorongoro with full accessibility support. Premium accommodations, cross-border transfers, and expert accessibility coordinators make this the best inclusive safari in Africa.",
+        highlights: [
+          "Cross-border accessible transportation",
+          "Premium accessible accommodations",
+          "Maasai Mara & Serengeti combination",
+          "Dedicated accessibility coordinator"
+        ],
+        included: [
+          "Accessible 4x4 safari vehicles",
+          "Barrier-free luxury lodges",
+          "All meals and park fees",
+          "Professional accessibility-trained guides",
+          "Medical support coordination"
+        ],
+        excluded: [
+          "International flights",
+          "Travel insurance",
+          "Visa fees",
+          "Personal expenses"
+        ],
+        itinerary: [
+          {
+            day: 1,
+            title: "Arrival in Nairobi",
+            description: "Accessible airport pickup and hotel orientation in Nairobi.",
+            activities: ["Airport greeting", "Hotel check-in", "Accessibility briefing"],
+            accommodation: "Accessible Nairobi Hotel",
+            meals: "Dinner"
+          },
+          {
+            day: 2,
+            title: "Lake Nakuru",
+            description: "Accessible transfer to Lake Nakuru for flamingo and rhino viewing.",
+            activities: ["Scenic drive", "Accessible picnic", "Wildlife viewing"],
+            accommodation: "Accessible Nakuru Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 3,
+            title: "Masai Mara Transfer",
+            description: "Journey to Maasai Mara with accessible game drive in the afternoon.",
+            activities: ["Scenic stops", "Wildlife viewing"],
+            accommodation: "Accessible Mara Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 4,
+            title: "Masai Mara Safari",
+            description: "Full day of game drives with accessibility support.",
+            activities: ["Morning drive", "Accessible wildlife viewing", "Cultural visit"],
+            accommodation: "Accessible Mara Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 5,
+            title: "Masai Mara to Serengeti",
+            description: "Cross into Tanzania with accessible transfer and Serengeti introduction.",
+            activities: ["Cross-border transfer", "Wildlife spotting"],
+            accommodation: "Accessible Serengeti Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 6,
+            title: "Serengeti Safari",
+            description: "Accessible game drives in Serengeti National Park.",
+            activities: ["Morning drive", "Picnic stop", "Afternoon drive"],
+            accommodation: "Accessible Serengeti Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 7,
+            title: "Serengeti Full Day",
+            description: "Big Five viewing across Serengeti plains.",
+            activities: ["Morning safari", "Accessible viewpoints", "Cultural interaction"],
+            accommodation: "Accessible Serengeti Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 8,
+            title: "Ngorongoro Crater",
+            description: "Accessible rim tour and crater wildlife viewing.",
+            activities: ["Scenic viewpoints", "Wildlife photography"],
+            accommodation: "Accessible Ngorongoro Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 9,
+            title: "Lake Manyara",
+            description: "Accessible safari and birdwatching at Lake Manyara.",
+            activities: ["Bird viewing", "Picnic stop", "Wildlife spotting"],
+            accommodation: "Accessible Manyara Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 10,
+            title: "Tarangire National Park",
+            description: "Accessible safari in Tarangire with elephant viewing.",
+            activities: ["Safari drive", "Accessible picnic"],
+            accommodation: "Accessible Tarangire Lodge",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 11,
+            title: "Return to Arusha",
+            description: "Accessible transfer to Arusha for rest and farewell dinner.",
+            activities: ["Scenic transfer", "Farewell celebration"],
+            accommodation: "Accessible Arusha Hotel",
+            meals: "Breakfast, Lunch, Dinner"
+          },
+          {
+            day: 12,
+            title: "Departure",
+            description: "Accessible transfer to airport for flight home.",
+            activities: ["Hotel checkout", "Airport transfer"],
+            meals: "Breakfast"
+          }
+        ],
+        gallery: [
+          "https://ik.imagekit.io/jinx/travel/wheelchair-accessible-tanzania-safari.webp?updatedAt=1756902426095",
+          "https://ik.imagekit.io/jinx/travel/Amboseli-National-Park-Elephantsssss.jpg?updatedAt=1751635762755",
+          "https://ik.imagekit.io/jinx/travel/bisatelodge1.jpg?updatedAt=1756902495617"
+        ],
+        bestTime: "June to October (migration season across Kenya & Tanzania)",
+        whatToBring: ["Passport & visas", "Camera", "Comfortable safari clothing", "Binoculars"],
+        physicalRequirements: "Designed for wheelchair users and mobility-limited travelers.",
+        cancellationPolicy: "Free cancellation up to 30 days before departure.",
+        reviews: [
+          {
+            id: 1,
+            name: "Sophia Müller",
+            rating: 5,
+            comment: "The most inclusive safari experience we’ve ever had. Crossing from Kenya to Tanzania was seamless.",
+            date: "2024-06-20",
+            verified: true
+          },
+          {
+            id: 2,
+            name: "Daniel Brown",
+            rating: 5,
+            comment: "The accessibility coordinator made sure every detail was perfect. Highly recommended!",
+            date: "2024-07-29",
+            verified: true
+          },
+          {
+            id: 3,
+            name: "Akira Watanabe",
+            rating: 5,
+            comment: "Both countries were amazing, and I felt fully included in every activity.",
+            date: "2024-09-03",
+            verified: true
+          }
+        ]
+      },      
     ];
 
 
