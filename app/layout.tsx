@@ -202,7 +202,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@type": "TravelAgency",
               name: "Jae Travel Expeditions",
               url: "https://jaetravel.com",
-              logo: "https://jaetravel.com/logo.png",
+              logo: "/logo.png",
               sameAs: [
                 "https://www.facebook.com/jaetravel",
                 "https://twitter.com/jaetravel",
