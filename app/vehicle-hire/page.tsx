@@ -37,7 +37,7 @@ const vehicles = [
     ideal: "Great for families and comfortable touring",
     specifications: {
       engine: "3.0L Turbo",
-      transmission: "Automatic",
+      transmission: "Manual",
       fuelType: "Diesel",
       luggage: "Medium capacity",
     },
@@ -54,7 +54,7 @@ const vehicles = [
     specifications: {
       engine: "4.0L V6",
       transmission: "Manual/Auto",
-      fuelType: "Petrol",
+      fuelType: "Diesel",
       luggage: "Camping equipment included",
     },
   },
@@ -69,7 +69,7 @@ const vehicles = [
     ideal: "Designed for professional photography",
     specifications: {
       engine: "4.2L Diesel",
-      transmission: "Automatic",
+      transmission: "Manual",
       fuelType: "Diesel",
       luggage: "Photography gear storage",
     },
@@ -85,8 +85,8 @@ const vehicles = [
     ideal: "Inclusive safari experiences for all",
     specifications: {
       engine: "3.5L V6",
-      transmission: "Automatic",
-      fuelType: "Petrol",
+      transmission: "Manual",
+      fuelType: "Diesel",
       luggage: "Accessible storage",
     },
   },
@@ -107,7 +107,7 @@ const vehicles = [
     ideal: "Family safaris and small group tours",
     specifications: {
       engine: "2.4L 4-cylinder",
-      transmission: "Automatic",
+      transmission: "Manual",
       fuelType: "Diesel",
       luggage: "Rear storage compartment",
       fuelEfficiency: "12L/100km"

@@ -36,7 +36,7 @@ const landcruiserSpecs = {
   ] as FeatureKey[], // Explicitly type the array
   specifications: {
     engine: "4.5L V8 Diesel",
-    transmission: "Automatic",
+    transmission: "Manual",
     fuelType: "Diesel",
     luggage: "Large capacity roof rack",
     airConditioning: "Dual zone climate control",

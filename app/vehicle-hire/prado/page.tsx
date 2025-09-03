@@ -25,7 +25,7 @@ const pradoSpecs = {
   ],
   specifications: {
     engine: "3.0L Turbo Diesel",
-    transmission: "Automatic",
+    transmission: "Manual",
     fuelType: "Diesel",
     luggage: "Medium capacity",
     airConditioning: "Automatic climate control",

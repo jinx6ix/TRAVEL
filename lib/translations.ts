@@ -245,7 +245,7 @@ export const translations = {
     technicalSpecifications: "Technical Specifications",
     whatsIncluded: "What's Included",
     engine: "Engine",
-    transmission: "Transmission",
+    transmission: "Manual",
     fuelType: "Fuel Type",
     luggage: "Luggage",
     airConditioning: "Air Conditioning",

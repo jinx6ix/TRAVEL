@@ -36,7 +36,7 @@ const landcruiserSpecs = {
   ] as FeatureKey[],
   specifications: {
     engine: "4.5L 1HZ Diesel",
-    transmission: "Automatic",
+    transmission: "Manual",
     fuelType: "Diesel",
     luggage: "Large capacity roof rack",
     airConditioning: "Dual zone climate control",
