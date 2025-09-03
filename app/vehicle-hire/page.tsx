@@ -20,7 +20,7 @@ const vehicles = [
     pricePerDay: 200,
     ideal: "Perfect for game drives and rough terrain",
     specifications: {
-      engine: "4.5L V8",
+      engine: "4.5L 1HZ",
       transmission: "Manual",
       fuelType: "Diesel",
       luggage: "Large capacity",
@@ -103,7 +103,7 @@ const vehicles = [
       "Comfortable seating",
       "Large windows"
     ],
-    pricePerDay: 300,
+    pricePerDay: 200,
     ideal: "Family safaris and small group tours",
     specifications: {
       engine: "2.4L 4-cylinder",

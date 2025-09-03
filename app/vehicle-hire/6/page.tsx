@@ -22,7 +22,7 @@ const minivanSpecs = {
   image: "https://ik.imagekit.io/jinx/travel/car-van-1536x776%20(1).png?updatedAt=1750087064275?height=400&width=600",
   descriptionKey: "safariMinivanDescription",
   capacity: "7 passengers + driver",
-  pricePerDay: 150,
+  pricePerDay: 200,
   featuresKeys: [
     "popUpRoof",
     "spaciousInterior",

@@ -35,7 +35,7 @@ const landcruiserSpecs = {
     "fuelIncluded",
   ] as FeatureKey[],
   specifications: {
-    engine: "4.5L V8 Diesel",
+    engine: "4.5L 1HZ Diesel",
     transmission: "Automatic",
     fuelType: "Diesel",
     luggage: "Large capacity roof rack",
