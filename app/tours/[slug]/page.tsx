@@ -5,12 +5,14 @@ import toursData from "@/data/tours-data"
 import { SEO } from "@/config/seo.config"
 import TourDetailClient from "./TourDetailClient"
 
+interface PageProps {
+  params: {
+    slug: string
+  }
+}
+
 // Generate per-tour metadata (SEO)
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string }
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const tour = toursData.find(
     (t) => t.slug === params.slug || t.id.toString() === params.slug
   )
@@ -21,8 +23,7 @@ export async function generateMetadata({
 
   const pageTitle = `${tour.title} | ${SEO.defaultTitle}`
   const pageDescription =
-    tour.description ||
-    "Experience an unforgettable tour with JaeTravel Expeditions"
+    tour.description || "Experience an unforgettable tour with JaeTravel Expeditions"
   const canonicalUrl = `${SEO.canonical}/tours/${tour.slug}`
   const images =
     tour.gallery?.map((image) => ({
@@ -50,7 +51,8 @@ export async function generateMetadata({
   }
 }
 
-export default function TourDetailPage({ params }: { params: { slug: string } }) {
+// Server component page
+export default async function TourDetailPage({ params }: PageProps) {
   const tour = toursData.find(
     (t) => t.slug === params.slug || t.id.toString() === params.slug
   )
