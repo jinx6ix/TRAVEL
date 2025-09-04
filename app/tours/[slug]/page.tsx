@@ -5,14 +5,12 @@ import toursData from "@/data/tours-data"
 import { SEO } from "@/config/seo.config"
 import TourDetailClient from "./TourDetailClient"
 
-interface PageProps {
-  params: {
-    slug: string
-  }
-}
-
-// Generate per-tour metadata (SEO)
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+// Generate per-tour metadata
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
   const tour = toursData.find(
     (t) => t.slug === params.slug || t.id.toString() === params.slug
   )
@@ -52,14 +50,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 // Server component page
-export default async function TourDetailPage({ params }: PageProps) {
+export default async function TourDetailPage({
+  params,
+}: {
+  params: { slug: string } // <--- inline typing, no custom PageProps
+}) {
   const tour = toursData.find(
     (t) => t.slug === params.slug || t.id.toString() === params.slug
   )
 
   if (!tour) return notFound()
 
-  // Structured data for search engines
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "TouristAttraction",
@@ -87,12 +88,10 @@ export default async function TourDetailPage({ params }: PageProps) {
 
   return (
     <main>
-      {/* JSON-LD injection */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      {/* Client component for interactivity */}
       <TourDetailClient tour={tour} />
     </main>
   )
