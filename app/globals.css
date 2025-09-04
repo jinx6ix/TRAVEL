@@ -11,6 +11,12 @@ body {
     text-wrap: balance;
   }
 }
+/* Hide GTM iframe without inline styles */
+.hidden-iframe {
+  display: none;
+  visibility: hidden;
+}
+
 
 @layer base {
   :root {

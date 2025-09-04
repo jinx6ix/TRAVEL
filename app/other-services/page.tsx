@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     description:
       "Book airport transfers, hotels, photography, group tours, city tours, insurance, catering, and private transfers in East Africa with JaeTravel.",
     images: [
-      "https://ik.imagekit.io/jinx/travel/other-services.jpg?updatedAt=1750019014225",
+      "/Tineke-in-Kenya.png",
     ],
   },
   alternates: {

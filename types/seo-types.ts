@@ -1,5 +1,6 @@
 // types/seo-types.ts
 export interface SEOConfig {
+    siteName: string | undefined;
     titleTemplate: string;
     defaultTitle: string;
     description: string;
