@@ -5,13 +5,12 @@ import toursData from "@/data/tours-data"
 import { SEO } from "@/config/seo.config"
 import TourDetailClient from "./TourDetailClient"
 
-// Type-safe props for dynamic route
-interface TourPageProps {
-  params: { slug: string }
-}
-
 // Generate per-tour metadata
-export async function generateMetadata({ params }: TourPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
   const tour = toursData.find(
     (t) => t.slug === params.slug || t.id.toString() === params.slug
   )
@@ -51,7 +50,11 @@ export async function generateMetadata({ params }: TourPageProps): Promise<Metad
 }
 
 // Server component page
-export default async function TourDetailPage({ params }: TourPageProps) {
+export default async function TourDetailPage({
+  params,
+}: {
+  params: { slug: string }
+}) {
   const tour = toursData.find(
     (t) => t.slug === params.slug || t.id.toString() === params.slug
   )
