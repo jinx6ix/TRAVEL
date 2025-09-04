@@ -5,11 +5,11 @@ import toursData from "@/data/tours-data"
 import { SEO } from "@/config/seo.config"
 import TourDetailClient from "./TourDetailClient"
 
-// Generate per-tour metadata
+// ✅ Use Record<string, string> to avoid PageProps Promise mismatch
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
+  params: Record<string, string>
 }): Promise<Metadata> {
   const tour = toursData.find(
     (t) => t.slug === params.slug || t.id.toString() === params.slug
@@ -49,11 +49,11 @@ export async function generateMetadata({
   }
 }
 
-// Server component page
+// ✅ Server component page
 export default async function TourDetailPage({
   params,
 }: {
-  params: { slug: string }
+  params: Record<string, string>
 }) {
   const tour = toursData.find(
     (t) => t.slug === params.slug || t.id.toString() === params.slug
