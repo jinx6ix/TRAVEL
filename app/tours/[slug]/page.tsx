@@ -5,14 +5,17 @@ import toursData from "@/data/tours-data"
 import { SEO } from "@/config/seo.config"
 import TourDetailClient from "./TourDetailClient"
 
-// ✅ Use Record<string, string> to avoid PageProps Promise mismatch
+// ✅ Updated for Next.js 15: params is now a Promise
 export async function generateMetadata({
   params,
 }: {
-  params: Record<string, string>
+  params: Promise<{ slug: string }>
 }): Promise<Metadata> {
+  // Await the params promise
+  const { slug } = await params
+  
   const tour = toursData.find(
-    (t) => t.slug === params.slug || t.id.toString() === params.slug
+    (t) => t.slug === slug || t.id.toString() === slug
   )
 
   if (!tour) {
@@ -49,14 +52,17 @@ export async function generateMetadata({
   }
 }
 
-// ✅ Server component page
+// ✅ Updated for Next.js 15: params is now a Promise
 export default async function TourDetailPage({
   params,
 }: {
-  params: Record<string, string>
+  params: Promise<{ slug: string }>
 }) {
+  // Await the params promise
+  const { slug } = await params
+  
   const tour = toursData.find(
-    (t) => t.slug === params.slug || t.id.toString() === params.slug
+    (t) => t.slug === slug || t.id.toString() === slug
   )
 
   if (!tour) return notFound()
