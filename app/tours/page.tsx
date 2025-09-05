@@ -4,10 +4,10 @@ import ToursClient from "./tours-client"
 import { SEO } from "@/config/seo.config"
 
 // --- Pagination config ---
-const TOURS_PER_PAGE = 49
+const TOURS_PER_PAGE = 9
 
 interface ToursPageProps {
-  searchParams?: { page?: string }
+  searchParams?: Promise<{ page?: string }>
 }
 
 // --- Metadata generation ---
@@ -72,8 +72,10 @@ function generateStructuredData(tours: Tour[], page: number) {
 }
 
 // --- Server component with pagination ---
-export default function ToursPage({ searchParams }: ToursPageProps) {
-  const page = parseInt(searchParams?.page || "1", 10)
+export default async function ToursPage({ searchParams }: ToursPageProps) {
+  // Await the searchParams promise
+  const resolvedSearchParams = await searchParams
+  const page = parseInt(resolvedSearchParams?.page || "1", 10)
   const start = (page - 1) * TOURS_PER_PAGE
   const paginatedTours = tours.slice(start, start + TOURS_PER_PAGE)
   const structuredData = generateStructuredData(paginatedTours, page)
