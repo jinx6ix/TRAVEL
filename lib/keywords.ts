@@ -1,4 +1,5 @@
 export interface Tour {
+  internalLinks?: Array<{ url: string; label: string }>
   metaTitle: string
   metaDescription?: string        // ✅ remove null
   keywords?: string | string[]    // ✅ remove null
