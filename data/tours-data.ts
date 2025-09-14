@@ -1,4 +1,14 @@
 interface TourData {
+    tags: never[]
+    tourType: string
+    seoDescription: string
+    metaTitle: string
+    metaDescription: string
+    url: string
+    keywords(keywords: any): unknown
+    country: any
+    currency: string
+    bookingUrl: any
     id: number
     slug: string
     title: string
@@ -54,8 +64,7 @@ const toursData: TourData[] = [
       difficulty: "Easy",
       groupSize: "2-8 people",
       wildlife: ["Big Five", "Great Migration", "Lions", "Elephants", "Cheetahs", "Hippos"],
-      description:
-        "Experience the world-famous Masai Mara National Reserve, home to the Great Migration and the Big Five. This 5-day JaeTravel Expeditions offers unparalleled wildlife viewing opportunities in one of Africa's most iconic destinations.",
+      description: "Experience the world-famous Masai Mara National Reserve, home to the Great Migration and the Big Five. This 5-day JaeTravel Expeditions offers unparalleled wildlife viewing opportunities in one of Africa's most iconic destinations.",
       highlights: [
         "Witness the Great Migration (seasonal)",
         "Big Five game viewing",
@@ -142,17 +151,14 @@ const toursData: TourData[] = [
         "Light jacket for early mornings",
         "Comfortable walking shoes",
       ],
-      physicalRequirements:
-        "Low physical fitness required. Suitable for all ages. Some walking involved during village visits.",
-      cancellationPolicy:
-        "Free cancellation up to 30 days before departure. 50% refund 15-30 days before. No refund within 15 days.",
+      physicalRequirements: "Low physical fitness required. Suitable for all ages. Some walking involved during village visits.",
+      cancellationPolicy: "Free cancellation up to 30 days before departure. 50% refund 15-30 days before. No refund within 15 days.",
       reviews: [
         {
           id: 1,
           name: "Sarah Johnson",
           rating: 5,
-          comment:
-            "Absolutely incredible experience! Saw all Big Five and the Great Migration. Our guide was knowledgeable and the accommodation was fantastic.",
+          comment: "Absolutely incredible experience! Saw all Big Five and the Great Migration. Our guide was knowledgeable and the accommodation was fantastic.",
           date: "2024-01-15",
           verified: true,
         },
@@ -160,12 +166,23 @@ const toursData: TourData[] = [
           id: 2,
           name: "Michael Chen",
           rating: 5,
-          comment:
-            "Best safari experience ever! The wildlife viewing was phenomenal and the Maasai village visit was very authentic.",
+          comment: "Best safari experience ever! The wildlife viewing was phenomenal and the Maasai village visit was very authentic.",
           date: "2024-01-10",
           verified: true,
         },
       ],
+      metaTitle: "",
+      metaDescription: "",
+      url: "",
+      keywords: function (keywords: any): unknown {
+        throw new Error("Function not implemented.")
+      },
+      country: undefined,
+      currency: "",
+      bookingUrl: undefined,
+      tags: [],
+      tourType: "",
+      seoDescription: ""
     },
     // Add more tours here - I'll include a few key ones for the demo
       // Kenya Tours (1-12)
@@ -243,6 +260,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 3,
@@ -318,6 +347,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 12,
@@ -391,6 +432,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 4,
@@ -465,6 +518,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 11,
@@ -539,6 +604,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 5,
@@ -614,6 +691,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         "id": 6,
@@ -700,7 +789,19 @@ const toursData: TourData[] = [
             "date": "2024-02-28",
             "verified": true
           }
-        ]
+        ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 8,
@@ -776,6 +877,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 9,
@@ -839,6 +952,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 10,
@@ -909,6 +1034,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 43,
@@ -972,6 +1109,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 7,
@@ -1044,6 +1193,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
     
       // Tanzania Tours (13-24)
@@ -1122,6 +1283,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 14,
@@ -1196,6 +1369,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 15,
@@ -1268,6 +1453,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 18,
@@ -1341,6 +1538,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 16,
@@ -1416,6 +1625,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 20,
@@ -1491,6 +1712,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 17,
@@ -1565,6 +1798,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 21,
@@ -1640,6 +1885,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 19,
@@ -1715,6 +1972,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 23,
@@ -1790,6 +2059,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 25,
@@ -1864,6 +2145,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 22,
@@ -1933,6 +2226,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
     
       // Uganda Tours (25-33)
@@ -2010,6 +2315,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 36,
@@ -2085,6 +2402,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 37,
@@ -2160,6 +2489,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 28,
@@ -2234,6 +2575,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 35,
@@ -2309,6 +2662,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 38,
@@ -2383,6 +2748,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 40,
@@ -2454,6 +2831,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 42,
@@ -2527,6 +2916,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 39,
@@ -2601,6 +3002,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
     
       // Rwanda Tours (34-36)
@@ -2677,6 +3090,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 32,
@@ -2737,6 +3162,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 29,
@@ -2812,6 +3249,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
     
       // Multi-Country Tours (37-42)
@@ -2889,6 +3338,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 30,
@@ -2961,6 +3422,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 41,
@@ -3033,6 +3506,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 26,
@@ -3106,6 +3591,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 24,
@@ -3181,6 +3678,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 33,
@@ -3255,6 +3764,18 @@ const toursData: TourData[] = [
             verified: true,
           },
         ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 44,
@@ -3392,7 +3913,19 @@ const toursData: TourData[] = [
             date: "2024-03-05",
             verified: true
           }
-        ]
+        ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 45,
@@ -3494,7 +4027,19 @@ const toursData: TourData[] = [
             date: "2024-09-20",
             verified: true
           }
-        ]
+        ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 46,
@@ -3628,7 +4173,19 @@ const toursData: TourData[] = [
             date: "2024-09-01",
             verified: true
           }
-        ]
+        ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 47,
@@ -3738,7 +4295,19 @@ const toursData: TourData[] = [
             date: "2024-09-18",
             verified: true
           }
-        ]
+        ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 48,
@@ -3856,7 +4425,19 @@ const toursData: TourData[] = [
             date: "2024-09-05",
             verified: true
           }
-        ]
+        ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },
       {
         id: 49,
@@ -4022,7 +4603,19 @@ const toursData: TourData[] = [
             date: "2024-09-03",
             verified: true
           }
-        ]
+        ],
+        metaTitle: "",
+        metaDescription: "",
+        url: "",
+        keywords: function (keywords: any): unknown {
+          throw new Error("Function not implemented.")
+        },
+        country: undefined,
+        currency: "",
+        bookingUrl: undefined,
+        tags: [],
+        tourType: "",
+        seoDescription: ""
       },      
     ];
 

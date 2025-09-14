@@ -22,12 +22,42 @@ export const metadata: Metadata = {
   },
   description:
     "Book unforgettable safaris in Kenya, Tanzania, Uganda, and Rwanda. Explore wildlife, culture, and adventure with Jae Travel Expeditions.",
-  keywords: [
-    "africa safaris",
-    "kenya safari",
-    "tanzania tours",
-    "uganda gorilla trekking",
-  ],
+    keywords: [
+      // Broad safari & Africa terms
+      "africa safaris",
+      "kenya safari",
+      "tanzania tours",
+      "uganda gorilla trekking",
+      "luxury african safaris",
+      "africa safari packages",
+      "east africa tours",
+    
+      // Kenya-focused
+      "masai mara safari packages",
+      "amboseli safari tours",
+      "nairobi safari day trips",
+      "kenya safari cost",
+      "best time to visit kenya for safari",
+    
+      // Tanzania & Uganda add-ons
+      "serengeti safari tours",
+      "ngorongoro crater safaris",
+      "zanzibar beach and safari packages",
+      "rwanda gorilla trekking tours",
+    
+      // Special interest / niche
+      "wheelchair accessible safaris kenya",
+      "disabled friendly safari packages",
+      "senior friendly safaris africa",
+      "eco friendly safaris kenya",
+      "family safari holidays kenya",
+    
+      // Vehicle hire
+      "car hire nairobi with driver",
+      "4x4 safari car hire kenya",
+      "wheelchair accessible car hire kenya",
+      "safari vehicle rental kenya",
+    ],    
     // ✅ Add icons
     icons: {
       icon: "/logo.ico", // browser tab

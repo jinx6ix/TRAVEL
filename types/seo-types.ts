@@ -1,5 +1,7 @@
 // types/seo-types.ts
 export interface SEOConfig {
+    twitterHandle: string;
+    verification: Verification | undefined;
     siteName: string | undefined;
     titleTemplate: string;
     defaultTitle: string;
