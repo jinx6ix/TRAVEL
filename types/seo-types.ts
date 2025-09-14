@@ -1,3 +1,5 @@
+import { Verification } from "next/dist/lib/metadata/types/metadata-types";
+
 // types/seo-types.ts
 export interface SEOConfig {
     twitterHandle: string;
