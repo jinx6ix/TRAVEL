@@ -39,5 +39,7 @@ export const SEO: SEOConfig = {
       content: 'IE=edge; chrome=1'
     }
   ],
-  siteName: undefined
+  siteName: undefined,
+  twitterHandle: '',
+  verification: undefined
 };
