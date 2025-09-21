@@ -1,19 +1,29 @@
 // app/tours/[slug]/page.tsx
+
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import toursData, { TourData } from "@/data/tours-data";
+import toursData from "@/data/tours-data";
 import { SEO } from "@/config/seo.config";
 import TourDetailClient from "./TourDetailClient";
 import { generateAiOverview } from "@/lib/generateAiOverview";
 
+// ✅ Type for route parameters
+type PageParams = {
+  params: {
+    slug: string;
+  };
+};
+
+// ✅ Generate static paths for all tours
 export async function generateStaticParams() {
   return toursData.map((tour) => ({ slug: tour.slug }));
 }
 
-// ✅ Build-time metadata with basic info; AI overview added at runtime
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+// ✅ Generate metadata for SEO
+export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
   const { slug } = params;
   const tour = toursData.find((t) => t.slug === slug);
+
   if (!tour) return {};
 
   return {
@@ -28,7 +38,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       description: tour.metaDescription || SEO.defaultDescription,
       url: `${SEO.canonical}/tours/${tour.slug}`,
       type: "article",
-      images: tour.gallery?.length ? [{ url: tour.gallery[0], alt: tour.title }] : [],
+      images: tour.gallery?.length
+        ? [{ url: tour.gallery[0], alt: tour.title }]
+        : [],
     },
     twitter: {
       card: "summary_large_image",
@@ -45,20 +57,31 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function TourDetailPage({ params }: { params: { slug: string } }) {
+// ✅ Main page component
+export default async function TourDetailPage({ params }: PageParams) {
   const { slug } = params;
   const tour = toursData.find((t) => t.slug === slug);
+
   if (!tour) notFound();
 
-  // ✅ Fetch AI overview at runtime
-  let ai: { overview: string; keywords: string[]; faqs: { q: string; a: string }[] } = { overview: "", keywords: [], faqs: [] };
+  // ✅ Generate AI overview (fallback-safe)
+  let ai: {
+    overview: string;
+    keywords: string[];
+    faqs: { q: string; a: string }[];
+  } = {
+    overview: "",
+    keywords: [],
+    faqs: [],
+  };
+
   try {
     ai = await generateAiOverview(tour);
   } catch (err) {
     console.warn("AI overview could not be generated:", err);
   }
 
-  // ✅ Structured Data (JSON-LD)
+  // ✅ JSON-LD Structured Data
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
@@ -73,18 +96,27 @@ export default async function TourDetailPage({ params }: { params: { slug: strin
       priceCurrency: tour.currency || "USD",
       url: `${SEO.canonical}/tours/${tour.slug}`,
     },
-    review: tour.reviews?.map((r) => ({
-      "@type": "Review",
-      author: r.name,
-      reviewBody: r.comment,
-      reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5 },
-      datePublished: r.date,
-    })) || [],
-    mainEntity: ai.faqs?.map((faq: { q: string; a: string }) => ({
-      "@type": "Question",
-      name: faq.q,
-      acceptedAnswer: { "@type": "Answer", text: faq.a },
-    })) || [],
+    review:
+      tour.reviews?.map((r) => ({
+        "@type": "Review",
+        author: r.name,
+        reviewBody: r.comment,
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: r.rating,
+          bestRating: 5,
+        },
+        datePublished: r.date,
+      })) || [],
+    mainEntity:
+      ai.faqs?.map((faq: { q: string; a: string }) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.a,
+        },
+      })) || [],
   };
 
   return (
