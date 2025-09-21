@@ -1,5 +1,3 @@
-// app/tours/[slug]/page.tsx
-
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import toursData from "@/data/tours-data";
@@ -7,20 +5,15 @@ import { SEO } from "@/config/seo.config";
 import TourDetailClient from "./TourDetailClient";
 import { generateAiOverview } from "@/lib/generateAiOverview";
 
-// ✅ Type for route parameters
-type PageParams = {
-  params: {
-    slug: string;
-  };
-};
-
 // ✅ Generate static paths for all tours
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return toursData.map((tour) => ({ slug: tour.slug }));
 }
 
 // ✅ Generate metadata for SEO
-export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: { slug: string } }
+): Promise<Metadata> {
   const { slug } = params;
   const tour = toursData.find((t) => t.slug === slug);
 
@@ -58,7 +51,9 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
 }
 
 // ✅ Main page component
-export default async function TourDetailPage({ params }: PageParams) {
+export default async function TourDetailPage(
+  { params }: { params: { slug: string } }
+) {
   const { slug } = params;
   const tour = toursData.find((t) => t.slug === slug);
 
@@ -109,7 +104,7 @@ export default async function TourDetailPage({ params }: PageParams) {
         datePublished: r.date,
       })) || [],
     mainEntity:
-      ai.faqs?.map((faq: { q: string; a: string }) => ({
+      ai.faqs?.map((faq) => ({
         "@type": "Question",
         name: faq.q,
         acceptedAnswer: {
