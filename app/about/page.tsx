@@ -200,7 +200,7 @@ export default function AboutPage() {
     "name": "JaeTravel Expeditions",
     "description": "Your trusted partner for unforgettable East African safari experiences since 2009.",
     "url": "https://www.jaetravel.com/about",
-    "telephone": "+254-XXX-XXXXXX",
+    "telephone": "+254-726-485-228",
     "address": { "@type": "PostalAddress", "addressCountry": "Kenya" },
     "openingHours": "Mo-Fr 08:00-17:00",
     "yearsInOperation": "15",
