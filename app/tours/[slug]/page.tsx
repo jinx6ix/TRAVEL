@@ -12,9 +12,9 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 
 // ✅ Generate metadata for SEO
 export async function generateMetadata(
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
-  const { slug } = params;
+  const { slug } = await params;
   const tour = toursData.find((t) => t.slug === slug);
 
   if (!tour) return {};
@@ -52,9 +52,9 @@ export async function generateMetadata(
 
 // ✅ Main page component
 export default async function TourDetailPage(
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
-  const { slug } = params;
+  const { slug } = await params;
   const tour = toursData.find((t) => t.slug === slug);
 
   if (!tour) notFound();
