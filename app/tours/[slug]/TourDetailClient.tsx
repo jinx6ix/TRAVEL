@@ -18,16 +18,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-interface TourDetailClientProps {
-  tour: any
-}
-
-export default function TourDetailClient({ tour }: TourDetailClientProps) {
+export default function TourDetailClient({ tour }: { tour: any }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const nextImage = () =>
     setCurrentImageIndex((prev) => (prev + 1) % tour.gallery.length)
-
   const prevImage = () =>
     setCurrentImageIndex(
       (prev) => (prev - 1 + tour.gallery.length) % tour.gallery.length
@@ -35,13 +30,13 @@ export default function TourDetailClient({ tour }: TourDetailClientProps) {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-16">
-      {/* Hero Section */}
+      {/* Hero */}
       <div className="relative h-96 overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.img
             key={currentImageIndex}
             src={tour.gallery[currentImageIndex]}
-            alt={`${tour.title} - Featured Image`}
+            alt={`${tour.title} - Featured`}
             className="w-full h-full object-cover"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -50,11 +45,11 @@ export default function TourDetailClient({ tour }: TourDetailClientProps) {
           />
         </AnimatePresence>
 
-        {/* Navigation Arrows */}
+        {/* Arrows */}
         <Button
           variant="ghost"
           size="icon"
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white"
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 text-white"
           onClick={prevImage}
         >
           <ChevronLeft size={24} />
@@ -62,13 +57,13 @@ export default function TourDetailClient({ tour }: TourDetailClientProps) {
         <Button
           variant="ghost"
           size="icon"
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white"
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 text-white"
           onClick={nextImage}
         >
           <ChevronRight size={24} />
         </Button>
 
-        {/* Overlay Content */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black/40 flex items-end">
           <div className="container mx-auto px-4 pb-8 text-white">
             <div className="flex items-center gap-2 mb-2">
@@ -82,16 +77,13 @@ export default function TourDetailClient({ tour }: TourDetailClientProps) {
             <h1 className="text-4xl font-bold mb-2">{tour.title}</h1>
             <div className="flex items-center gap-4 text-sm">
               <div className="flex items-center gap-1">
-                <MapPin size={16} />
-                <span>{tour.destination}</span>
+                <MapPin size={16} /> <span>{tour.destination}</span>
               </div>
               <div className="flex items-center gap-1">
-                <Calendar size={16} />
-                <span>{tour.duration}</span>
+                <Calendar size={16} /> <span>{tour.duration}</span>
               </div>
               <div className="flex items-center gap-1">
-                <Users size={16} />
-                <span>{tour.groupSize}</span>
+                <Users size={16} /> <span>{tour.groupSize}</span>
               </div>
               <div className="flex items-center gap-1">
                 <Star size={16} className="fill-yellow-400 text-yellow-400" />
@@ -102,29 +94,15 @@ export default function TourDetailClient({ tour }: TourDetailClientProps) {
             </div>
           </div>
         </div>
-
-        {/* Image Indicators */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-          {tour.gallery.map((_: string, index: number) => (
-            <button
-              title="Select image"
-              key={index}
-              className={`w-2 h-2 rounded-full transition-all ${
-                index === currentImageIndex ? "bg-white" : "bg-white/50"
-              }`}
-              onClick={() => setCurrentImageIndex(index)}
-            />
-          ))}
-        </div>
       </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Tabs + Tour Info */}
         <div className="lg:col-span-2">
-          <Tabs defaultValue="overview" className="w-full">
-            <TabsList className="grid w-full grid-cols-4">
+          <Tabs defaultValue="overview">
+            <TabsList className="grid grid-cols-5 w-full">
               <TabsTrigger value="overview">Overview</TabsTrigger>
+              <TabsTrigger value="ai">AI Overview</TabsTrigger>
               <TabsTrigger value="itinerary">Itinerary</TabsTrigger>
               <TabsTrigger value="gallery">Gallery</TabsTrigger>
               <TabsTrigger value="reviews">Reviews</TabsTrigger>
@@ -137,7 +115,19 @@ export default function TourDetailClient({ tour }: TourDetailClientProps) {
                   <CardTitle>About This Tour</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-4">{tour.description}</p>
+                  <p className="text-gray-600">{tour.description}</p>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* AI Overview */}
+            <TabsContent value="ai">
+              <Card>
+                <CardHeader>
+                  <CardTitle>AI Overview</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-700">{tour.aiOverview}</p>
                 </CardContent>
               </Card>
             </TabsContent>
@@ -150,19 +140,17 @@ export default function TourDetailClient({ tour }: TourDetailClientProps) {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-4">
-                    {tour.itinerary.map(
-                      (day: { day: string; title: string; description: string }, index: number) => (
-                        <li key={index} className="flex items-start gap-3">
-                          <Clock className="mt-1 text-orange-600" size={18} />
-                          <div>
-                            <p className="font-semibold">
-                              {day.day}: {day.title}
-                            </p>
-                            <p className="text-gray-600">{day.description}</p>
-                          </div>
-                        </li>
-                      )
-                    )}
+                    {tour.itinerary.map((day: any, i: number) => (
+                      <li key={i} className="flex gap-3">
+                        <Clock className="mt-1 text-orange-600" size={18} />
+                        <div>
+                          <p className="font-semibold">
+                            Day {day.day}: {day.title}
+                          </p>
+                          <p className="text-gray-600">{day.description}</p>
+                        </div>
+                      </li>
+                    ))}
                   </ul>
                 </CardContent>
               </Card>
@@ -176,11 +164,11 @@ export default function TourDetailClient({ tour }: TourDetailClientProps) {
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    {tour.gallery.map((img: string, index: number) => (
+                    {tour.gallery.map((img: string, i: number) => (
                       <motion.img
-                        key={index}
+                        key={i}
                         src={img}
-                        alt={`${tour.title} image ${index + 1}`}
+                        alt={`${tour.title} image ${i + 1}`}
                         className="rounded-lg object-cover w-full h-40"
                         whileHover={{ scale: 1.05 }}
                       />
@@ -198,23 +186,21 @@ export default function TourDetailClient({ tour }: TourDetailClientProps) {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-6">
-                    {tour.reviews.map(
-                      (review: { author: string; rating: number; comment: string }, index: number) => (
-                        <div key={index} className="border-b pb-4">
-                          <div className="flex items-center gap-2 mb-1">
-                            <Star
-                              size={16}
-                              className="fill-yellow-400 text-yellow-400"
-                            />
-                            <span className="font-semibold">{review.author}</span>
-                          </div>
-                          <p className="text-gray-600">{review.comment}</p>
-                          <p className="text-sm text-gray-500">
-                            Rating: {review.rating}/5
-                          </p>
+                    {tour.reviews.map((r: any, i: number) => (
+                      <div key={i} className="border-b pb-4">
+                        <div className="flex items-center gap-2 mb-1">
+                          <Star
+                            size={16}
+                            className="fill-yellow-400 text-yellow-400"
+                          />
+                          <span className="font-semibold">{r.name}</span>
                         </div>
-                      )
-                    )}
+                        <p className="text-gray-600">{r.comment}</p>
+                        <p className="text-sm text-gray-500">
+                          Rating: {r.rating}/5
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </CardContent>
               </Card>

@@ -117,6 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','GTM-5MCS8TS6');`}
         </Script>
+        <meta name="msvalidate.01" content="750BAD767F0FB4E4100952EBD7883CEE" />
 
         {/* Global JSON-LD */}
         <script

@@ -13,7 +13,7 @@ export const SEO: SEOConfig = {
     site_name: 'Jae Travel',
     images: [
       {
-        url: '/public/logo.svg',
+        url: '/logo.svg',
         width: 1200,
         height: 630,
         alt: 'Jae Travel Expeditions - East Africa Safari Tours',
@@ -39,7 +39,23 @@ export const SEO: SEOConfig = {
       content: 'IE=edge; chrome=1'
     }
   ],
-  siteName: undefined,
-  twitterHandle: '',
-  verification: undefined
+  siteName: 'Jae Travel Expeditions',
+  twitterHandle: '@jaetravel',
+  verification: {
+    google: 'IGxEnPG73ZqCfKPuOdpjfM_HNDfuM03gWG9AUYOu74U',
+    yandex: 'b585127e41b6a92f',
+    yahoo: '750BAD767F0FB4E4100952EBD7883CEE'
+  },
+  siteUrl: 'https://www.jaetravel.com',
+  defaultDescription: 'Explore unforgettable African safaris with Jae Travel Expeditions.',
+  keywords: [
+    'Kenya safari',
+    'Uganda tours',
+    'Tanzania travel',
+    'Rwanda gorilla trekking',
+    'East Africa vacations',
+    'African safari packages',
+    'luxury safaris',
+    'budget tours Africa'
+  ]
 };

@@ -1,193 +1,108 @@
 // app/tours/[slug]/page.tsx
-import { notFound } from "next/navigation"
-import type { Metadata } from "next"
-import toursData from "@/data/tours-data"
-import { SEO } from "@/config/seo.config"
-import TourDetailClient from "./TourDetailClient"
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import toursData, { TourData } from "@/data/tours-data";
+import { SEO } from "@/config/seo.config";
+import TourDetailClient from "./TourDetailClient";
+import { generateAiOverview } from "@/lib/generateAiOverview";
 
-// ✅ Updated for Next.js 15: params is now a Promise
+export async function generateStaticParams() {
+  return toursData.map((tour) => ({ slug: tour.slug }));
+}
+
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  // Await the params promise
-  const { slug } = await params
-  
-  const tour = toursData.find(
-    (t) => t.slug === slug || t.id.toString() === slug
-  )
+  const { slug } = await params;
+  const tour = toursData.find((t) => t.slug === slug);
+  if (!tour) return {};
 
-  if (!tour) {
-    return { 
-      title: "Tour Not Found | JaeTravel Expeditions",
-      robots: {
-        index: false,
-        follow: true,
-      }
-    }
-  }
-
-  // Enhanced metadata with SEO improvements
-  const pageTitle = `${tour.title} Tour - ${tour.destination} | ${SEO.defaultTitle}`
-  const pageDescription = tour.seoDescription || 
-    `${tour.description?.substring(0, 155)}...` || 
-    `Experience an unforgettable ${tour.title} tour in ${tour.destination} with JaeTravel Expeditions. Book now for the best adventure experience.`
-  
-  const canonicalUrl = `${SEO.canonical}/tours/${tour.slug}`
-  
-  // Handle both string and array image formats
-  const primaryImage = Array.isArray(tour.gallery) && tour.gallery.length > 0 
-    ? tour.gallery[0] 
-    : typeof tour.gallery === 'string' 
-      ? tour.gallery 
-      : SEO.openGraph.images[0]?.url || '/default-tour-image.jpg'
-  
-  const images = [
-    {
-      url: primaryImage,
-      width: 1200,
-      height: 630,
-      alt: `${tour.title} tour in ${tour.destination} - JaeTravel Expeditions`,
-    },
-    ...(Array.isArray(tour.gallery) && tour.gallery.length > 1 
-      ? tour.gallery.slice(1).map((image, index) => ({
-          url: image,
-          width: 800,
-          height: 600,
-          alt: `${tour.title} tour image ${index + 2} - ${tour.destination}`,
-        }))
-      : [])
-  ]
-
-  // Keywords based on tour content
-  const keywords = [
-    tour.title,
-    tour.destination,
-    'tour',
-    'travel',
-    'expedition',
-    'adventure',
-    'vacation',
-    ...(tour.tags || []),
-    ...(tour.category ? [tour.category] : [])
-  ].filter(Boolean).join(', ')
+  const ai = await generateAiOverview(tour);
 
   return {
-    title: pageTitle,
-    description: pageDescription,
-    keywords,
-    authors: [{ name: SEO.defaultTitle }],
-    creator: SEO.defaultTitle,
-    publisher: SEO.defaultTitle,
-    metadataBase: new URL(SEO.canonical || 'https://jaetravel.com'),
+    title: tour.metaTitle || `${tour.title} | ${SEO.siteName}`,
+    description: tour.metaDescription || ai.overview || SEO.defaultDescription,
+    keywords: [...SEO.keywords, ...(tour.keywords || []), ...(ai.keywords || [])],
     alternates: {
-      canonical: canonicalUrl,
+      canonical: `${SEO.siteUrl}/tours/${tour.slug}`,
     },
     openGraph: {
-      title: pageTitle,
-      description: pageDescription,
-      url: canonicalUrl,
-      siteName: SEO.defaultTitle,
-      locale: 'en_US',
-      type: 'website',
-      images,
-      ...(tour.duration && { duration: tour.duration }),
-      ...(tour.destination && { location: tour.destination }),
+      title: tour.title,
+      description: tour.metaDescription || ai.overview,
+      url: `${SEO.siteUrl}/tours/${tour.slug}`,
+      type: "article",
+      images: tour.gallery?.length
+        ? [{ url: tour.gallery[0], alt: tour.title }]
+        : [],
     },
     twitter: {
       card: "summary_large_image",
-      site: SEO.twitterHandle || '@jaetravel',
-      creator: SEO.twitterHandle || '@jaetravel',
-      title: pageTitle,
-      description: pageDescription,
-      images: [primaryImage],
+      title: tour.title,
+      description: tour.metaDescription || ai.overview,
+      images: tour.gallery?.[0] ? [tour.gallery[0]] : [],
+      creator: SEO.twitterHandle,
     },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
+    other: {
+      "google-site-verification": SEO.verification?.google || "",
+      "yandex-verification": SEO.verification?.yandex || "",
+      "yahoo-verification": SEO.verification?.yahoo || "",
     },
-    verification: SEO.verification, // If you have Google Search Console verification
-  }
+  };
 }
 
-// ✅ Updated for Next.js 15: params is now a Promise
 export default async function TourDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string }>;
 }) {
-  // Await the params promise
-  const { slug } = await params
-  
-  const tour = toursData.find(
-    (t) => t.slug === slug || t.id.toString() === slug
-  )
+  const { slug } = await params;
+  const tour = toursData.find((t) => t.slug === slug);
+  if (!tour) notFound();
 
-  if (!tour) return notFound()
+  const ai = await generateAiOverview(tour);
 
-  // Enhanced structured data with more properties
-  const structuredData = {
+  // ✅ Structured Data (JSON-LD)
+  const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "TouristTrip", // More specific than TouristAttraction
-    "name": tour.title,
-    "description": tour.description,
-    "url": `${SEO.canonical}/tours/${tour.slug}`,
-    "image": Array.isArray(tour.gallery) ? tour.gallery : [tour.gallery],
-    "location": {
-      "@type": "Place",
-      "name": tour.destination,
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": tour.destination,
-      }
-    },
-    "offers": {
+    "@type": "TouristTrip",
+    name: tour.title,
+    description: tour.description || ai.overview,
+    image: tour.gallery || [],
+    touristType: tour.category || "",
+    country: tour.destination || "",
+    offers: {
       "@type": "Offer",
-      "price": tour.price,
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock",
-      "validFrom": new Date().toISOString().split("T")[0],
-      "url": `${SEO.canonical}/tours/${tour.slug}`,
+      price: tour.price || "",
+      priceCurrency: tour.currency || "USD",
+      url: `${SEO.siteUrl}/tours/${tour.slug}`,
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": tour.rating,
-      "reviewCount": tour.reviewCount,
-      "bestRating": "5",
-      "worstRating": "1",
-    },
-    "itinerary": tour.itinerary ? {
-      "@type": "ItemList",
-      "numberOfItems": tour.itinerary.length,
-      "itemListElement": tour.itinerary.map((item, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "item": {
-          "@type": "TouristAttraction",
-          "name": item.title || `Day ${index + 1}`,
-          "description": item.description,
-        }
-      }))
-    } : undefined,
-    "duration": tour.duration, // e.g., "P7D" for 7 days
-    "touristType": tour.tourType || "Adventure", // e.g., Adventure, Family, Luxury
-  }
+    review: tour.reviews?.map((r) => ({
+      "@type": "Review",
+      author: r.name,
+      reviewBody: r.comment,
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: r.rating,
+        bestRating: 5,
+      },
+      datePublished: r.date,
+    })) || [],
+    mainEntity: ai.faqs?.map((faq: { q: string; a: string }) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })) || [],
+  };
 
   return (
-    <main>
+    <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <TourDetailClient tour={tour} />
-    </main>
-  )
+      <TourDetailClient tour={{ ...tour, aiOverview: ai.overview }} />
+    </>
+  );
 }

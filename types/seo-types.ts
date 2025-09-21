@@ -2,6 +2,9 @@ import { Verification } from "next/dist/lib/metadata/types/metadata-types";
 
 // types/seo-types.ts
 export interface SEOConfig {
+    defaultDescription: string;
+    keywords: any;
+    siteUrl: any;
     twitterHandle: string;
     verification: Verification | undefined;
     siteName: string | undefined;

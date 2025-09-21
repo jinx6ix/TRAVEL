@@ -1,15 +1,22 @@
-interface TourData {
+export interface TourData {
+  level: string;
+  faq: {
+    q: string;
+    a: string;
+  }[]
+    accessible: any
     tags: never[]
     tourType: string
     seoDescription: string
     metaTitle: string
     metaDescription: string
     url: string
-    keywords(keywords: any): unknown
+    keywords: string[]   // ✅ make it an array
     country: any
     currency: string
     bookingUrl: any
     id: number
+    aiOverview?: string
     slug: string
     title: string
     destination: string
@@ -174,15 +181,16 @@ const toursData: TourData[] = [
       metaTitle: "",
       metaDescription: "",
       url: "",
-      keywords: function (keywords: any): unknown {
-        throw new Error("Function not implemented.")
-      },
+      keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
       country: undefined,
       currency: "",
       bookingUrl: undefined,
       tags: [],
       tourType: "",
-      seoDescription: ""
+      seoDescription: "",
+      accessible: undefined,
+      faq: [],
+      level: ""
     },
     // Add more tours here - I'll include a few key ones for the demo
       // Kenya Tours (1-12)
@@ -263,15 +271,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 3,
@@ -350,15 +359,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 12,
@@ -435,15 +445,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 4,
@@ -521,15 +532,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 11,
@@ -607,15 +619,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 5,
@@ -694,15 +707,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         "id": 6,
@@ -793,15 +807,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 8,
@@ -880,15 +895,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 9,
@@ -955,15 +971,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 10,
@@ -1037,15 +1054,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 43,
@@ -1112,15 +1130,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 7,
@@ -1196,15 +1215,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
     
       // Tanzania Tours (13-24)
@@ -1286,15 +1306,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 14,
@@ -1372,15 +1393,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 15,
@@ -1456,15 +1478,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 18,
@@ -1541,15 +1564,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 16,
@@ -1628,15 +1652,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 20,
@@ -1715,15 +1740,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 17,
@@ -1801,15 +1827,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 21,
@@ -1888,15 +1915,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 19,
@@ -1975,15 +2003,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 23,
@@ -2062,15 +2091,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 25,
@@ -2148,15 +2178,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 22,
@@ -2229,15 +2260,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
     
       // Uganda Tours (25-33)
@@ -2318,15 +2350,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 36,
@@ -2405,15 +2438,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 37,
@@ -2492,15 +2526,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 28,
@@ -2578,15 +2613,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 35,
@@ -2665,15 +2701,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 38,
@@ -2751,15 +2788,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 40,
@@ -2834,15 +2872,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 42,
@@ -2919,15 +2958,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 39,
@@ -3005,15 +3045,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
     
       // Rwanda Tours (34-36)
@@ -3093,15 +3134,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 32,
@@ -3165,15 +3207,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 29,
@@ -3252,15 +3295,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
     
       // Multi-Country Tours (37-42)
@@ -3341,15 +3385,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 30,
@@ -3425,15 +3470,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 41,
@@ -3509,15 +3555,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 26,
@@ -3594,15 +3641,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 24,
@@ -3681,15 +3729,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 33,
@@ -3767,15 +3816,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 44,
@@ -3917,15 +3967,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 45,
@@ -4031,15 +4082,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 46,
@@ -4177,15 +4229,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 47,
@@ -4299,15 +4352,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 48,
@@ -4429,15 +4483,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },
       {
         id: 49,
@@ -4607,15 +4662,16 @@ const toursData: TourData[] = [
         metaTitle: "",
         metaDescription: "",
         url: "",
-        keywords: function (keywords: any): unknown {
-          throw new Error("Function not implemented.")
-        },
+        keywords: ["Kenya safari", "wheelchair accessible travel", "accessible tours Africa"],
         country: undefined,
         currency: "",
         bookingUrl: undefined,
         tags: [],
         tourType: "",
-        seoDescription: ""
+        seoDescription: "",
+        accessible: undefined,
+        faq: [],
+        level: ""
       },      
     ];
 
