@@ -56,6 +56,7 @@ export const SEO: SEOConfig = {
     'East Africa vacations',
     'African safari packages',
     'luxury safaris',
+    'WHEELCHAIR ACCESSIBLE SAFARIS KENYA',
     'budget tours Africa'
   ]
 };

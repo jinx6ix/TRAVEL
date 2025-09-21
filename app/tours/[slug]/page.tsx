@@ -10,39 +10,32 @@ export async function generateStaticParams() {
   return toursData.map((tour) => ({ slug: tour.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  const { slug } = await params;
+// ✅ Build-time metadata with basic info; AI overview added at runtime
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const { slug } = params;
   const tour = toursData.find((t) => t.slug === slug);
   if (!tour) return {};
 
-  const ai = await generateAiOverview(tour);
-
   return {
-    title: tour.metaTitle || `${tour.title} | ${SEO.siteName}`,
-    description: tour.metaDescription || ai.overview || SEO.defaultDescription,
-    keywords: [...SEO.keywords, ...(tour.keywords || []), ...(ai.keywords || [])],
+    title: tour.metaTitle || `${tour.title} | Jae Travel Expeditions`,
+    description: tour.metaDescription || SEO.defaultDescription,
+    keywords: [...(SEO.keywords || []), ...(tour.keywords || [])],
     alternates: {
-      canonical: `${SEO.siteUrl}/tours/${tour.slug}`,
+      canonical: `${SEO.canonical}/tours/${tour.slug}`,
     },
     openGraph: {
       title: tour.title,
-      description: tour.metaDescription || ai.overview,
-      url: `${SEO.siteUrl}/tours/${tour.slug}`,
+      description: tour.metaDescription || SEO.defaultDescription,
+      url: `${SEO.canonical}/tours/${tour.slug}`,
       type: "article",
-      images: tour.gallery?.length
-        ? [{ url: tour.gallery[0], alt: tour.title }]
-        : [],
+      images: tour.gallery?.length ? [{ url: tour.gallery[0], alt: tour.title }] : [],
     },
     twitter: {
       card: "summary_large_image",
       title: tour.title,
-      description: tour.metaDescription || ai.overview,
+      description: tour.metaDescription || SEO.defaultDescription,
       images: tour.gallery?.[0] ? [tour.gallery[0]] : [],
-      creator: SEO.twitterHandle,
+      creator: SEO.twitter?.handle || "",
     },
     other: {
       "google-site-verification": SEO.verification?.google || "",
@@ -52,16 +45,18 @@ export async function generateMetadata({
   };
 }
 
-export default async function TourDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+export default async function TourDetailPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
   const tour = toursData.find((t) => t.slug === slug);
   if (!tour) notFound();
 
-  const ai = await generateAiOverview(tour);
+  // ✅ Fetch AI overview at runtime
+  let ai: { overview: string; keywords: string[]; faqs: { q: string; a: string }[] } = { overview: "", keywords: [], faqs: [] };
+  try {
+    ai = await generateAiOverview(tour);
+  } catch (err) {
+    console.warn("AI overview could not be generated:", err);
+  }
 
   // ✅ Structured Data (JSON-LD)
   const jsonLd = {
@@ -76,17 +71,13 @@ export default async function TourDetailPage({
       "@type": "Offer",
       price: tour.price || "",
       priceCurrency: tour.currency || "USD",
-      url: `${SEO.siteUrl}/tours/${tour.slug}`,
+      url: `${SEO.canonical}/tours/${tour.slug}`,
     },
     review: tour.reviews?.map((r) => ({
       "@type": "Review",
       author: r.name,
       reviewBody: r.comment,
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: r.rating,
-        bestRating: 5,
-      },
+      reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5 },
       datePublished: r.date,
     })) || [],
     mainEntity: ai.faqs?.map((faq: { q: string; a: string }) => ({
