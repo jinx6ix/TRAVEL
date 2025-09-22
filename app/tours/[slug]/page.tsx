@@ -5,10 +5,12 @@ import toursData from "@/data/tours-data";
 import { SEO } from "@/config/seo.config";
 import TourDetailClient from "./TourDetailClient";
 
+// Generate static paths
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return toursData.map((tour) => ({ slug: tour.slug }));
 }
 
+// Metadata for SEO, Open Graph, and verification
 export async function generateMetadata({
   params,
 }: {
@@ -20,12 +22,10 @@ export async function generateMetadata({
   if (!tour) return {};
 
   return {
-    title: tour.metaTitle || `${tour.title} | Jae Travel Expeditions`,
+    title: tour.metaTitle || `${tour.title} | ${SEO.defaultTitle}`,
     description: tour.metaDescription || SEO.defaultDescription,
     keywords: [...(SEO.keywords || []), ...(tour.keywords || [])],
-    alternates: {
-      canonical: `${SEO.canonical}/tours/${tour.slug}`,
-    },
+    alternates: { canonical: `${SEO.canonical}/tours/${tour.slug}` },
     openGraph: {
       title: tour.title,
       description: tour.metaDescription || SEO.defaultDescription,
@@ -48,6 +48,7 @@ export async function generateMetadata({
   };
 }
 
+// Page component
 export default async function TourDetailPage({
   params,
 }: {
@@ -58,7 +59,6 @@ export default async function TourDetailPage({
 
   if (!tour) notFound();
 
-  // JSON-LD structured data using the tour's own info (no AI dependency)
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
@@ -78,11 +78,7 @@ export default async function TourDetailPage({
         "@type": "Review",
         author: r.name,
         reviewBody: r.comment,
-        reviewRating: {
-          "@type": "Rating",
-          ratingValue: r.rating,
-          bestRating: 5,
-        },
+        reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5 },
         datePublished: r.date,
       })) || [],
   };
