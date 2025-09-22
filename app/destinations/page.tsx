@@ -31,8 +31,7 @@ export const metadata: Metadata = {
     description: "Explore Kenya, Tanzania, Rwanda, and Uganda safari destinations with expert guides from JaeTravel Expeditions.",
   },
 }
-
-export const destinations = [
+ const destinations = [
   {
     name: "Kenya Safari Destinations",
     slug: "kenya-safari-tours",
