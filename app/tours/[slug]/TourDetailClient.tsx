@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   MapPin,
   Calendar,
@@ -11,22 +11,104 @@ import {
   ChevronLeft,
   ChevronRight,
   Clock,
-} from "lucide-react"
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export default function TourDetailClient({ tour }: { tour: any }) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+type Tour = {
+  slug: string;
+  title: string;
+  description?: string;
+  gallery: string[];
+  category?: string;
+  difficulty?: string;
+  destination?: string;
+  duration?: string;
+  groupSize?: string;
+  rating?: number;
+  reviewCount?: number;
+  price?: number;
+  itinerary?: Array<{ day: number; title: string; description: string }>;
+  reviews?: Array<{ name: string; comment: string; rating: number; date?: string }>;
+};
 
-  const nextImage = () =>
-    setCurrentImageIndex((prev) => (prev + 1) % tour.gallery.length)
+export default function TourDetailClient({ tour }: { tour: Tour }) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [aiOverview, setAiOverview] = useState<string | null>(tour?.description ?? null);
+  const [loadingAi, setLoadingAi] = useState(false);
+  const [aiError, setAiError] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<string>("overview");
+
+  // Simple in-memory cache per tour slug (survives while the page is open)
+  const cacheKey = `ai_overview_${tour.slug}`;
+  const cachedOverview = useMemo(() => {
+    try {
+      return sessionStorage.getItem(cacheKey);
+    } catch {
+      return null;
+    }
+  }, [cacheKey]);
+
+  useEffect(() => {
+    if (cachedOverview && !aiOverview) {
+      setAiOverview(cachedOverview);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cachedOverview]);
+
+  const nextImage = () => setCurrentImageIndex((prev) => (prev + 1) % tour.gallery.length);
   const prevImage = () =>
-    setCurrentImageIndex(
-      (prev) => (prev - 1 + tour.gallery.length) % tour.gallery.length
-    )
+    setCurrentImageIndex((prev) => (prev - 1 + tour.gallery.length) % tour.gallery.length);
+
+  useEffect(() => {
+    // When user switches to AI tab, fetch overview if not present
+    if (activeTab !== "ai") return;
+    if (aiOverview && aiOverview.length > 0) return; // already have overview
+
+    let abort = false;
+    async function fetchAiOverview() {
+      setLoadingAi(true);
+      setAiError(null);
+      try {
+        const res = await fetch("/api/ai-overview", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ tour }),
+        });
+
+        if (!res.ok) {
+          const json = await res.json().catch(() => ({}));
+          throw new Error(json?.error || "Failed to fetch AI overview");
+        }
+
+        const json = await res.json();
+        if (abort) return;
+        const overview = json.overview ?? "No overview available.";
+        setAiOverview(overview);
+
+        try {
+          sessionStorage.setItem(cacheKey, overview);
+        } catch {
+          // ignore
+        }
+      } catch (err: any) {
+        console.error("Failed to load AI overview:", err);
+        if (!abort) setAiError("Failed to load AI overview. Try again later.");
+      } finally {
+        if (!abort) setLoadingAi(false);
+      }
+    }
+
+    fetchAiOverview();
+
+    return () => {
+      abort = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTab, tour]);
 
   return (
     <div className="min-h-screen bg-gray-50 pt-16">
@@ -99,7 +181,11 @@ export default function TourDetailClient({ tour }: { tour: any }) {
       {/* Content */}
       <div className="container mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-          <Tabs defaultValue="overview">
+          <Tabs
+            defaultValue="overview"
+            onValueChange={(v) => setActiveTab(v)}
+            value={activeTab}
+          >
             <TabsList className="grid grid-cols-5 w-full">
               <TabsTrigger value="overview">Overview</TabsTrigger>
               <TabsTrigger value="ai">AI Overview</TabsTrigger>
@@ -127,7 +213,13 @@ export default function TourDetailClient({ tour }: { tour: any }) {
                   <CardTitle>AI Overview</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-700">{tour.aiOverview}</p>
+                  {loadingAi ? (
+                    <p className="text-gray-500">Generating AI overview…</p>
+                  ) : aiError ? (
+                    <p className="text-red-500">{aiError}</p>
+                  ) : (
+                    <p className="text-gray-700">{aiOverview}</p>
+                  )}
                 </CardContent>
               </Card>
             </TabsContent>
@@ -140,7 +232,7 @@ export default function TourDetailClient({ tour }: { tour: any }) {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-4">
-                    {tour.itinerary.map((day: any, i: number) => (
+                    {tour.itinerary?.map((day: any, i: number) => (
                       <li key={i} className="flex gap-3">
                         <Clock className="mt-1 text-orange-600" size={18} />
                         <div>
@@ -150,7 +242,7 @@ export default function TourDetailClient({ tour }: { tour: any }) {
                           <p className="text-gray-600">{day.description}</p>
                         </div>
                       </li>
-                    ))}
+                    )) ?? <p className="text-gray-500">No itinerary available.</p>}
                   </ul>
                 </CardContent>
               </Card>
@@ -186,21 +278,16 @@ export default function TourDetailClient({ tour }: { tour: any }) {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-6">
-                    {tour.reviews.map((r: any, i: number) => (
+                    {tour.reviews?.map((r: any, i: number) => (
                       <div key={i} className="border-b pb-4">
                         <div className="flex items-center gap-2 mb-1">
-                          <Star
-                            size={16}
-                            className="fill-yellow-400 text-yellow-400"
-                          />
+                          <Star size={16} className="fill-yellow-400 text-yellow-400" />
                           <span className="font-semibold">{r.name}</span>
                         </div>
                         <p className="text-gray-600">{r.comment}</p>
-                        <p className="text-sm text-gray-500">
-                          Rating: {r.rating}/5
-                        </p>
+                        <p className="text-sm text-gray-500">Rating: {r.rating}/5</p>
                       </div>
-                    ))}
+                    )) ?? <p className="text-gray-500">No reviews yet.</p>}
                   </div>
                 </CardContent>
               </Card>
@@ -215,9 +302,7 @@ export default function TourDetailClient({ tour }: { tour: any }) {
               <CardTitle>Book This Tour</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold text-orange-600">
-                ${tour.price}
-              </p>
+              <p className="text-3xl font-bold text-orange-600">${tour.price}</p>
               <Button
                 asChild
                 className="w-full bg-orange-600 hover:bg-orange-700 mt-4"
@@ -229,5 +314,5 @@ export default function TourDetailClient({ tour }: { tour: any }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

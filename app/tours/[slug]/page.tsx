@@ -1,19 +1,19 @@
+// app/tours/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import toursData from "@/data/tours-data";
 import { SEO } from "@/config/seo.config";
 import TourDetailClient from "./TourDetailClient";
-import { generateAiOverview } from "@/lib/generateAiOverview";
 
-// ✅ Generate static paths for all tours
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return toursData.map((tour) => ({ slug: tour.slug }));
 }
 
-// ✅ Generate metadata for SEO
-export async function generateMetadata(
-  { params }: { params: Promise<{ slug: string }> }
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const tour = toursData.find((t) => t.slug === slug);
 
@@ -31,9 +31,7 @@ export async function generateMetadata(
       description: tour.metaDescription || SEO.defaultDescription,
       url: `${SEO.canonical}/tours/${tour.slug}`,
       type: "article",
-      images: tour.gallery?.length
-        ? [{ url: tour.gallery[0], alt: tour.title }]
-        : [],
+      images: tour.gallery?.length ? [{ url: tour.gallery[0], alt: tour.title }] : [],
     },
     twitter: {
       card: "summary_large_image",
@@ -50,49 +48,33 @@ export async function generateMetadata(
   };
 }
 
-// ✅ Main page component
-export default async function TourDetailPage(
-  { params }: { params: Promise<{ slug: string }> }
-) {
+export default async function TourDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const tour = toursData.find((t) => t.slug === slug);
 
   if (!tour) notFound();
 
-  // ✅ Generate AI overview (fallback-safe)
-  let ai: {
-    overview: string;
-    keywords: string[];
-    faqs: { q: string; a: string }[];
-  } = {
-    overview: "",
-    keywords: [],
-    faqs: [],
-  };
-
-  try {
-    ai = await generateAiOverview(tour);
-  } catch (err) {
-    console.warn("AI overview could not be generated:", err);
-  }
-
-  // ✅ JSON-LD Structured Data
+  // JSON-LD structured data using the tour's own info (no AI dependency)
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
     name: tour.title,
-    description: tour.description || ai.overview,
+    description: tour.description || "",
     image: tour.gallery || [],
     touristType: tour.category || "",
     country: tour.destination || "",
     offers: {
       "@type": "Offer",
-      price: tour.price || "",
+      price: tour.price ?? "",
       priceCurrency: tour.currency || "USD",
       url: `${SEO.canonical}/tours/${tour.slug}`,
     },
     review:
-      tour.reviews?.map((r) => ({
+      tour.reviews?.map((r: any) => ({
         "@type": "Review",
         author: r.name,
         reviewBody: r.comment,
@@ -103,15 +85,6 @@ export default async function TourDetailPage(
         },
         datePublished: r.date,
       })) || [],
-    mainEntity:
-      ai.faqs?.map((faq) => ({
-        "@type": "Question",
-        name: faq.q,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: faq.a,
-        },
-      })) || [],
   };
 
   return (
@@ -120,7 +93,7 @@ export default async function TourDetailPage(
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <TourDetailClient tour={{ ...tour, aiOverview: ai.overview }} />
+      <TourDetailClient tour={tour} />
     </>
   );
 }

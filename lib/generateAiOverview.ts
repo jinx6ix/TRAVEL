@@ -32,11 +32,7 @@ this tour ensures a once-in-a-lifetime journey.`;
       a: `The tour is suitable for ${tour.level || "all travelers"}, with activities designed for comfort and safety.`,
     },
   ];
-
-  // In your generateAiOverview function, add this check at the beginning:
-if (!process.env.OPENAI_API_KEY) {
-  throw new Error("OPENAI_API_KEY not configured");
-}
+  
 
   return {
     overview,
