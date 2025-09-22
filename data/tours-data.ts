@@ -4672,7 +4672,133 @@ const toursData: TourData[] = [
         accessible: undefined,
         faq: [],
         level: ""
-      },      
+      },
+      // ========================== Kenya Disability Tours – 7-Day Accessible Safari ==========================
+      {
+        id: 50,
+        slug: "kenya-disability-7-day-accessible-safari",
+        title: "Kenya Disability Tours - 7-Day Accessible Safari",
+        destination: "Kenya",
+        duration: "7 days",
+        price: 3200,
+        category: "wildlife",
+        rating: 4.9,
+        reviewCount: 18,
+        difficulty: "Easy",
+        groupSize: "2-10 people",
+        wildlife: ["Big Five", "Giraffes", "Zebras", "Hippos", "Flamingos"],
+        description: "A fully accessible safari across Kenya’s top parks, designed for travelers with mobility challenges. Enjoy wildlife, culture, and comfort with expert support.",
+        highlights: [
+          "Wheelchair-accessible 4x4 vehicles",
+          "Barrier-free lodges",
+          "Professional accessibility-trained guides",
+          "Cultural Maasai village visit"
+        ],
+        included: [
+          "Accessible vehicles",
+          "Accommodation and meals",
+          "Park fees and conservation fees",
+          "Expert guides and coordinators"
+        ],
+        excluded: ["International flights", "Travel insurance", "Visa fees", "Personal expenses"],
+        itinerary: [
+          { day: 1, title: "Arrival in Nairobi", description: "Accessible airport pickup and hotel orientation.", activities: ["Airport pickup", "Hotel check-in", "Accessibility briefing"], accommodation: "Accessible Nairobi Hotel", meals: "Dinner" },
+          { day: 2, title: "Nairobi to Amboseli", description: "Transfer to Amboseli National Park.", activities: ["Scenic drive", "Wildlife viewing"], accommodation: "Accessible Amboseli Lodge", meals: "Breakfast, Lunch, Dinner" },
+          { day: 3, title: "Amboseli Safari", description: "Full day game drives with accessibility support.", activities: ["Morning drive", "Wildlife viewing", "Photography"], accommodation: "Accessible Amboseli Lodge", meals: "Breakfast, Lunch, Dinner" },
+          { day: 4, title: "Amboseli to Lake Naivasha", description: "Drive to Lake Naivasha, boat ride to Crescent Island.", activities: ["Boat cruise", "Wildlife spotting"], accommodation: "Accessible Lake Naivasha Lodge", meals: "Breakfast, Lunch, Dinner" },
+          { day: 5, title: "Lake Naivasha to Maasai Mara", description: "Drive to Maasai Mara National Reserve.", activities: ["Scenic transfer", "Evening game drive"], accommodation: "Accessible Mara Lodge", meals: "Breakfast, Lunch, Dinner" },
+          { day: 6, title: "Maasai Mara Safari", description: "Full day of wildlife viewing.", activities: ["Morning game drive", "Cultural visit", "Afternoon drive"], accommodation: "Accessible Mara Lodge", meals: "Breakfast, Lunch, Dinner" },
+          { day: 7, title: "Return to Nairobi", description: "Transfer back to Nairobi for departure.", activities: ["Hotel checkout", "Airport transfer"], meals: "Breakfast" }
+        ],
+        gallery: [
+          "https://ik.imagekit.io/jinx/travel/wheelchair-accessible-tanzania-safari.webp?updatedAt=1756902426095",
+          "https://ik.imagekit.io/jinx/travel/Tineke-in-Kenya.png?updatedAt=1756902738914",
+          "https://ik.imagekit.io/jinx/travel/WhatsApp%20Image%202025-09-02%20at%2011.43.25%20AM.jpeg?updatedAt=1756810077606"
+        ],
+        bestTime: "June to October",
+        whatToBring: ["Passport", "Camera", "Comfortable clothing", "Binoculars"],
+        physicalRequirements: "Designed for wheelchair users and mobility-limited travelers.",
+        cancellationPolicy: "Free cancellation up to 30 days prior.",
+        reviews: [
+          { id: 1, name: "Sophia Müller", rating: 5, comment: "Inclusive safari, everything well organized.", date: "2024-06-20", verified: true },
+          { id: 2, name: "Daniel Brown", rating: 5, comment: "Accessibility support was excellent.", date: "2024-07-29", verified: true }
+        ],
+        metaTitle: "Kenya Accessible Safari – 7-Day Wildlife Tour",
+        metaDescription: "7-day wheelchair-friendly safari across Kenya’s top parks. Expert guides and accessible accommodations included.",
+        url: "/tours/kenya-disability-7-day-accessible-safari",
+        keywords: ["Kenya accessible safari", "wheelchair-friendly tour", "wildlife Kenya"],
+        country: "Kenya",
+        currency: "USD",
+        bookingUrl: "/booking/kenya-disability-7-day-accessible-safari",
+        tags: [],
+        tourType: "Accessible Safari",
+        seoDescription: "Wheelchair-accessible 7-day safari across Kenya’s premier wildlife parks.",
+        accessible: true,
+        faq: [
+          { q: "Are all vehicles wheelchair-accessible?", a: "Yes, all safari vehicles are specially modified for accessibility." },
+          { q: "Is the tour suitable for seniors?", a: "Yes, minimal physical strain and expert support throughout." }
+        ],
+        level: "Easy"
+      },
+
+      // ========================== Tanzania Accessible Safari Adventure ==========================
+      {
+        id: 51,
+        slug: "tanzania-accessible-safari-adventure",
+        title: "Tanzania Accessible Safari Adventure",
+        destination: "Tanzania",
+        duration: "7 days",
+        price: 3800,
+        category: "wildlife",
+        rating: 4.9,
+        reviewCount: 14,
+        difficulty: "Easy",
+        groupSize: "2-10 people",
+        wildlife: ["Big Five", "Wildebeest", "Zebras", "Giraffes", "Hippos"],
+        description: "Accessible safari across Tanzania’s top parks including Serengeti, Ngorongoro, and Tarangire. Comfortable lodges and accessible vehicles included.",
+        highlights: [
+          "Serengeti & Ngorongoro combination",
+          "Barrier-free accommodations",
+          "Professional guides trained in accessibility"
+        ],
+        included: ["Accessible vehicles", "All meals", "Park fees", "Guided game drives"],
+        excluded: ["Flights", "Travel insurance", "Visa fees", "Personal expenses"],
+        itinerary: [
+          { day: 1, title: "Arrival in Arusha", description: "Meet guide and lodge orientation.", activities: ["Airport pickup", "Hotel check-in"], accommodation: "Accessible Arusha Hotel", meals: "Dinner" },
+          { day: 2, title: "Tarangire Safari", description: "Accessible game drives in Tarangire National Park.", activities: ["Morning & afternoon drive"], accommodation: "Accessible Tarangire Lodge", meals: "Breakfast, Lunch, Dinner" },
+          { day: 3, title: "Lake Manyara Safari", description: "Accessible wildlife viewing and birdwatching.", activities: ["Game drive", "Picnic lunch"], accommodation: "Accessible Manyara Lodge", meals: "Breakfast, Lunch, Dinner" },
+          { day: 4, title: "Ngorongoro Crater Tour", description: "Explore Ngorongoro Crater with accessible vehicles.", activities: ["Crater rim tour", "Wildlife spotting"], accommodation: "Accessible Ngorongoro Lodge", meals: "Breakfast, Lunch, Dinner" },
+          { day: 5, title: "Serengeti Transfer", description: "Drive to Serengeti and afternoon safari.", activities: ["Cross-border transfer", "Game drive"], accommodation: "Accessible Serengeti Lodge", meals: "Breakfast, Lunch, Dinner" },
+          { day: 6, title: "Full Day Serengeti Safari", description: "Big Five and wildlife viewing.", activities: ["Morning drive", "Picnic lunch", "Afternoon drive"], accommodation: "Accessible Serengeti Lodge", meals: "Breakfast, Lunch, Dinner" },
+          { day: 7, title: "Return to Arusha", description: "Transfer to Arusha for departure.", activities: ["Hotel checkout", "Airport transfer"], meals: "Breakfast" }
+        ],
+        gallery: [
+          "https://ik.imagekit.io/jinx/travel/Ngorongoro-Crater.jpg?updatedAt=1750013843530",
+          "https://ik.imagekit.io/jinx/4-Days-Ngorongoro-Wildlife-Tour.jpg?updatedAt=1750076232872",
+          "https://ik.imagekit.io/jinx/travel/wilderness-wonders-tanzania-wildlife-safari-adventure-banner.jpg?updatedAt=1756903393824"
+        ],
+        bestTime: "June to October",
+        whatToBring: ["Camera", "Binoculars", "Comfortable clothing", "Hat", "Sunscreen"],
+        physicalRequirements: "Designed for wheelchair users and mobility-limited travelers.",
+        cancellationPolicy: "Free cancellation up to 30 days prior.",
+        reviews: [
+          { id: 1, name: "Akira Watanabe", rating: 5, comment: "Seamless accessible safari across Tanzania.", date: "2024-09-03", verified: true }
+        ],
+        metaTitle: "Tanzania Accessible Safari Adventure",
+        metaDescription: "7-day accessible safari across Serengeti, Ngorongoro, and Tarangire.",
+        url: "/tours/tanzania-accessible-safari-adventure",
+        keywords: ["Tanzania accessible safari", "wheelchair safari", "Serengeti Ngorongoro"],
+        country: "Tanzania",
+        currency: "USD",
+        bookingUrl: "/booking/tanzania-accessible-safari-adventure",
+        tags: [],
+        tourType: "Accessible Safari",
+        seoDescription: "Wheelchair-accessible 7-day safari in Tanzania including Serengeti and Ngorongoro.",
+        accessible: true,
+        faq: [],
+        level: "Easy"
+      },
+
     ];
 
 

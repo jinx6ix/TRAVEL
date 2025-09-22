@@ -4,7 +4,7 @@ import ToursClient from "./tours-client";
 import { SEO } from "@/config/seo.config";
 
 // --- Pagination config ---
-const TOURS_PER_PAGE = 9;
+const TOURS_PER_PAGE = 12;
 
 // --- Metadata generation ---
 export async function generateMetadata(): Promise<Metadata> {

@@ -657,7 +657,34 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Lions", "Leopards", "Elephants", "Zebras", "Wildebeest", "Rhinos"],
       slug: "east-africa-grand-accessible-safari"
-    },  
+    },
+    {
+      id: 50,
+      title: "Kenya Disability Tours - 7-Day Accessible Safari",
+      destination: "Kenya",
+      duration: "7 days",
+      price: 3200,
+      rating: 4.9,
+      image: "https://ik.imagekit.io/jinx/travel/800x450.jpg?updatedAt=1756903039656",
+      description: "A fully accessible safari across Kenya’s top parks, designed for travelers with mobility challenges.",
+      category: "wildlife",
+      wildlife: ["Big Five", "Giraffes", "Zebras", "Hippos", "Flamingos"],
+      slug: "kenya-disability-7-day-accessible-safari"
+    },
+    {
+      id: 51,
+      title: "Tanzania Accessible Safari Adventure",
+      destination: "Tanzania",
+      duration: "7 days",
+      price: 3800,
+      rating: 4.9,
+      image: "https://ik.imagekit.io/jinx/travel/wheelchair-accessible-tanzania-safari.webp?updatedAt=1756902426095",
+      description: "Accessible safari across Serengeti, Ngorongoro, and Tarangire with comfort and expert guides.",
+      category: "wildlife",
+      wildlife: ["Big Five", "Wildebeest", "Zebras", "Giraffes", "Hippos"],
+      slug: "tanzania-accessible-safari-adventure"
+    },
+
   ]
 
   export default tours

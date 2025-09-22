@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 const accessibleTours = [
   {
     id: 44,
+    slug: "kenya-disability-7-day-accessible-safari",
     title: "Kenya Disability Tours - 7-Day Accessible Safari",
     destination: "Kenya",
     duration: "7 days",
@@ -29,6 +30,7 @@ const accessibleTours = [
   },
   {
     id: 45,
+    slug: "accessible-masai-mara-4days",
     title: "4-Day Accessible Masai Mara Experience",
     destination: "Kenya",
     duration: "4 days",
@@ -46,6 +48,7 @@ const accessibleTours = [
   },
   {
     id: 46,
+    slug: "tanzania-accessible-safari",
     title: "Tanzania Accessible Safari Adventure",
     destination: "Tanzania",
     duration: "8 days",
@@ -63,6 +66,7 @@ const accessibleTours = [
   },
   {
     id: 47,
+    slug: "rwanda-accessible-gorilla",
     title: "Rwanda Accessible Gorilla Experience",
     destination: "Rwanda",
     duration: "5 days",
@@ -80,6 +84,7 @@ const accessibleTours = [
   },
   {
     id: 48,
+    slug: "uganda-accessible-primate",
     title: "Uganda Accessible Primate Safari",
     destination: "Uganda",
     duration: "6 days",
@@ -97,6 +102,7 @@ const accessibleTours = [
   },
   {
     id: 49,
+    slug: "uganda-accessible-primate-safari",
     title: "East Africa Grand Accessible Safari",
     destination: "Multi-Country",
     duration: "12 days",
@@ -310,7 +316,7 @@ export default function DisabilityToursClient() {
                         <span className="text-sm text-gray-500 ml-1">/person</span>
                       </div>
                       <Button asChild size="sm" className="bg-orange-600 hover:bg-orange-700">
-                        <Link href={`/tours/${tour.id}`}>View Details</Link>
+                        <Link href={`/tours/${tour.slug}`}>View Details</Link>
                       </Button>
                     </div>
                   </CardContent>
