@@ -2,16 +2,15 @@ import BlogContent from '@/components/blog-content';
 import { blogPosts, galleryItems } from '@/lib/data';
 import Head from 'next/head';
 
-// Generate structured data for SEO
+// Structured Data for SEO
 const generateStructuredData = () => {
-  const blogUrls = blogPosts.map(post => `${process.env.NEXT_PUBLIC_SITE_URL || 'https://jaetravel.com'}/blog/${post.slug}`);
-  
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jaetravel.com';
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Safari Blog & Gallery | Expert Travel Guides & Tips",
     "description": "Discover expert safari tips, wildlife guides, and stunning photography from East Africa's premier safari destinations.",
-    "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://jaetravel.com'}/blog`,
+    "url": `${siteUrl}/blog`,
     "mainEntity": blogPosts.map(post => ({
       "@type": "BlogPosting",
       "headline": post.title,
@@ -22,23 +21,21 @@ const generateStructuredData = () => {
         "name": post.author
       },
       "image": post.image,
-      "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://jaetravel.com'}/blog/${post.slug}`
+      "url": `${siteUrl}/blog/${post.slug}`
     }))
   };
 };
 
 export default function ContentPage() {
-  const structuredData = generateStructuredData();
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jaetravel.com';
   const currentUrl = `${siteUrl}/blog`;
   const featuredImage = blogPosts.length > 0 ? blogPosts[0].image : `${siteUrl}/images/blog-default.jpg`;
+  const structuredData = generateStructuredData();
 
   return (
     <>
       <Head>
-        {/* Primary Meta Tags */}
         <title>Safari Blog & Gallery | Expert Travel Guides & Tips</title>
-        <meta name="title" content="Safari Blog & Gallery | Expert Travel Guides & Tips" />
         <meta name="description" content="Discover expert safari tips, wildlife guides, and stunning photography from East Africa's premier safari destinations. Plan your adventure with our comprehensive travel resources." />
         <meta name="keywords" content="safari blog, travel guides, wildlife photography, East Africa travel, safari tips, Maasai Mara, gorilla trekking, Kilimanjaro climbing, African safari" />
         <meta name="author" content="JaeTravel Expeditions" />
@@ -46,7 +43,7 @@ export default function ContentPage() {
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={currentUrl} />
 
-        {/* Open Graph / Facebook */}
+        {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={currentUrl} />
         <meta property="og:title" content="Safari Blog & Gallery | Expert Travel Guides & Tips" />
@@ -55,7 +52,7 @@ export default function ContentPage() {
         <meta property="og:site_name" content="JaeTravel Expeditions" />
         <meta property="og:locale" content="en_US" />
 
-        {/* Twitter Card */}
+        {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={currentUrl} />
         <meta property="twitter:title" content="Safari Blog & Gallery | Expert Travel Guides & Tips" />
@@ -64,11 +61,8 @@ export default function ContentPage() {
         <meta name="twitter:creator" content="@jaetravel" />
         <meta name="twitter:site" content="@jaetravel" />
 
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </Head>
 
       <BlogContent blogPosts={blogPosts} galleryItems={galleryItems} />
@@ -76,6 +70,7 @@ export default function ContentPage() {
   );
 }
 
+// Next.js metadata export for app directory
 export const metadata = {
   title: 'Safari Blog & Gallery | Expert Travel Guides & Tips',
   description: 'Discover expert safari tips, wildlife guides, and stunning photography from East Africa\'s premier safari destinations. Plan your adventure with our comprehensive travel resources.',
@@ -103,7 +98,5 @@ export const metadata = {
     images: [blogPosts.length > 0 ? blogPosts[0].image : '/images/blog-default.jpg'],
     creator: '@jaetravel',
   },
-  alternates: {
-    canonical: 'https://jaetravel.com/blog',
-  },
+  alternates: { canonical: 'https://jaetravel.com/blog' },
 };

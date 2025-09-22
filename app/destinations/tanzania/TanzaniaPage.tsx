@@ -45,6 +45,7 @@ const tanzaniaHighlights = [
 const tanzaniaTours = [
   {
     id: 13,
+    slug: "serengeti-wildlife-safari",
     title: "Serengeti Wildlife Safari",
     duration: "7 days",
     price: 1800,
@@ -53,6 +54,7 @@ const tanzaniaTours = [
   },
   {
     id: 14,
+    slug: "ngorongoro-crater-tour",
     title: "Ngorongoro Crater Tour",
     duration: "3 days",
     price: 950,
@@ -61,6 +63,7 @@ const tanzaniaTours = [
   },
   {
     id: 15,
+    slug: "mount-kilimanjaro-climbing",
     title: "Kilimanjaro Climbing",
     duration: "8 days",
     price: 2200,
@@ -271,7 +274,7 @@ export default function TanzaniaPage() {
                     <div className="flex items-center justify-between">
                       <span className="text-2xl font-bold text-orange-600">${tour.price}</span>
                       <Button asChild>
-                        <Link href={`/tours/${tour.id}`}>Book Now</Link>
+                        <Link href={`/tours/${tour.slug}`}>Book Now</Link>
                       </Button>
                     </div>
                   </CardContent>

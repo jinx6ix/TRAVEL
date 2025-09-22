@@ -1,24 +1,97 @@
+// app/page.tsx
 import Image from "next/image"
 import Link from "next/link"
-import Head from "next/head"
+import type { Metadata } from "next"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, Star, ArrowRight, Check } from "lucide-react"
+import { Calendar, Star, ArrowRight } from "lucide-react"
+
 import HeroSection from "@/components/hero-section"
 import DestinationsSection from "@/components/destinations-section"
 import OffersSection from "@/components/offers-section"
 import BookingWidgetSection from "@/components/booking-widget-section"
 import FeaturedToursSection from "@/components/featured-tours-section"
 import WhyChooseUsSection from "@/components/why-choose-us-section"
-import {ReviewsSection} from "@/components/reviews-section"
+import { ReviewsSection } from "@/components/reviews-section"
 
-// Data (could be moved to separate files)
+// --- SEO Metadata ---
+const siteUrl = "https://www.jaetravel.com"
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: "JaeTravel Expeditions - Premium African Safari Tours & Adventures",
+  description:
+    "Experience unforgettable African safaris with JaeTravel Expeditions. Explore Kenya, Tanzania, Rwanda, and Uganda with our expertly guided tours and luxury accommodations.",
+  keywords: [
+    "African safari",
+    "Kenya tours",
+    "Tanzania wildlife",
+    "gorilla trekking",
+    "luxury safari",
+    "Masai Mara",
+    "Serengeti",
+    "travel Africa",
+  ],
+  alternates: {
+    canonical: siteUrl,
+  },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    title: "JaeTravel Expeditions - Premium African Safari Tours & Adventures",
+    description:
+      "Experience unforgettable African safaris with JaeTravel Expeditions. Explore Kenya, Tanzania, Rwanda, and Uganda with our expertly guided tours and luxury accommodations.",
+    siteName: "JaeTravel Expeditions",
+    locale: "en_US",
+    images: [
+      {
+        url: "https://ik.imagekit.io/jinx/travel/_8503066.jpg?updatedAt=1750002707556",
+        width: 1200,
+        height: 630,
+        alt: "African Safari Tours - JaeTravel Expeditions",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@jaetravel",
+    creator: "@jaetravel",
+    title: "JaeTravel Expeditions",
+    description: "Premium African Safari Tours & Adventures",
+    images: ["https://ik.imagekit.io/jinx/travel/_8503066.jpg?updatedAt=1750002707556"],
+  },
+}
+
+// --- Structured Data ---
+const generateStructuredData = () => ({
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  name: "JaeTravel Expeditions",
+  description:
+    "Experience unforgettable African safaris with JaeTravel Expeditions. Explore Kenya, Tanzania, Rwanda, and Uganda with our expertly guided tours and luxury accommodations.",
+  url: siteUrl,
+  telephone: "+254-726-485-228",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "123 Safari Lane",
+    addressLocality: "Nairobi",
+    addressRegion: "Nairobi",
+    postalCode: "00100",
+    addressCountry: "KE",
+  },
+  openingHours: "Mo-Fr 08:00-18:00",
+  image: "https://ik.imagekit.io/jinx/travel/_8503066.jpg?updatedAt=1750002707556",
+  priceRange: "$$$",
+  areaServed: ["Kenya", "Tanzania", "Rwanda", "Uganda"],
+})
+
+// --- Data ---
 const destinations = [
   { name: "Kenya", image: "https://ik.imagekit.io/jinx/travel/_8108045.jpg?updatedAt=1750002790492", tours: 12 },
   { name: "Tanzania", image: "https://ik.imagekit.io/jinx/travel/_8502569.jpg?updatedAt=1750002716388", tours: 15 },
   { name: "Rwanda", image: "https://ik.imagekit.io/jinx/travel/25-Top-Attractions-in-Rwanda-2.jpg?updatedAt=1750004163696", tours: 8 },
-  { name: "Uganda", image: "https://ik.imagekit.io/jinx/travel/lake_bunyonyi__uganda-the-pearl-of-africa.webp?updatedAt=1750004263683", tours: 7 }
+  { name: "Uganda", image: "https://ik.imagekit.io/jinx/travel/lake_bunyonyi__uganda-the-pearl-of-africa.webp?updatedAt=1750004263683", tours: 7 },
 ]
 
 const featuredTours = [
@@ -54,57 +127,10 @@ const featuredTours = [
     rating: 5.0,
     image: "https://ik.imagekit.io/jinx/travel/Gorilla-Tours-from-Mombasa-1024x675.webp?updatedAt=1750005789952",
     description: "Get up close with mountain gorillas in their natural habitat.",
-  }
+  },
 ]
 
-// SEO Metadata
-const siteMetadata = {
-  title: "JaeTravel Expeditions - Premium African Safari Tours & Adventures",
-  description: "Experience unforgettable African safaris with JaeTravel Expeditions. Explore Kenya, Tanzania, Rwanda, and Uganda with our expertly guided tours and luxury accommodations.",
-  keywords: "African safari, Kenya tours, Tanzania wildlife, gorilla trekking, luxury safari, Masai Mara, Serengeti, travel Africa",
-  author: "JaeTravel Expeditions",
-  siteUrl: "https://www.jaetravelexpeditions.com",
-  image: "https://ik.imagekit.io/jinx/travel/_8503066.jpg?updatedAt=1750002707556",
-  twitterHandle: "@jaetravel",
-  locale: "en_US",
-  type: "website",
-}
-
-// Generate structured data for SEO
-const generateStructuredData = () => {
-  return {
-    "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    "name": "JaeTravel Expeditions",
-    "description": siteMetadata.description,
-    "url": siteMetadata.siteUrl,
-    "telephone": "+254-726-485-228",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "123 Safari Lane",
-      "addressLocality": "Nairobi",
-      "addressRegion": "Nairobi",
-      "postalCode": "00100",
-      "addressCountry": "KE"
-    },
-    "openingHours": "Mo-Fr 08:00-18:00",
-    "image": siteMetadata.image,
-    "priceRange": "$$$",
-    "areaServed": ["Kenya", "Tanzania", "Rwanda", "Uganda"],
-    "makesOffer": featuredTours.map(tour => ({
-      "@type": "Offer",
-      "name": tour.title,
-      "description": tour.description,
-      "price": tour.price,
-      "priceCurrency": "USD",
-      "eligibleRegion": {
-        "@type": "Country",
-        "name": tour.destination
-      }
-    }))
-  }
-}
-
+// --- Components ---
 function FeaturedTourCard({ tour }: { tour: typeof featuredTours[0] }) {
   return (
     <Card className="h-full flex flex-col overflow-hidden hover:shadow-xl transition-shadow">
@@ -115,7 +141,6 @@ function FeaturedTourCard({ tour }: { tour: typeof featuredTours[0] }) {
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover"
-          priority={false}
         />
         <Badge className="absolute top-4 left-4 bg-orange-600 hover:bg-orange-700">{tour.destination}</Badge>
       </div>
@@ -142,7 +167,9 @@ function FeaturedTourCard({ tour }: { tour: typeof featuredTours[0] }) {
         <div className="flex items-center justify-between w-full">
           <span className="text-2xl font-bold text-orange-600">{tour.price}</span>
           <Button asChild>
-            <Link href={`/offers/${tour.slug}/book`}>Book Now <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            <Link href={`/offers/${tour.slug}/book`}>
+              Book Now <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </Button>
         </div>
       </CardFooter>
@@ -151,45 +178,12 @@ function FeaturedTourCard({ tour }: { tour: typeof featuredTours[0] }) {
 }
 
 export default function HomePage() {
-  const structuredData = generateStructuredData();
-  
+  const structuredData = generateStructuredData()
+
   return (
     <div className="min-h-screen">
-      <Head>
-        {/* Primary Meta Tags */}
-        <title>{siteMetadata.title}</title>
-        <meta name="title" content={siteMetadata.title} />
-        <meta name="description" content={siteMetadata.description} />
-        <meta name="keywords" content={siteMetadata.keywords} />
-        <meta name="author" content={siteMetadata.author} />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href={siteMetadata.siteUrl} />
-
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content={siteMetadata.type} />
-        <meta property="og:url" content={siteMetadata.siteUrl} />
-        <meta property="og:title" content={siteMetadata.title} />
-        <meta property="og:description" content={siteMetadata.description} />
-        <meta property="og:image" content={siteMetadata.image} />
-        <meta property="og:site_name" content="JaeTravel Expeditions" />
-        <meta property="og:locale" content={siteMetadata.locale} />
-
-        {/* Twitter Card */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={siteMetadata.siteUrl} />
-        <meta property="twitter:title" content={siteMetadata.title} />
-        <meta property="twitter:description" content={siteMetadata.description} />
-        <meta property="twitter:image" content={siteMetadata.image} />
-        <meta name="twitter:creator" content={siteMetadata.twitterHandle} />
-        <meta name="twitter:site" content={siteMetadata.twitterHandle} />
-
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-      </Head>
+      {/* JSON-LD Structured Data */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
       <HeroSection />
       <DestinationsSection destinations={destinations} />
