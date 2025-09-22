@@ -1,4 +1,3 @@
-// app/tours/page.tsx
 import type { Metadata } from "next";
 import { tours, type Tour } from "@/lib/tours-data";
 import ToursClient from "./tours-client";
@@ -6,10 +5,6 @@ import { SEO } from "@/config/seo.config";
 
 // --- Pagination config ---
 const TOURS_PER_PAGE = 9;
-
-interface ToursPageProps {
-  searchParams?: { page?: string };
-}
 
 // --- Metadata generation ---
 export async function generateMetadata(): Promise<Metadata> {
@@ -64,14 +59,14 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-// --- Structured data for a specific page ---
+// --- Structured data ---
 function generateStructuredData(tours: Tour[], page: number) {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
     itemListElement: tours.map((tour, index) => ({
       "@type": "ListItem",
-      position: (page - 1) * TOURS_PER_PAGE + index + 1, // ✅ maintains global ordering across pages
+      position: (page - 1) * TOURS_PER_PAGE + index + 1,
       item: {
         "@type": "TouristAttraction",
         name: tour.title,
@@ -89,9 +84,14 @@ function generateStructuredData(tours: Tour[], page: number) {
   };
 }
 
-// --- Server component with pagination ---
-export default async function ToursPage({ searchParams }: ToursPageProps) {
-  const page = parseInt(searchParams?.page || "1", 10);
+// --- Server component ---
+export default async function ToursPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const { page: pageParam } = await searchParams;
+  const page = parseInt(pageParam || "1", 10);
   const start = (page - 1) * TOURS_PER_PAGE;
   const paginatedTours = tours.slice(start, start + TOURS_PER_PAGE);
   const structuredData = generateStructuredData(paginatedTours, page);
