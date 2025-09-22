@@ -2,6 +2,9 @@ import { Verification } from "next/dist/lib/metadata/types/metadata-types";
 
 // types/seo-types.ts
 export interface SEOConfig {
+    logo: string;
+    organizationName: string;
+    socials: string[];
     defaultDescription: string;
     keywords: any;
     siteUrl: any;

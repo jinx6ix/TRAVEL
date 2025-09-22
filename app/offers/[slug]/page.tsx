@@ -3,7 +3,7 @@ import Script from "next/script"
 import OfferDetailClient from "./OfferDetailClient"
 import { SEO } from "@/config/seo.config"
 
-// Mock data (can be imported from db/json later)
+// Mock data
 interface OfferData {
   id: number
   slug: string
@@ -22,7 +22,7 @@ interface OfferData {
   availability: string
 }
 
-const safariOffers = [
+const safariOffers: OfferData[] = [
   {
     id: 1,
     slug: "nairobi-highlights-express-tour",
@@ -91,11 +91,10 @@ const safariOffers = [
   }
 ]
 
-
-type Params = { slug: string }
-
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const offer = safariOffers.find((o) => o.slug === params.slug)
+// ------------------ Fix: Use Promise for params ------------------
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const offer = safariOffers.find((o) => o.slug === slug)
 
   if (!offer) {
     return {
@@ -126,8 +125,10 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   }
 }
 
-export default function OfferDetailPage({ params }: { params: Params }) {
-  const offer = safariOffers.find((o) => o.slug === params.slug)
+// ------------------ Fix: Page props also expect Promise ------------------
+export default async function OfferDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const offer = safariOffers.find((o) => o.slug === slug)
 
   if (!offer) {
     return (
@@ -154,7 +155,6 @@ export default function OfferDetailPage({ params }: { params: Params }) {
         {JSON.stringify(structuredData)}
       </Script>
 
-      {/* ✅ Client component handles UI */}
       <OfferDetailClient offer={offer} />
     </>
   )
