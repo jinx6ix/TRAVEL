@@ -31,13 +31,13 @@ export function Footer() {
             </div>
             <p className="text-gray-400 mb-4">{t("trustedPartner")}</p>
             <div className="flex space-x-4">
-              <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.facebook.com/JaeTravelExpeditions" target="_blank" rel="noopener noreferrer">
                 <Facebook size={20} className="hover:text-orange-400 transition-colors" />
               </Link>
               <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                 <Twitter size={20} className="hover:text-orange-400 transition-colors" />
               </Link>
-              <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.instagram.com/jaetravelexpeditions/" target="_blank" rel="noopener noreferrer">
                 <Instagram size={20} className="hover:text-orange-400 transition-colors" />
               </Link>
             </div>

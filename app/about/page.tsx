@@ -61,8 +61,8 @@ export default function AboutPage() {
       availableLanguage: ["English", "Swahili"],
     },
     sameAs: [
-      "https://www.facebook.com/jaetravel",
-      "https://www.instagram.com/jaetravel",
+      "https://www.facebook.com/JaeTravelExpeditions",
+      "https://www.instagram.com/jaetravelexpeditions/",
     ],
   }
 

@@ -67,8 +67,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     logo: SEO.logo || `${SEO.canonical}/logo.png`,
     description: SEO.defaultDescription,
     sameAs: SEO.socials || [
-      "https://www.facebook.com/jaetravel",
-      "https://www.instagram.com/jaetravel",
+      "https://www.facebook.com/JaeTravelExpeditions",
+      "https://www.instagram.com/jaetravelexpeditions/",
       "https://twitter.com/jaetravel",
     ],
   }

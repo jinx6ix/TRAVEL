@@ -50,8 +50,8 @@ export const SEO: SEOConfig = {
 
   // ✅ Corrected socials as string array
   socials: [
-    'https://www.facebook.com/jaetravel',
-    'https://www.instagram.com/jaetravel',
+    'https://www.facebook.com/JaeTravelExpeditions',
+    'https://www.instagram.com/jaetravelexpeditions/',
     'https://twitter.com/jaetravel',
   ],
 
