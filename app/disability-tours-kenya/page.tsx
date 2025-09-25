@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     "barrier-free kenya travel",
     "inclusive safari experiences",
     "disabled travel kenya",
+    "wheelchair accessible tours and safaris"
   ],
   openGraph: {
     title: "Accessible Kenya Safari Tours | JaeTravel Expeditions",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     url: "https://www.jaetravel.com/disability-tours-kenya",
     images: [
       {
-        url: "https://ik.imagekit.io/jinx/travel/accessible-safari-kenya.jpg?updatedAt=1750073000000",
+        url: "https://ik.imagekit.io/jinx/travel/WhatsApp-Image-2025-01-15-at-12.06.45-PM.webp?updatedAt=1756903260238",
         width: 1200,
         height: 630,
         alt: "Accessible Kenya Safari Tour",
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
   authors: [{ name: "JaeTravel Expeditions" }],
   publisher: "JaeTravel Expeditions",
   verification: {
-    google: "your-google-verification-code",
+    google: "IGxEnPG73ZqCfKPuOdpjfM_HNDfuM03gWG9AUYOu74U",
   },
 }
 
