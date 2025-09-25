@@ -88,6 +88,18 @@ export const blogPosts = [
       category: "Birding Safari",
       slug: "uganda-bird-watching-species-locations"
     },
+    {
+      id: 9,
+      title: "How to Go on Safari in a Wheelchair: Complete Accessible Travel Guide",
+      excerpt: "A step-by-step guide for wheelchair users to enjoy an African safari. Learn about accessible destinations, vehicles, lodges, and expert travel tips.",
+      image: "https://ik.imagekit.io/jinx/travel/WhatsApp-Image-2025-01-15-at-12.06.45-PM.webp?updatedAt=1756903260238",
+      author: "Ian Iraya",
+      date: "2025-09-25",
+      readTime: "10 min read",
+      category: "Accessible Safari",
+      slug: "how-to-go-on-safari-in-a-wheelchair"
+    },
+    
   ];
 
  export const galleryItems = [
@@ -171,6 +183,15 @@ export const blogPosts = [
       description: "Our photographic converted safari landcruiser",
       date: "2023-11-20"
     },
+    {
+      id: 11,
+      type: "blog",
+      title: "How to Go on Safari in a Wheelchair: Complete Accessible Travel Guide",
+      src: "https://ik.imagekit.io/jinx/travel/WhatsApp-Image-2025-01-15-at-12.06.45-PM.webp?updatedAt=1756903260238",
+      description: "A comprehensive guide for wheelchair users to experience African safaris with accessible vehicles, lodges, and tailored travel tips.",
+      date: "2025-09-25"
+    },
+    
   ];
 
   export const categoryKeys = ["all", "wildlife safari", "adventure travel", "safari photography", "cultural experience", "eco tourism", "travel tips"];
