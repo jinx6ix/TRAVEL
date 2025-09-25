@@ -297,6 +297,42 @@ const blogPosts: BlogPost[] = [
       <h3 class="text-xl font-semibold mt-6 mb-3">Best Time for Birding</h3>
       <p>November to April offers the best opportunity as migratory species join Uganda's resident birds.</p>
     `
+  },
+  {
+    id: 9,
+    title: "How to Go on Safari in a Wheelchair: Complete Accessible Travel Guide",
+    excerpt: "A comprehensive guide for wheelchair users to experience African safaris with accessible vehicles, lodges, and tailored travel tips.",
+    image: "https://ik.imagekit.io/jinx/travel/WhatsApp-Image-2025-01-15-at-12.06.45-PM.webp?updatedAt=1756903260238",
+    author: "Ian Iraya",
+    authorImage: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80",
+    authorBio: "Accessible travel specialist dedicated to making African safaris inclusive for all adventurers.",
+    date: "2025-09-25",
+    readTime: "10 min read",
+    category: "Accessible Safari",
+    location: "Kenya & Tanzania",
+    metaDescription: "Step-by-step safari guide for wheelchair users: accessible vehicles, lodges, and safari tips across East Africa.",
+    keywords: "wheelchair safari, accessible safari Africa, disabled travel Kenya, Tanzania wheelchair travel, inclusive tourism",
+    relatedPosts: [8, 6, 4],
+    content: `
+      <h2 class="text-2xl font-bold mt-8 mb-4">Planning an Accessible Safari</h2>
+      <p>With the right planning, a wheelchair safari can be just as thrilling and immersive as any other adventure. Tour operators across East Africa now offer modified vehicles, trained guides, and accessible lodges designed for comfort and inclusivity.</p>
+  
+      <h3 class="text-xl font-semibold mt-6 mb-3">Accessible Safari Vehicles</h3>
+      <p>Specially adapted Landcruisers come fitted with ramps and hydraulic lifts, making it easy for wheelchair users to board. These vehicles also offer spacious interiors and panoramic windows for unobstructed wildlife viewing.</p>
+  
+      <h3 class="text-xl font-semibold mt-6 mb-3">Wheelchair-Friendly Lodges</h3>
+      <ul class="list-disc pl-5 space-y-2">
+        <li><strong>Masai Mara Lodges</strong> — ramps, wide doorways, and roll-in showers</li>
+        <li><strong>Serengeti Camps</strong> — accessible tents with firm pathways</li>
+        <li><strong>Amboseli Resorts</strong> — trained staff to assist with mobility needs</li>
+      </ul>
+  
+      <h3 class="text-xl font-semibold mt-6 mb-3">Travel Tips for Wheelchair Users</h3>
+      <p>Book early to secure adapted vehicles, communicate personal requirements with operators, and carry a lightweight travel wheelchair for added convenience in camps and lodges.</p>
+  
+      <h3 class="text-xl font-semibold mt-6 mb-3">Best Destinations for Wheelchair Safaris</h3>
+      <p>The Masai Mara, Amboseli, Serengeti, and Ngorongoro Crater stand out as top destinations with well-developed infrastructure for inclusive travel.</p>
+    `
   }
 ];
 
