@@ -15,6 +15,14 @@ export interface SEOConfig {
     yandex?: string;
     yahoo?: string;
   };
+  openGraph: {
+    images: Array<{
+      url: string;
+      width: number;
+      height: number;
+      alt: string;
+    }>;
+  };
   keywords: string[];
 }
 
@@ -48,5 +56,15 @@ export const SEO: SEOConfig = {
     "WHEELCHAIR ACCESSIBLE SAFARIS KENYA",
     "budget tours Africa",
   ],
-  twitterHandle: "@jaetravelexpeditions"
+  twitterHandle: "@jaetravelexpeditions",
+  openGraph: {
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Jae Travel Expeditions",
+      },
+    ],
+  },
 };

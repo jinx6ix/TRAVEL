@@ -10,14 +10,14 @@ export const metadata: Metadata = {
     canonical: `${SEO.canonical}/about`,
   },
   openGraph: {
-    title: "About JaeTravel Expeditions - Safari Experts",
+    title: "About Jae Travel Expeditions - Safari Experts",
     description:
-      "Since 2009, JaeTravel Expeditions has crafted authentic safari adventures across Kenya, Uganda, Tanzania, and Rwanda.",
+      "Since 2009, Jae Travel Expeditions has crafted authentic safari adventures across Kenya, Uganda, Tanzania, and Rwanda.",
     url: `${SEO.canonical}/about`,
     siteName: SEO.siteName,
     images: SEO.openGraph.images,
     locale: "en_US",
-    type: "profile",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
