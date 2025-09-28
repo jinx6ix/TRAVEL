@@ -1,12 +1,15 @@
+
 // app/sitemap-tours.xml/route.ts
 import { NextResponse } from "next/server";
 import toursData, { TourData } from "@/data/tours-data";
 import { SEO } from "@/config/seo.config";
 
 export async function GET(): Promise<NextResponse> {
+  const lastModified = new Date("2025-09-28T13:59:00Z"); // 04:59 PM EAT on 2025-09-28
+
   const tours = toursData.map((tour: TourData) => ({
     url: `${SEO.canonical}/tours/${tour.slug}`,
-    lastModified: new Date(),
+    lastModified,
     changeFrequency: "weekly" as const,
     priority: 0.8,
     images: tour.gallery?.map((img, index) => ({

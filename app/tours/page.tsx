@@ -47,6 +47,8 @@ export async function generateMetadata({
     "JaeTravel Expeditions"
   ];
 
+  
+
   return {
     title: pageTitle,
     description: pageDescription,
@@ -98,7 +100,45 @@ export async function generateMetadata({
     },
   };
 }
-
+export const metadata: Metadata = {
+  title: `Tours | ${SEO.siteName} - Explore East Africa`,
+  description: "Discover our premium safari tours across Kenya, Uganda, Tanzania, and Rwanda with Jae Travel Expeditions.",
+  keywords: SEO.keywords,
+  alternates: {
+    canonical: `${SEO.canonical}/tours`,
+    languages: { "en-US": `${SEO.canonical}/tours` },
+  },
+  openGraph: {
+    title: "Tours | Jae Travel Expeditions",
+    description: "Explore our safari tours across East Africa.",
+    url: `${SEO.canonical}/tours`,
+    siteName: SEO.siteName,
+    images: SEO.openGraph.images,
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tours | Jae Travel Expeditions",
+    description: "Explore our safari tours across East Africa.",
+    images: SEO.openGraph.images,
+    creator: SEO.twitterHandle || "@jaetravel",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  verification: SEO.verification,
+  category: "Travel & Tourism",
+  authors: [{ name: SEO.siteName, url: SEO.canonical }],
+};
 // Enhanced structured data with proper schema
 function generateStructuredData(tours: TourData[], page: number, totalPages: number) {
   const baseUrl = SEO.canonical;
@@ -213,8 +253,25 @@ export default async function ToursPage({
   const paginatedTours = toursData.slice(start, start + TOURS_PER_PAGE);
   const totalPages = Math.ceil(toursData.length / TOURS_PER_PAGE);
   
-  const structuredData = generateStructuredData(paginatedTours, page, totalPages);
+  const structuredDat = generateStructuredData(paginatedTours, page, totalPages);
   const faqData = generateDynamicFAQData(toursData);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Jae Travel Expeditions Tours",
+    url: `${SEO.canonical}/tours`,
+    itemListElement: toursData.map((tour, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Tour",
+        name: tour.title,
+        url: `${SEO.canonical}/tours/${tour.slug}`,
+        description: tour.description,
+        image: tour.gallery?.[0] || SEO.logo,
+      },
+    })),
+  };
 
   // Pagination links for SEO
   const prevPage = page > 1 ? `${SEO.canonical}/tours/page/${page - 1}` : undefined;
@@ -225,12 +282,12 @@ export default async function ToursPage({
       {/* Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData[0]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDat[0]) }}
         key="breadcrumbs"
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData[1]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDat[1]) }}
         key="tour-list"
       />
       <script

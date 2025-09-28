@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback, useMemo } from "react"
+import { useState, useCallback, useMemo, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -13,6 +13,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useLanguage } from "@/hooks/useLanguage"
 import { type TourData } from "@/data/tours-data"
 import { useRouter, useSearchParams } from "next/navigation"
+import { SEO } from "@/config/seo.config"
 
 interface ToursClientProps {
   tours: TourData[]
@@ -173,6 +174,15 @@ export default function ToursClient({ tours, currentPage, totalTours, perPage, a
     params.set("page", page.toString());
     router.push(`/tours?${params.toString()}`, { scroll: true });
   }, [router, searchParams]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "page_view", {
+        page_title: "Tours | Jae Travel Expeditions",
+        page_location: `${SEO.canonical}/tours`,
+      });
+    }
+  }, []);
 
   return (
     <div className="min-h-screen pt-16">

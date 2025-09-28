@@ -1,12 +1,15 @@
+
 // app/sitemap-static.xml/route.ts
 import { NextResponse } from "next/server";
 import { SEO } from "@/config/seo.config";
 
 export async function GET(): Promise<NextResponse> {
+  const lastModified = new Date("2025-09-28T13:59:00Z"); // 04:59 PM EAT on 2025-09-28
+
   const staticPages = [
     {
       url: SEO.canonical,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: "daily",
       priority: 1.0,
       images: [
@@ -14,11 +17,12 @@ export async function GET(): Promise<NextResponse> {
           loc: SEO.logo,
           title: "Jae Travel Expeditions Logo",
         },
+        
       ],
     },
     {
       url: `${SEO.canonical}/about`,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
       images: [
@@ -29,8 +33,20 @@ export async function GET(): Promise<NextResponse> {
       ],
     },
     {
+      url: `${SEO.canonical}/tours`, // Added Tours index page
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+      images: [
+        {
+          loc: SEO.logo,
+          title: "Jae Travel Expeditions Tours Page",
+        },
+      ],
+    },
+    {
       url: `${SEO.canonical}/vehicle-hire`,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
       images: [
@@ -63,7 +79,7 @@ export async function GET(): Promise<NextResponse> {
     },
     {
       url: `${SEO.canonical}/contact`,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
       images: [
@@ -75,7 +91,7 @@ export async function GET(): Promise<NextResponse> {
     },
     {
       url: `${SEO.canonical}/blog`,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: "weekly",
       priority: 0.7,
       images: [
@@ -87,7 +103,7 @@ export async function GET(): Promise<NextResponse> {
     },
     {
       url: `${SEO.canonical}/terms`,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: "yearly",
       priority: 0.5,
       images: [
@@ -99,7 +115,7 @@ export async function GET(): Promise<NextResponse> {
     },
     {
       url: `${SEO.canonical}/privacy`,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: "yearly",
       priority: 0.5,
       images: [
