@@ -1,18 +1,17 @@
-// app/layout.tsx — fully updated for GA4, structured data, default SEO, Open Graph, and auto page SEO
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import Script from "next/script"
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import "./globals.css"
+// app/layout.tsx
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { LanguageProvider } from "@/hooks/useLanguage";
+import { SEO } from "@/config/seo.config";
 
-import { ThemeProvider } from "@/components/theme-provider"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { LanguageProvider } from "@/hooks/useLanguage"
-import { SEO } from "@/config/seo.config"
-
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 // Default metadata for the entire site
 export const metadata: Metadata = {
@@ -21,25 +20,31 @@ export const metadata: Metadata = {
     default: SEO.defaultTitle || "Jae Travel Expeditions",
     template: "%s | Jae Travel Expeditions",
   },
-  description: SEO.defaultDescription,
-  keywords: SEO.keywords || [],
+  description: SEO.defaultDescription || "Discover unforgettable safari adventures with Jae Travel Expeditions. Book your dream tour today!",
+  keywords: SEO.keywords || [
+    "safari tours",
+    "african adventures",
+    "travel expeditions",
+    "wildlife safaris",
+    "Jae Travel",
+  ],
   icons: {
-    icon: "/logo.ico",
-    shortcut: "/logo.ico",
-    apple: "/logo.png",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SEO.canonical,
     siteName: "Jae Travel Expeditions",
-    title: SEO.defaultTitle,
-    description: SEO.defaultDescription,
+    title: SEO.defaultTitle || "Jae Travel Expeditions",
+    description: SEO.defaultDescription || "Discover unforgettable safari adventures with Jae Travel Expeditions.",
     images: [
       {
-        url: SEO.logo || "/logo.png",
-        width: 500,
-        height: 500,
+        url: SEO.logo || "/og-image.jpg",
+        width: 1200,
+        height: 630,
         alt: "Jae Travel Expeditions Logo",
       },
     ],
@@ -48,52 +53,73 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@JaeTravel",
     creator: "@JaeTravel",
-    title: SEO.defaultTitle,
-    description: SEO.defaultDescription,
-    images: [SEO.logo || "/logo.png"],
+    title: SEO.defaultTitle || "Jae Travel Expeditions",
+    description: SEO.defaultDescription || "Discover unforgettable safari adventures with Jae Travel Expeditions.",
+    images: [SEO.logo || "/og-image.jpg"],
   },
-}
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
+  },
+  verification: SEO.verification || {},
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID ?? "G-Q6Y2Y3PSXH" // Your GA4 Measurement ID
-  const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-5MCS8TS6"
+  const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID ?? "G-Q6Y2Y3PSXH"; // Fallback GA4 ID
+  const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-5MCS8TS6"; // Fallback GTM ID
 
-  // Default structured data (Organization + Website)
+  // Default structured data (TravelAgency + WebSite)
   const organizationStructuredData = {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
     name: SEO.organizationName || "Jae Travel Expeditions",
-    url: SEO.canonical,
-    logo: SEO.logo || `${SEO.canonical}/logo.png`,
-    description: SEO.defaultDescription,
+    url: SEO.canonical || "https://jaetravel.com",
+    logo: SEO.logo || "/logo.svg",
+    description: SEO.defaultDescription || "Discover unforgettable safari adventures with Jae Travel Expeditions.",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: SEO.contactPhone || "+254726485228",
+      contactType: "Customer Service",
+      email: SEO.contactEmail || "info@jaetravel.com",
+    },
     sameAs: SEO.socials || [
       "https://www.facebook.com/JaeTravelExpeditions",
       "https://www.instagram.com/jaetravelexpeditions/",
-      "https://twitter.com/jaetravel",
+      "https://www.tiktok.com/@jaetravelexpeditions",
     ],
-  }
+  };
 
   const websiteStructuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: SEO.defaultTitle,
-    url: SEO.canonical,
+    name: SEO.defaultTitle || "Jae Travel Expeditions",
+    url: SEO.canonical || "https://jaetravel.com",
     potentialAction: {
       "@type": "SearchAction",
-      target: `${SEO.canonical}/search?q={search_term_string}`,
+      target: `${SEO.canonical || "https://jaetravel.com"}/search?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
-  }
+  };
 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Basic SEO / meta */}
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index,follow" />
-        <link rel="canonical" href={SEO.canonical} />
+        <link rel="canonical" href={SEO.canonical || "https://jaetravel.com"} />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
+
+        {/* Preload critical assets */}
+        <link rel="preload" href="/logo.svg" as="image" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
         {/* GA4 tracking */}
         {GA4_ID && (
@@ -139,20 +165,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
       <body className={inter.className}>
         {/* GTM noscript fallback */}
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
+        {GTM_ID && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+        )}
 
         {/* Providers */}
         <LanguageProvider>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
             <Navbar />
-            {children} {/* Every page (including Tours & Offers) inherits SEO, OG & GA4 */}
+            <main>{children}</main> {/* Ensures page-specific content inherits SEO */}
             <Footer />
           </ThemeProvider>
         </LanguageProvider>
@@ -162,5 +190,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SpeedInsights />
       </body>
     </html>
-  )
+  );
 }

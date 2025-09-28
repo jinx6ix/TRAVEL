@@ -1,4 +1,6 @@
 export interface Tour {
+  popularity: any
+  reviewCount: any
   id: number
   title: string
   destination: string
@@ -27,6 +29,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Big Five", "Great Migration", "Lions", "Elephants"],
       slug: "masai-mara-safari-adventure",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 2,
@@ -40,6 +44,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Elephants", "Kilimanjaro"],
       slug: "amboseli-elephant-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 3,
@@ -53,6 +59,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Giraffes", "Zebras", "Oryx"],
       slug: "samburu-game-reserve",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 4,
@@ -66,6 +74,8 @@ export const tours: Tour[] = [
       category: "photography",
       wildlife: ["Flamingos", "Birds"],
       slug: "lake-nakuru-flamingo-spectacle",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 5,
@@ -79,6 +89,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Elephants", "Lions", "Rhinos"],
       slug: "tsavo-east-west-adventure",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 6,
@@ -92,6 +104,8 @@ export const tours: Tour[] = [
       category: "adventure",
       wildlife: ["Various"],
       slug: "mombasa-coastal-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 7,
@@ -105,6 +119,8 @@ export const tours: Tour[] = [
       category: "adventure",
       wildlife: [],
       slug: "mount-kenya-climbing-Expeditions",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 8,
@@ -118,6 +134,8 @@ export const tours: Tour[] = [
       category: "conservation",
       wildlife: ["Rhinos", "Elephants"],
       slug: "laikipia-conservancy",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 9,
@@ -131,6 +149,8 @@ export const tours: Tour[] = [
       category: "adventure",
       wildlife: ["Birds"],
       slug: "hell-gate-lake-naivasha-adventure",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 10,
@@ -144,6 +164,8 @@ export const tours: Tour[] = [
       category: "culture",
       wildlife: [],
       slug: "maasai-cultural-experience",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 11,
@@ -157,6 +179,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Elephants", "Buffaloes"],
       slug: "aberdare-national-park-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 12,
@@ -170,6 +194,8 @@ export const tours: Tour[] = [
       category: "adventure",
       wildlife: ["Various"],
       slug: "diani-beach-safari-combo",
+      popularity: undefined,
+      reviewCount: undefined
     },
   
     // Tanzania Tours
@@ -185,6 +211,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Big Five", "Wildebeest Migration"],
       slug: "serengeti-wildlife-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 14,
@@ -198,6 +226,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Various"],
       slug: "ngorongoro-crater-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 15,
@@ -211,6 +241,8 @@ export const tours: Tour[] = [
       category: "adventure",
       wildlife: [],
       slug: "kilimanjaro-climbing-Expeditions",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 16,
@@ -224,6 +256,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Elephants"],
       slug: "tarangire-national-park-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 17,
@@ -237,6 +271,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Lions"],
       slug: "lake-manyara-national-park-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 18,
@@ -250,6 +286,8 @@ export const tours: Tour[] = [
       category: "culture",
       wildlife: [],
       slug: "zanzibar-beach-holiday",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 19,
@@ -263,6 +301,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Various"],
       slug: "ruaha-national-park-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 20,
@@ -276,6 +316,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Various"],
       slug: "selous-game-reserve-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 21,
@@ -289,6 +331,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Various"],
       slug: "mikumi-national-park",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 22,
@@ -302,6 +346,8 @@ export const tours: Tour[] = [
       category: "culture",
       wildlife: [],
       slug: "arusha-cultural-tour",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 23,
@@ -315,6 +361,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Various"],
       slug: "katavi-national-park-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 24,
@@ -328,6 +376,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Chimpanzees"],
       slug: "mahale-mountains-national-park-chimpanzee-trekking",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 25,
@@ -341,6 +391,8 @@ export const tours: Tour[] = [
       category: "adventure",
       wildlife: [],
       slug: "pemba-island-diving",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 26,
@@ -354,6 +406,8 @@ export const tours: Tour[] = [
       category: "culture",
       wildlife: [],
       slug: "stone-town-heritage-tour",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 27,
@@ -367,6 +421,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Various"],
       slug: "northern-circuit-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
   
     // Rwanda Tours
@@ -382,6 +438,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Gorillas"],
       slug: "gorilla-trekking-experience",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 29,
@@ -395,6 +453,8 @@ export const tours: Tour[] = [
       category: "adventure",
       wildlife: ["Birds"],
       slug: "nyungwe-forest-canopy-walk",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 30,
@@ -408,6 +468,8 @@ export const tours: Tour[] = [
       category: "adventure",
       wildlife: [],
       slug: "lake-kivu-relaxation",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 31,
@@ -421,6 +483,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Various"],
       slug: "akagera-national-park-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 32,
@@ -434,6 +498,8 @@ export const tours: Tour[] = [
       category: "culture",
       wildlife: [],
       slug: "kigali-city-tour",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 33,
@@ -447,6 +513,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Monkeys"],
       slug: "golden-monkey-tracking",
+      popularity: undefined,
+      reviewCount: undefined
     },
   
     // Uganda Tours
@@ -462,6 +530,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Gorillas"],
       slug: "bwindi-gorilla-trekking",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 35,
@@ -475,6 +545,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Various"],
       slug: "queen-elizabeth-national-park-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 36,
@@ -488,6 +560,8 @@ export const tours: Tour[] = [
       category: "adventure",
       wildlife: ["Birds"],
       slug: "murchison-falls-national-park-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 37,
@@ -501,6 +575,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Chimpanzees"],
       slug: "kibale-national-park-chimpanzee-trekking",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 38,
@@ -514,6 +590,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Various"],
       slug: "lake-mburo-national-park-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 39,
@@ -527,6 +605,8 @@ export const tours: Tour[] = [
       category: "adventure",
       wildlife: [],
       slug: "rwenzori-mountains-hiking",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 40,
@@ -540,6 +620,8 @@ export const tours: Tour[] = [
       category: "adventure",
       wildlife: [],
       slug: "jinja-adventure-tour",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 41,
@@ -553,6 +635,8 @@ export const tours: Tour[] = [
       category: "relaxation",
       wildlife: [],
       slug: "lake-bunyonyi-relaxation-tour",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 42,
@@ -566,6 +650,8 @@ export const tours: Tour[] = [
       category: "beach",
       wildlife: [],
       slug: "ssese-islands-beach-holiday",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 43,
@@ -579,6 +665,8 @@ export const tours: Tour[] = [
       category: "wildlife",
       wildlife: ["Various"],
       slug: "lake-naivasha-boat-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 44,
@@ -591,7 +679,9 @@ export const tours: Tour[] = [
       description: "A fully accessible safari experience designed for travelers with mobility challenges, featuring wheelchair-accessible vehicles, accommodations, and tailored wildlife viewing.",
       category: "wildlife",
       wildlife: ["Elephants", "Lions", "Giraffes", "Zebras", "Hippos", "Various Bird Species"],
-      slug: "kenya-disability-safari"
+      slug: "kenya-disability-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 45,
@@ -604,7 +694,9 @@ export const tours: Tour[] = [
       description: "A focused accessible safari in the Masai Mara with wheelchair-adapted vehicles, accessible tented camps, and front-row seats to the Great Migration.",
       category: "wildlife",
       wildlife: ["Lions", "Elephants", "Cheetahs", "Buffalo", "Wildebeest", "Zebras"],
-      slug: "accessible-masai-mara-safari"
+      slug: "accessible-masai-mara-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 46,
@@ -617,7 +709,9 @@ export const tours: Tour[] = [
       description: "An inclusive journey through Tanzania’s Serengeti and Ngorongoro Crater with adapted safari vehicles, accessible lodges, and unforgettable wildlife encounters.",
       category: "wildlife",
       wildlife: ["Lions", "Leopards", "Elephants", "Wildebeest", "Rhinos", "Flamingos"],
-      slug: "tanzania-accessible-safari"
+      slug: "tanzania-accessible-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 47,
@@ -630,7 +724,9 @@ export const tours: Tour[] = [
       description: "A rare opportunity to experience Rwanda’s mountain gorillas with specially designed accessible trekking routes, adapted viewing platforms, and cultural encounters.",
       category: "wildlife",
       wildlife: ["Mountain Gorillas", "Golden Monkeys", "Various Bird Species"],
-      slug: "rwanda-accessible-gorilla-safari"
+      slug: "rwanda-accessible-gorilla-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 48,
@@ -643,7 +739,9 @@ export const tours: Tour[] = [
       description: "An accessible primate-focused safari in Uganda with wheelchair-friendly pathways, adapted chimpanzee and gorilla viewing, and a Kazinga Channel boat safari.",
       category: "wildlife",
       wildlife: ["Chimpanzees", "Gorillas", "Hippos", "Crocodiles", "Birdlife"],
-      slug: "uganda-accessible-primate-safari"
+      slug: "uganda-accessible-primate-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 49,
@@ -656,7 +754,9 @@ export const tours: Tour[] = [
       description: "The ultimate East African accessible safari across Kenya and Tanzania, combining Maasai Mara, Serengeti, and Ngorongoro with premium accessible accommodations.",
       category: "wildlife",
       wildlife: ["Lions", "Leopards", "Elephants", "Zebras", "Wildebeest", "Rhinos"],
-      slug: "east-africa-grand-accessible-safari"
+      slug: "east-africa-grand-accessible-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 50,
@@ -669,7 +769,9 @@ export const tours: Tour[] = [
       description: "A fully accessible safari across Kenya’s top parks, designed for travelers with mobility challenges.",
       category: "wildlife",
       wildlife: ["Big Five", "Giraffes", "Zebras", "Hippos", "Flamingos"],
-      slug: "kenya-disability-7-day-accessible-safari"
+      slug: "kenya-disability-7-day-accessible-safari",
+      popularity: undefined,
+      reviewCount: undefined
     },
     {
       id: 51,
@@ -682,7 +784,9 @@ export const tours: Tour[] = [
       description: "Accessible safari across Serengeti, Ngorongoro, and Tarangire with comfort and expert guides.",
       category: "wildlife",
       wildlife: ["Big Five", "Wildebeest", "Zebras", "Giraffes", "Hippos"],
-      slug: "tanzania-accessible-safari-adventure"
+      slug: "tanzania-accessible-safari-adventure",
+      popularity: undefined,
+      reviewCount: undefined
     },
 
   ]
