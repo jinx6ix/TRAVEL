@@ -21,85 +21,7 @@ async function generateToursMetaDescription(page: number, totalTours: number): P
 }
 
 // Enhanced metadata generation without keyword stuffing
-export async function generateMetadata({ 
-  searchParams 
-}: { 
-  searchParams: Promise<{ page?: string }> 
-}): Promise<Metadata> {
-  const { page: pageParam } = await searchParams;
-  const page = parseInt(pageParam || "1", 10);
-  
-  const pageTitle = page > 1 
-    ? `Accessible Safari Tours - Page ${page} | ${SITE_NAME}`
-    : `Wheelchair-Friendly Safari Tours | Accessible East Africa Adventures`;
-  
-  const pageDescription = await generateToursMetaDescription(page, toursData.length);
-  const canonicalUrl = page > 1 
-    ? `${SEO.canonical}/tours/page/${page}`
-    : `${SEO.canonical}/tours`;
 
-  // Focused, relevant keywords based on actual tour data
-  const focusedKeywords = [
-    "accessible safari tours",
-    "wheelchair friendly Africa",
-    "Kenya Tanzania Uganda Rwanda accessible travel",
-    "disability friendly safari",
-    "JaeTravel Expeditions"
-  ];
-
-  
-
-  return {
-    title: pageTitle,
-    description: pageDescription,
-    keywords: focusedKeywords,
-    alternates: {
-      canonical: canonicalUrl,
-      languages: { 'en-US': canonicalUrl },
-    },
-    openGraph: {
-      title: pageTitle,
-      description: pageDescription,
-      url: canonicalUrl,
-      siteName: SITE_NAME,
-      images: [
-        {
-          url: `${SEO.canonical}/images/accessible-safari-og.jpg`,
-          width: 1200,
-          height: 630,
-          alt: 'Accessible Safari Tours - Wheelchair Friendly East Africa Adventures',
-        },
-      ],
-      locale: "en_US",
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: pageTitle,
-      description: pageDescription,
-      images: [`${SEO.canonical}/images/accessible-safari-og.jpg`],
-      creator: "@jaetravel",
-    },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-      },
-    },
-    verification: SEO.verification,
-    category: "Accessible Travel & Tourism",
-    authors: [{ name: SITE_NAME, url: SEO.canonical }],
-    other: {
-      "geo.region": "KE-TZ-UG-RW",
-      "geo.placename": "East Africa",
-      "ICBM": "-1.286389, 36.817223",
-    },
-  };
-}
 export const metadata: Metadata = {
   title: `Tours | ${SEO.siteName} - Explore East Africa`,
   description: "Discover our premium safari tours across Kenya, Uganda, Tanzania, and Rwanda with Jae Travel Expeditions.",
@@ -253,7 +175,7 @@ export default async function ToursPage({
   const paginatedTours = toursData.slice(start, start + TOURS_PER_PAGE);
   const totalPages = Math.ceil(toursData.length / TOURS_PER_PAGE);
   
-  const structuredDat = generateStructuredData(paginatedTours, page, totalPages);
+
   const faqData = generateDynamicFAQData(toursData);
   const structuredData = {
     "@context": "https://schema.org",
@@ -282,12 +204,12 @@ export default async function ToursPage({
       {/* Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDat[0]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         key="breadcrumbs"
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDat[1]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         key="tour-list"
       />
       <script
