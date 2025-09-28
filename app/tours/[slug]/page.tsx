@@ -1,3 +1,4 @@
+// app/tours/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import toursData from "@/data/tours-data";
@@ -11,26 +12,6 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return toursData.map((tour) => ({
     slug: tour.slug,
   }));
-}
-
-// Generate dynamic OG image for social sharing
-export async function generateImageMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const tour = toursData.find((t) => t.slug === slug);
-
-  if (!tour) return [];
-
-  return [
-    {
-      contentType: "image/png",
-      size: { width: 1200, height: 630 },
-      id: `tour-${slug}-og`,
-    },
-  ];
 }
 
 // Enhanced metadata generation with unique, natural language
@@ -54,7 +35,7 @@ export async function generateMetadata({
   const pageTitle = `${tour.title} | ${tour.destination} Safari Tour ${tour.duration} Days`;
 
   const canonicalUrl = `${SEO.canonical}/tours/${tour.slug}`;
-  const primaryImage = tour.gallery?.[0] || "/default-tour-image.jpg";
+  const primaryImage = tour.gallery?.[0] || "/images/placeholder.jpg";
 
   // Focused, relevant keywords without stuffing
   const focusedKeywords = [
@@ -80,7 +61,7 @@ export async function generateMetadata({
       type: "website",
       images: [
         {
-          url: primaryImage,
+          url: `${SEO.canonical}/api/og?slug=${slug}`,
           width: 1200,
           height: 630,
           alt: `${tour.title} - ${tour.destination} Safari Experience`,
@@ -92,8 +73,8 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: pageTitle,
       description: pageDescription,
-      images: [primaryImage],
-      creator: "@eastafricasafaris",
+      images: [`${SEO.canonical}/api/og?slug=${slug}`],
+      creator: SEO.twitterHandle || "@jaetravel",
     },
     robots: {
       index: true,
@@ -183,11 +164,11 @@ function generateComprehensiveStructuredData(tour: any, relatedTours: any[]) {
       "@type": "Place",
       "name": tour.destination,
     },
-    "itinerary": tour.itinerary.map((day: any) => ({
+    "itinerary": tour.itinerary?.map((day: any) => ({
       "@type": "ItemList",
       "name": day.title,
       "description": day.description,
-    })),
+    })) || [],
   };
 
   const breadcrumbSchema = {
@@ -243,7 +224,7 @@ export default async function TourDetailPage({
       />
 
       {/* Preload critical resources */}
-      <link rel="preload" href={tour.gallery[0]} as="image" />
+      <link rel="preload" href={tour.gallery?.[0] || "/images/placeholder.jpg"} as="image" />
 
       {/* Server-rendered AI overview in hidden div for crawlability */}
       <div className="hidden" aria-hidden="true">

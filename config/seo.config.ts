@@ -1,5 +1,6 @@
 // config/seo.config.ts
 export interface SEOConfig {
+  twitterHandle: string;
   canonical: string;
   siteName: string;
   organizationName: string;
@@ -22,8 +23,7 @@ export const SEO: SEOConfig = {
   siteName: "Jae Travel Expeditions",
   organizationName: "Jae Travel Expeditions",
   defaultTitle: "Jae Travel Expeditions - Premium Safaris in Kenya, Uganda, Tanzania & Rwanda",
-  defaultDescription:
-    "Experience unforgettable safaris in East Africa with Jae Travel. Custom tours in Kenya, Uganda, Tanzania, and Rwanda. Book your dream African adventure today.",
+  defaultDescription: "Experience unforgettable safaris in East Africa with Jae Travel. Custom tours in Kenya, Uganda, Tanzania, and Rwanda. Book your dream African adventure today.",
   logo: "/logo.svg",
   socials: [
     "https://www.facebook.com/JaeTravelExpeditions",
@@ -48,4 +48,5 @@ export const SEO: SEOConfig = {
     "WHEELCHAIR ACCESSIBLE SAFARIS KENYA",
     "budget tours Africa",
   ],
+  twitterHandle: "@jaetravelexpeditions"
 };
