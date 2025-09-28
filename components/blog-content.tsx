@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import LazyVideo from "./LazyVideo";
+import { SEO } from "@/config/seo.config";
 
 interface BlogPost {
   id: number;
@@ -79,6 +80,14 @@ export default function BlogContent({ blogPosts, galleryItems }: BlogContentProp
       "keywords": post.category
     }))
   });
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "page_view", {
+        page_title: "Blog | Jae Travel Expeditions",
+        page_location: `${SEO.canonical}/blog`,
+      });
+    }
+  }, []);
 
   return (
     <div className="min-h-screen pt-16">
