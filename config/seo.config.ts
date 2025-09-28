@@ -16,6 +16,7 @@ export interface SEOConfig {
     yahoo?: string;
   };
   openGraph: {
+    url: any;
     images: Array<{
       url: string;
       width: number;
@@ -58,6 +59,7 @@ export const SEO: SEOConfig = {
   ],
   twitterHandle: "@jaetravelexpeditions",
   openGraph: {
+    url: "https://www.jaetravel.com",
     images: [
       {
         url: "/og-image.jpg",
