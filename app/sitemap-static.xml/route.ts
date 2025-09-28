@@ -125,6 +125,18 @@ export async function GET(): Promise<NextResponse> {
         },
       ],
     },
+    {
+      url: `${SEO.canonical}/offers`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+      images: [
+        {
+          loc: `${SEO.canonical}/images/offer-og.jpg`,
+          title: "Safari Special Offers Overview",
+        },
+      ],
+    },
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
