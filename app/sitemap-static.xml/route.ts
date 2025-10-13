@@ -137,6 +137,18 @@ export async function GET(): Promise<NextResponse> {
         },
       ],
     },
+    {
+      url: `${SEO.canonical}/disability-tours-kenya`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+      images: [
+        {
+          loc: "https://ik.imagekit.io/jinx/travel/WhatsApp-Image-2025-01-15-at-12.06.45-PM.webp?updatedAt=1756903260238",
+          title: "Accessible Kenya Safari Tours",
+        },
+      ],
+    },
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
