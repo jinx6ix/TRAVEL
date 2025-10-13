@@ -37,7 +37,7 @@ export async function GET(): Promise<NextResponse> {
       <priority>1.0</priority>
       <image:image>
         <image:loc>${escapeXML(SEO.logo || "/og-image.jpg")}</image:loc>
-        <image:title>Jae Travel Expeditions Logo</image:title>
+        <image:title>JaeTravel Expeditions Logo</image:title>
       </image:image>
       <xhtml:link rel="alternate" hreflang="en-US" href="${escapeXML(SEO.canonical)}" />
     </url>`,
