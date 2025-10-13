@@ -1,22 +1,33 @@
-// app/sitemap-index.xml/route.ts
 import { NextResponse } from "next/server";
 import { SEO } from "@/config/seo.config";
 
+// ✅ XML escaping helper
+function escapeXml(str: string) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
 export async function GET(): Promise<NextResponse> {
-  const lastModified = new Date("2025-09-28T14:29:00Z"); // 05:29 PM EAT on 2025-09-28
+  const lastModified = new Date("2025-09-28T14:29:00Z"); // 05:29 PM EAT
+
+  const base = escapeXml(SEO.canonical);
 
   const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
     <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <sitemap>
-        <loc>${SEO.canonical}/sitemap-static.xml</loc>
+        <loc>${base}/sitemap-static.xml</loc>
         <lastmod>${lastModified.toISOString()}</lastmod>
       </sitemap>
       <sitemap>
-        <loc>${SEO.canonical}/sitemap-tours.xml</loc>
+        <loc>${base}/sitemap-tours.xml</loc>
         <lastmod>${lastModified.toISOString()}</lastmod>
       </sitemap>
       <sitemap>
-        <loc>${SEO.canonical}/sitemap-offers.xml</loc>
+        <loc>${base}/sitemap-offers.xml</loc>
         <lastmod>${lastModified.toISOString()}</lastmod>
       </sitemap>
     </sitemapindex>`;

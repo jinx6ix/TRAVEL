@@ -2,7 +2,7 @@
 import { NextResponse } from "next/server";
 import { SEO } from "@/config/seo.config";
 
-// Use the same offer data as in OffersClient.tsx and OfferDetailPage.tsx
+// Safari offer data
 const safariOffers = [
   {
     id: 1,
@@ -14,10 +14,15 @@ const safariOffers = [
     originalPrice: 129,
     rating: 4.8,
     reviews: 142,
-    image: "https://ik.imagekit.io/jinx/travel/Giraffe-at-Nairobi-National-Park.webp?updatedAt=1751635762605",
-    description: "Perfect for layovers! Experience Nairobi's top attractions in just hours",
+    image:
+      "https://ik.imagekit.io/jinx/travel/Giraffe-at-Nairobi-National-Park.webp?updatedAt=1751635762605",
+    description:
+      "Perfect for layovers! Experience Nairobi's top attractions in just hours",
     badge: "TRANSIT SPECIAL",
-    highlights: ["Hotel pickup/drop-off included", "Giraffe Centre & Karen Blixen Museum"],
+    highlights: [
+      "Hotel pickup/drop-off included",
+      "Giraffe Centre & Karen Blixen Museum",
+    ],
     offer: "Book 48hrs in advance & get free airport transfer",
     availability: "Only 3 spots left today",
   },
@@ -31,7 +36,8 @@ const safariOffers = [
     originalPrice: 1599,
     rating: 4.9,
     reviews: 89,
-    image: "https://ik.imagekit.io/jinx/travel/mahali-mzuri-2-2-420x310.jpg?updatedAt=1751635762576",
+    image:
+      "https://ik.imagekit.io/jinx/travel/mahali-mzuri-2-2-420x310.jpg?updatedAt=1751635762576",
     description: "Premium safari with luxury tents & private game drives",
     badge: "BEST SELLER",
     highlights: ["Award-winning eco-lodges", "Sunset champagne game drives"],
@@ -48,24 +54,41 @@ const safariOffers = [
     originalPrice: 899,
     rating: 4.7,
     reviews: 63,
-    image: "https://ik.imagekit.io/jinx/travel/Amboseli-National-Park-Elephantsssss.jpg?updatedAt=1751635762755",
+    image:
+      "https://ik.imagekit.io/jinx/travel/Amboseli-National-Park-Elephantsssss.jpg?updatedAt=1751635762755",
     description: "Hundreds of elephants with Kilimanjaro backdrop",
     badge: "FAMILY FAVORITE",
-    highlights: ["Guaranteed elephant sightings", "Kilimanjaro photo opportunities"],
+    highlights: [
+      "Guaranteed elephant sightings",
+      "Kilimanjaro photo opportunities",
+    ],
     offer: "Kids under 12 stay FREE (2 adults minimum)",
     availability: "Only 1 lodge remaining",
   },
 ];
 
+// --- Utility function to escape invalid XML characters ---
+function escapeXml(unsafe: string): string {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
 export async function GET(): Promise<NextResponse> {
-  const lastModified = new Date("2025-09-28T14:29:00Z"); // 05:29 PM EAT on 2025-09-28
+  const lastModified = new Date("2025-09-28T14:29:00Z");
   const OFFERS_PER_PAGE = 10;
   const totalPages = Math.ceil(safariOffers.length / OFFERS_PER_PAGE);
 
   // Generate paginated offer index pages
   const paginatedIndexPages = [];
   for (let page = 1; page <= totalPages; page++) {
-    const url = page === 1 ? `${SEO.canonical}/offers` : `${SEO.canonical}/offers/page/${page}`;
+    const url =
+      page === 1
+        ? `${SEO.canonical}/offers`
+        : `${SEO.canonical}/offers/page/${page}`;
     paginatedIndexPages.push({
       url,
       lastModified,
@@ -104,16 +127,21 @@ export async function GET(): Promise<NextResponse> {
     },
   }));
 
-  // Combine all offer-related URLs
+  // Combine all URLs
   const allOfferUrls = [...paginatedIndexPages, ...offerPages];
 
+  // --- Build sitemap XML safely ---
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <urlset 
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+      xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    >
       ${allOfferUrls
         .map(
           (offer) => `
         <url>
-          <loc>${offer.url}</loc>
+          <loc>${escapeXml(offer.url)}</loc>
           <lastmod>${offer.lastModified.toISOString()}</lastmod>
           <changefreq>${offer.changeFrequency}</changefreq>
           <priority>${offer.priority}</priority>
@@ -121,12 +149,14 @@ export async function GET(): Promise<NextResponse> {
             .map(
               (img) => `
             <image:image>
-              <image:loc>${img.loc}</image:loc>
-              <image:title>${img.title}</image:title>
+              <image:loc>${escapeXml(img.loc)}</image:loc>
+              <image:title>${escapeXml(img.title)}</image:title>
             </image:image>`
             )
             .join("")}
-          <xhtml:link rel="alternate" hreflang="en-US" href="${offer.url}" />
+          <xhtml:link rel="alternate" hreflang="en-US" href="${escapeXml(
+            offer.url
+          )}" />
         </url>`
         )
         .join("")}
