@@ -95,6 +95,14 @@ const generateStructuredData = () => {
   return destinations.map(dest => ({
     "@context": "https://schema.org",
     "@type": "TouristDestination",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     "name": dest.name,
     "description": dest.description,
     "image": dest.image,

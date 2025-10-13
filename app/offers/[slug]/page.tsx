@@ -143,6 +143,14 @@ export default async function OfferDetailPage({ params }: { params: Promise<{ sl
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "TouristAttraction",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     name: offer.title,
     description: offer.description,
     url: canonicalUrl,

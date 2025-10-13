@@ -1,4 +1,5 @@
 // config/seo.config.ts
+
 export interface SEOConfig {
   twitterHandle: string;
   canonical: string;
@@ -25,6 +26,13 @@ export interface SEOConfig {
     }>;
   };
   keywords: string[];
+  address: {
+    streetAddress: string;
+    addressLocality: string;
+    addressRegion: string;
+    postalCode: string;
+    addressCountry: string;
+  };
 }
 
 export const SEO: SEOConfig = {
@@ -32,14 +40,15 @@ export const SEO: SEOConfig = {
   siteName: "Jae Travel Expeditions",
   organizationName: "Jae Travel Expeditions",
   defaultTitle: "Jae Travel Expeditions - Premium Safaris in Kenya, Uganda, Tanzania & Rwanda",
-  defaultDescription: "Experience unforgettable safaris in East Africa with Jae Travel. Custom tours in Kenya, Uganda, Tanzania, and Rwanda. Book your dream African adventure today.",
-  logo: "/logo.svg",
+  defaultDescription:
+    "Experience unforgettable safaris in East Africa with Jae Travel. Custom tours in Kenya, Uganda, Tanzania, and Rwanda. Book your dream African adventure today.",
+  logo: "https://jaetravel.com/logo.svg",
   socials: [
     "https://www.facebook.com/JaeTravelExpeditions",
     "https://www.instagram.com/jaetravelexpeditions/",
     "https://twitter.com/jaetravel",
   ],
-  contactPhone: "+1-800-555-1234",
+  contactPhone: "+254726485228",
   contactEmail: "info@jaetravel.com",
   verification: {
     google: "IGxEnPG73ZqCfKPuOdpjfM_HNDfuM03gWG9AUYOu74U",
@@ -68,5 +77,12 @@ export const SEO: SEOConfig = {
         alt: "Jae Travel Expeditions",
       },
     ],
+  },
+  address: {
+    streetAddress: "Karen Road",
+    addressLocality: "Nairobi",
+    addressRegion: "Nairobi County",
+    postalCode: "00100",
+    addressCountry: "KE",
   },
 };

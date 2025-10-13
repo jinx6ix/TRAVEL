@@ -54,7 +54,14 @@ const jsonLd = {
   description:
     "Fully accessible safari experiences in Kenya for travelers with disabilities",
   url: "https://www.jaetravel.com/disability-tours-kenya",
-  address: { "@type": "PostalAddress", addressCountry: "Kenya" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Karen Road",
+    "addressLocality": "Nairobi",
+    "addressRegion": "Nairobi County",
+    "postalCode": "00100",
+    "addressCountry": "KE"
+  },
   accessibilityFeature: [
     "wheelchairAccessible",
     "accessibleVehicle",

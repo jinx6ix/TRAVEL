@@ -69,6 +69,14 @@ function generateStructuredData(tours: TourData[], page: number, totalPages: num
   const breadcrumbs = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -94,6 +102,14 @@ function generateStructuredData(tours: TourData[], page: number, totalPages: num
   const tourList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     "name": "Accessible East Africa Safari Tours",
     "description": "Wheelchair-friendly wildlife and cultural tours across Kenya, Tanzania, Uganda, and Rwanda",
     "url": currentUrl,
@@ -132,6 +148,14 @@ function generateDynamicFAQData(tours: TourData[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     "mainEntity": [
       {
         "@type": "Question",
@@ -180,6 +204,14 @@ export default async function ToursPage({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ItemList",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     name: "Jae Travel Expeditions Tours",
     url: `${SEO.canonical}/tours`,
     itemListElement: toursData.map((tour, index) => ({

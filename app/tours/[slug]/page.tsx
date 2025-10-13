@@ -131,6 +131,14 @@ function generateDynamicFAQData(tour: any) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     "mainEntity": faqs.map((faq) => ({
       "@type": "Question",
       "name": faq.question,
@@ -150,6 +158,14 @@ function generateComprehensiveStructuredData(tour: any, relatedTours: any[]) {
   const tourSchema = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     "name": tour.title,
     "description": tour.description,
     "image": tour.gallery || [],
@@ -174,6 +190,14 @@ function generateComprehensiveStructuredData(tour: any, relatedTours: any[]) {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": baseUrl },
       { "@type": "ListItem", "position": 2, "name": "Tours", "item": `${baseUrl}/tours` },

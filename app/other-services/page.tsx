@@ -60,6 +60,14 @@ export default function Page() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Karen Road",
+            "addressLocality": "Nairobi",
+            "addressRegion": "Nairobi County",
+            "postalCode": "00100",
+            "addressCountry": "KE"
+          },
           itemListElement: [
             {
               "@type": "ListItem",
@@ -81,6 +89,14 @@ export default function Page() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Karen Road",
+            "addressLocality": "Nairobi",
+            "addressRegion": "Nairobi County",
+            "postalCode": "00100",
+            "addressCountry": "KE"
+          },
           serviceType: "East Africa Travel Services",
           provider: {
             "@type": "Organization",

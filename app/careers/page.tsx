@@ -10,6 +10,14 @@ export default function CareersPage() {
   const structuredData = jobOpenings.map((job) => ({
     "@context": "https://schema.org",
     "@type": "JobPosting",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     "title": job.title,
     "description": job.description,
     "identifier": {

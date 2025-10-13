@@ -66,6 +66,14 @@ export default function BlogContent({ blogPosts, galleryItems }: BlogContentProp
   const generateBlogStructuredData = () => ({
     "@context": "https://schema.org",
     "@type": "Blog",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     "name": "Safari Blog & Gallery",
     "description": "Expert safari tips, wildlife guides, and photography from East Africa's premier safari destination",
     "url": typeof window !== 'undefined' ? window.location.href : '',

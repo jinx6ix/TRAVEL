@@ -47,6 +47,14 @@ export default function BlogPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     headline: "How to Go on Safari in a Wheelchair",
     description:
       "Discover the ultimate guide to planning a wheelchair-accessible safari in Africa. Tips on accessible lodges, safari vehicles, destinations, and booking with confidence.",

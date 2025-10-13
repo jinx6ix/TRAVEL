@@ -60,6 +60,14 @@ export default function Page() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Karen Road",
+            "addressLocality": "Nairobi",
+            "addressRegion": "Nairobi County",
+            "postalCode": "00100",
+            "addressCountry": "KE"
+          },
           itemListElement: [
             {
               "@type": "ListItem",
@@ -87,6 +95,14 @@ export default function Page() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "TouristDestination",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Karen Road",
+            "addressLocality": "Nairobi",
+            "addressRegion": "Nairobi County",
+            "postalCode": "00100",
+            "addressCountry": "KE"
+          },
           name: "Tanzania",
           description:
             "Tanzania is home to Serengeti, Ngorongoro Crater, Mount Kilimanjaro, and Zanzibar — offering safaris, trekking, cultural tours, and beach holidays.",
@@ -105,6 +121,14 @@ export default function Page() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ItemList",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Karen Road",
+            "addressLocality": "Nairobi",
+            "addressRegion": "Nairobi County",
+            "postalCode": "00100",
+            "addressCountry": "KE"
+          },
           name: "Featured Tanzania Tours",
           itemListElement: [
             {

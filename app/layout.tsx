@@ -77,6 +77,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const organizationStructuredData = {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     name: SEO.organizationName || "Jae Travel Expeditions",
     url: SEO.canonical || "https://jaetravel.com",
     logo: SEO.logo || "/logo.svg",
@@ -97,6 +105,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const websiteStructuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     name: SEO.defaultTitle || "Jae Travel Expeditions",
     url: SEO.canonical || "https://jaetravel.com",
     potentialAction: {

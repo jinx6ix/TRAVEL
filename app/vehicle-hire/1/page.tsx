@@ -169,6 +169,14 @@ export default function VehicleHirePage() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ProductCollection",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Karen Road",
+              "addressLocality": "Nairobi",
+              "addressRegion": "Nairobi County",
+              "postalCode": "00100",
+              "addressCountry": "KE"
+            },
             "name": "Safari Vehicle Hire",
             "description": pageDescription,
             "url": `${SEO.canonical}/vehicle-hire`,

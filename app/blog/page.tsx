@@ -9,7 +9,15 @@ const generateStructuredData = () => {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jaetravel.com';
   return {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
+    "@type": "TravelAgency",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     "name": "Safari Blog & Gallery | Expert Travel Guides & Tips",
     "description": "Discover expert safari tips, wildlife guides, and stunning photography from East Africa's premier safari destinations.",
     "url": `${siteUrl}/blog`,

@@ -42,7 +42,15 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "TravelAgency",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     name: "JaeTravel Expeditions",
     url: `${SEO.canonical}/about`,
     logo: `${SEO.canonical}/logo.png`,

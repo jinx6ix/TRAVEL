@@ -48,6 +48,14 @@ export default function PrivacyPage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     name: "Privacy Policy",
     url: `${SEO.canonical}/privacy`,
     description: "Privacy policy for Jae Travel Expeditions.",

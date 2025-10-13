@@ -34,6 +34,14 @@ export default function DestinationsClient({ destinations }: DestinationsClientP
     const data = {
       "@context": "https://schema.org",
       "@type": "ItemList",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Karen Road",
+        "addressLocality": "Nairobi",
+        "addressRegion": "Nairobi County",
+        "postalCode": "00100",
+        "addressCountry": "KE"
+      },
       name: "East Africa Safari Destinations",
       description: "Explore Kenya, Tanzania, Rwanda, and Uganda safari destinations with expert guides from JaeTravel Expeditions",
       url: typeof window !== "undefined" ? window.location.href : "",

@@ -50,6 +50,14 @@ export default function ContactPage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ContactPoint",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     telephone: SEO.contactPhone,
     contactType: "Customer Service",
     email: SEO.contactEmail,

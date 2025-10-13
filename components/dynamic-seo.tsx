@@ -28,6 +28,14 @@ export default function DynamicSEO() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     name: matched.metaTitle,
     description: matched.metaDescription,
     image: "https://ik.imagekit.io/jinx/travel/logo.jpg?updatedAt=1751985025367",

@@ -49,6 +49,14 @@ export default function Page() {
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://jaetravel.com/" },
       { "@type": "ListItem", position: 2, name: "Destinations", item: "https://jaetravel.com/destinations" },
@@ -59,6 +67,14 @@ export default function Page() {
   const destinationLd = {
     "@context": "https://schema.org",
     "@type": "TouristDestination",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Karen Road",
+      "addressLocality": "Nairobi",
+      "addressRegion": "Nairobi County",
+      "postalCode": "00100",
+      "addressCountry": "KE"
+    },
     name: "Uganda",
     description:
       "Uganda, the Pearl of Africa, offers gorilla trekking, wildlife safaris, and breathtaking landscapes.",
