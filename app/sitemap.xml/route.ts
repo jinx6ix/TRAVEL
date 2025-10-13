@@ -2,7 +2,6 @@
 import { NextResponse } from "next/server";
 import { SEO } from "@/config/seo.config";
 
-// Helper to escape XML safely
 function escapeXml(str: string) {
   return str
     .replace(/&/g, "&amp;")
@@ -15,10 +14,11 @@ function escapeXml(str: string) {
 export async function GET(): Promise<NextResponse> {
   const lastMod = new Date().toISOString();
 
-  // The XML sitemap index linking to your other sitemap files
-  const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
-  <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <sitemap>
+  // IMPORTANT: Build the string starting immediately with <?xml …> — no blank line before it
+  const sitemapIndex =
+    `<?xml version="1.0" encoding="UTF-8"?>` +
+    `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">` +
+    `<sitemap>
       <loc>${escapeXml(`${SEO.canonical}/sitemap-static.xml`)}</loc>
       <lastmod>${lastMod}</lastmod>
     </sitemap>
@@ -32,9 +32,9 @@ export async function GET(): Promise<NextResponse> {
     </sitemap>
   </sitemapindex>`;
 
-  return new NextResponse(sitemapIndex, {
+  return new NextResponse(sitemapIndex.trim(), {
     headers: {
-      "Content-Type": "application/xml",
+      "Content-Type": "application/xml; charset=utf-8",
       "Cache-Control": "public, s-maxage=86400, stale-while-revalidate",
     },
   });
