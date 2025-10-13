@@ -131,6 +131,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="robots" content="index,follow" />
         <link rel="canonical" href={SEO.canonical || "https://jaetravel.com"} />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
         <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
 
         {/* Preload critical assets */}
