@@ -1,49 +1,70 @@
-/*
-import { supabase } from "@/lib/supabaseClient"
-import { NextResponse } from "next/server"
+// app/api/applications/route.ts
+import { NextResponse } from "next/server";
+import { supabase } from "@/lib/supabaseClient";
+
+export const dynamic = "force-dynamic"; // ✅ Ensures dynamic route behavior during build
 
 export async function POST(req: Request) {
   try {
-    const formData = await req.formData()
+    // ✅ Check Supabase config to avoid runtime crash during build
+    if (
+      !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+      !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    ) {
+      return NextResponse.json(
+        {
+          success: false,
+          error:
+            "Supabase environment variables are not set. Please configure NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.",
+        },
+        { status: 500 }
+      );
+    }
 
-    const first_name = formData.get("first_name") as string
-    const last_name = formData.get("last_name") as string
-    const email = formData.get("email") as string
-    const phone = formData.get("phone") as string
-    const location = formData.get("location") as string
-    const position = formData.get("position") as string
-    const experience = formData.get("experience") as string
-    const cover_letter = formData.get("cover_letter") as string
+    const formData = await req.formData();
 
-    // Upload resume
-    const resumeFile = formData.get("resume") as File | null
-    let resumeUrl = null
+    const first_name = formData.get("first_name") as string;
+    const last_name = formData.get("last_name") as string;
+    const email = formData.get("email") as string;
+    const phone = formData.get("phone") as string;
+    const location = formData.get("location") as string;
+    const position = formData.get("position") as string;
+    const experience = formData.get("experience") as string;
+    const cover_letter = formData.get("cover_letter") as string;
+
+    // ✅ Upload resume
+    const resumeFile = formData.get("resume") as File | null;
+    let resumeUrl: string | null = null;
     if (resumeFile) {
       const { data, error } = await supabase.storage
         .from("resumes")
         .upload(`resumes/${Date.now()}-${resumeFile.name}`, resumeFile, {
           cacheControl: "3600",
           upsert: false,
-        })
-      if (error) throw error
-      resumeUrl = data?.path
+        });
+      if (error) throw error;
+      resumeUrl = data?.path || null;
     }
 
-    // Upload portfolio
-    const portfolioFile = formData.get("portfolio") as File | null
-    let portfolioUrl = null
+    // ✅ Upload portfolio
+    const portfolioFile = formData.get("portfolio") as File | null;
+    let portfolioUrl: string | null = null;
     if (portfolioFile) {
       const { data, error } = await supabase.storage
         .from("portfolios")
-        .upload(`portfolios/${Date.now()}-${portfolioFile.name}`, portfolioFile, {
-          cacheControl: "3600",
-          upsert: false,
-        })
-      if (error) throw error
-      portfolioUrl = data?.path
+        .upload(
+          `portfolios/${Date.now()}-${portfolioFile.name}`,
+          portfolioFile,
+          {
+            cacheControl: "3600",
+            upsert: false,
+          }
+        );
+      if (error) throw error;
+      portfolioUrl = data?.path || null;
     }
 
-    // Insert into applications table
+    // ✅ Insert record
     const { data: appData, error: insertError } = await supabase
       .from("applications")
       .insert({
@@ -58,13 +79,19 @@ export async function POST(req: Request) {
         resume_url: resumeUrl,
         portfolio_url: portfolioUrl,
       })
-      .select()
+      .select();
 
-    if (insertError) throw insertError
+    if (insertError) throw insertError;
 
-    return NextResponse.json({ success: true, application: appData }, { status: 201 })
+    return NextResponse.json(
+      { success: true, application: appData },
+      { status: 201 }
+    );
   } catch (err: any) {
-    return NextResponse.json({ success: false, error: err.message }, { status: 500 })
+    console.error("Application submission failed:", err);
+    return NextResponse.json(
+      { success: false, error: err.message || "Unexpected error" },
+      { status: 500 }
+    );
   }
 }
-*/
