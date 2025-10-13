@@ -1,4 +1,3 @@
-// app/robots.txt/route.ts
 import { NextResponse } from "next/server";
 import { SEO } from "@/config/seo.config";
 
@@ -8,7 +7,7 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 
-Sitemap: ${SEO.canonical}/sitemap-index.xml
+Sitemap: ${SEO.canonical}/sitemap.xml
 `;
 
   return new NextResponse(robotsTxt, {
