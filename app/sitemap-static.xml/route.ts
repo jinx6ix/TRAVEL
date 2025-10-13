@@ -1,10 +1,19 @@
-
 // app/sitemap-static.xml/route.ts
 import { NextResponse } from "next/server";
 import { SEO } from "@/config/seo.config";
 
+// ✅ Helper function to safely escape XML special characters
+function escapeXml(str: string) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
 export async function GET(): Promise<NextResponse> {
-  const lastModified = new Date("2025-09-28T13:59:00Z"); // 04:59 PM EAT on 2025-09-28
+  const lastModified = new Date("2025-09-28T13:59:00Z"); // 04:59 PM EAT
 
   const staticPages = [
     {
@@ -17,7 +26,6 @@ export async function GET(): Promise<NextResponse> {
           loc: SEO.logo,
           title: "Jae Travel Expeditions Logo",
         },
-        
       ],
     },
     {
@@ -33,7 +41,7 @@ export async function GET(): Promise<NextResponse> {
       ],
     },
     {
-      url: `${SEO.canonical}/tours`, // Added Tours index page
+      url: `${SEO.canonical}/tours`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
@@ -59,7 +67,7 @@ export async function GET(): Promise<NextResponse> {
           title: "Toyota Prado",
         },
         {
-          loc: "//ik.imagekit.io/jinx/travel/4-1536x776%20(1).png?updatedAt=1750087065024?height=300&width=400",
+          loc: "https://ik.imagekit.io/jinx/travel/4-1536x776%20(1).png?updatedAt=1750087065024?height=300&width=400",
           title: "Luxury Roof Top Camping",
         },
         {
@@ -74,7 +82,6 @@ export async function GET(): Promise<NextResponse> {
           loc: "https://ik.imagekit.io/jinx/travel/car-van-1536x776%20(1).png?updatedAt=1750087064275?height=300&width=400",
           title: "Family Safari Minivan",
         },
-        // Add more vehicle images as needed
       ],
     },
     {
@@ -152,12 +159,14 @@ export async function GET(): Promise<NextResponse> {
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+            xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+            xmlns:xhtml="http://www.w3.org/1999/xhtml">
       ${staticPages
         .map(
           (page) => `
         <url>
-          <loc>${page.url}</loc>
+          <loc>${escapeXml(page.url)}</loc>
           <lastmod>${page.lastModified.toISOString()}</lastmod>
           <changefreq>${page.changeFrequency}</changefreq>
           <priority>${page.priority}</priority>
@@ -165,12 +174,14 @@ export async function GET(): Promise<NextResponse> {
             .map(
               (img) => `
             <image:image>
-              <image:loc>${img.loc}</image:loc>
-              <image:title>${img.title}</image:title>
+              <image:loc>${escapeXml(img.loc)}</image:loc>
+              <image:title>${escapeXml(img.title)}</image:title>
             </image:image>`
             )
             .join("")}
-          <xhtml:link rel="alternate" hreflang="en-US" href="${page.url}" />
+          <xhtml:link rel="alternate" hreflang="en-US" href="${escapeXml(
+            page.url
+          )}" />
         </url>`
         )
         .join("")}
