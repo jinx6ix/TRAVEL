@@ -37,9 +37,8 @@ export const metadata: Metadata = {
     images: ["https://ik.imagekit.io/jinx/travel/WhatsApp-Image-2025-01-15-at-12.06.45-PM.webp?updatedAt=1756903260238"],
   },
   other: {
-    "google-site-verification": "IGxEnPG73ZqCfKPuOdpjfM_HNDfuM03gWG9AUYOu74U",
-    "yandex-verification": "b585127e41b6a92f",
-    "yahoo-verification": "750BAD767F0FB4E4100952EBD7883CEE",
+    "google-site-verification": "",
+    
   },
 }
 

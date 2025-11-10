@@ -70,7 +70,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID ?? "G-Q6Y2Y3PSXH"; // Fallback GA4 ID
+  const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID ?? ""; // Fallback GA4 ID
   const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-5MCS8TS6"; // Fallback GTM ID
 
   // Default structured data (TravelAgency + WebSite)
